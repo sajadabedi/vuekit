@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+  --shadow-*: initial;
+  --transition-*: initial;
+  --gradient-*: initial;
+
+  /* Colors */
+  --color-brand: oklch(0.646 0.222 41.116); /* orange-600 */
+
+  /* Content */
+  --color-on-surface: #fff;
+
+  /* Shadows */
+  --shadow-btn-brand: 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset,
+    0px 0px 0px 0.5px rgba(134, 30, 9, 0.6) inset,
+    0px 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
+}

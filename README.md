@@ -1,75 +1,56 @@
-# Nuxt Minimal Starter
+# Firstkit
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Vue 3 Design System
 
-## Setup
-
-Make sure to install dependencies:
+## Installation
 
 ```bash
-# npm
+npm install @firstkit
+```
+
+## Usage
+
+```typescript
+import { createApp } from 'vue'
+import Firstkit from '@firstkit'
+import '@firstkit/dist/style.css'
+
+const app = createApp(App)
+app.use(Firstkit)
+app.mount('#app')
+```
+
+Or use components individually:
+
+```vue
+import { Button } from '@firstkit'
+
+export default {
+  components: {
+    'fk-button': Button
+  }
+}
+```
+
+## Development
+
+1. Install dependencies:
+```bash
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+2. Start Storybook:
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+npm run storybook
 ```
 
-## Production
-
-Build the application for production:
-
+3. Build the library:
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+## Documentation
+Components are documented in Storybook. Run `npm run storybook` to view the documentation locally.
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Contributing
+Please read our contributing guidelines before submitting PRs.
