@@ -1,20 +1,59 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-:root {
-  --brand: oklch(0.705 0.213 47.604); /* orange-600 */
-  --primary: #000;
+/* Base styles */
+@layer base {
+  :root {
+    --ui-color-brand: oklch(0.705 0.213 47.604); /* orange-600 */
+    --ui-color-primary: oklch(0.25 0.003 255);
+    --ui-color-secondary: #fff;
+    --ui-color-muted: #eee;
+    --ui-color-subdued: #ccc;
+    --ui-color-disabled: #ccc;
+    --ui-color-critical: #b3261e;
+    --ui-color-warning: #ffab00;
+    --ui-color-success: #006400;
+    --ui-color-promotion: #007bff;
+    --ui-color-surface: #fff;
+    --ui-color-on-surface: #000;
 
-  @media (prefers-color-scheme: dark) {
-    --brand: oklch(0.646 0.222 41.116);
-    --primary: #fff;
+    @media (prefers-color-scheme: dark) {
+      --ui-color-brand: oklch(0.646 0.222 41.116);
+      --ui-color-primary: #fff;
+      --ui-color-secondary: #000;
+      --ui-color-disabled: #666;
+      --ui-color-critical: #ff6347;
+      --ui-color-warning: #ffab00;
+      --ui-color-success: #006400;
+      --ui-color-promotion: #007bff;
+      --ui-color-muted: #999;
+      --ui-color-subdued: #666;
+      --ui-color-on-surface: #fff;
+      --ui-color-surface-muted: oklch(0.98 0.003 255);
+      --ui-color-on-surface-variant: #ccc;
+    }
+  }
+  * {
+    font-feature-settings: var(--font-display--font-feature-settings);
+    font-variant-numeric: var(--font-display--fontvariant-numeric);
+  }
+  body {
+    @apply antialiased font-sans font-regular text-base;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight;
   }
 }
 
 @theme {
-  /* === Core Token Declarations === */
+  /* === Core Tokens === */
   --color-*: initial;
   --font-*: initial;
+  --font-weight-*: initial;
   --text-*: initial;
   --shadow-*: initial;
   --transition-*: initial;
@@ -118,13 +157,21 @@
   --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 
   /* === Typography Tokens === */
-  --text-caption: 0.75rem;
+  --text-xs: 0.68rem; /* 11px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-md: 0.87rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.25rem; /* 18px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 1.875rem; /* 30px */
+
+  /* --text-caption: 0.75rem;
   --text-body-small: 0.875rem;
   --text-body: 1rem;
   --text-subtitle: 1.125rem;
   --text-title: 1.25rem;
   --text-heading: 1.5rem;
-  --text-display: 2rem;
+  --text-display: 2rem; */
 
   --font-weight-regular: 440;
   --font-weight-medium: 550;
@@ -133,15 +180,6 @@
   --line-height-tight: 1.25;
   --line-height-base: 1.5;
   --line-height-loose: 1.75;
-
-  /* === Z-Index Tokens === */
-  --z-negative: -1;
-  --z-base: 1;
-  --z-floating: 10;
-  --z-overlay: 20;
-  --z-modal: 30;
-  --z-popover: 40;
-  --z-maximum: 50;
 
   /* Font */
   --font-display--font-feature-settings: 'ss01' on, 'ss02' on, 'cv10' on;
@@ -154,37 +192,12 @@
     0px 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
 }
 
-@layer utilities {
-}
-
-/* Base styles */
-@layer base {
-  body {
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-medium tracking-tight;
-  }
-  input,
-  textarea,
-  select,
-  button {
-    border: 0px solid;
-    border-radius: 0;
-    padding: 0;
-    color: inherit;
-    background-color: transparent;
-  }
-}
-
 @theme inline {
-  --color-brand: var(--brand);
-  --color-primary: var(--primary);
+  --color-brand: var(--ui-color-brand);
+  --color-primary: var(--ui-color-primary);
+  --color-secondary: var(--ui-color-secondary);
+}
+
+@utility text-heading {
+  @apply text-2xl/tight;
 }

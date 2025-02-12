@@ -2,7 +2,7 @@
   <button
     :class="[
       // Base styles
-      'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
+      'inline-flex items-center justify-center rounded-md text-base font-medium transition-colors',
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2',
       'disabled:pointer-events-none disabled:opacity-50',
       // Variant styles
@@ -17,7 +17,7 @@
       },
       // Size styles
       {
-        'h-8 px-3 text-xs': size === 'sm',
+        'h-8 px-3 text-sm': size === 'sm',
         'h-10 px-4': size === 'md',
         'h-12 px-8 text-lg': size === 'lg',
       },
