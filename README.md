@@ -1,56 +1,62 @@
-# Firstkit
+# @firstbase/ui
 
-A Vue 3 Design System
+A modern UI component library for Vue 3 applications.
 
 ## Installation
 
 ```bash
-npm install @firstkit
+npm install @firstbase/ui
 ```
 
 ## Usage
 
-```typescript
-import { createApp } from 'vue'
-import Firstkit from '@firstkit'
-import '@firstkit/dist/style.css'
-
-const app = createApp(App)
-app.use(Firstkit)
-app.mount('#app')
-```
-
-Or use components individually:
-
 ```vue
-import { Button } from '@firstkit'
+import { ComponentName } from '@firstbase/ui'
 
-export default {
-  components: {
-    'fk-button': Button
-  }
-}
+<template>
+  <ComponentName />
+</template>
 ```
+
+## Available Components
+
+[List of components and their usage will be added here]
 
 ## Development
 
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Start Storybook:
-```bash
-npm run storybook
-```
-
-3. Build the library:
-```bash
-npm run build
-```
-
-## Documentation
-Components are documented in Storybook. Run `npm run storybook` to view the documentation locally.
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start development server:
+   ```bash
+   npm run dev
+   ```
+4. Run tests:
+   ```bash
+   npm run test
+   ```
 
 ## Contributing
-Please read our contributing guidelines before submitting PRs.
+
+1. Create a new branch
+2. Make your changes
+3. Submit a merge request
+
+## Publishing
+
+The package is automatically published to npm when a new tag is pushed to the repository.
+
+To release a new version:
+
+```bash
+npm version patch  # for bug fixes
+npm version minor  # for new features
+npm version major  # for breaking changes
+git push origin main --tags
+```
+
+## License
+
+[Add your license here]

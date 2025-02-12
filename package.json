@@ -1,10 +1,10 @@
 {
-  "name": "@firstkit",
+  "name": "@firstbase/ui",
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "main": "dist/firstkit.umd.js",
-  "module": "dist/firstkit.es.js",
+  "main": "dist/ui.umd.js",
+  "module": "dist/ui.es.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
