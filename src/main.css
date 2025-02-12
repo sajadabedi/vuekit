@@ -1,20 +1,190 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --brand: oklch(0.705 0.213 47.604); /* orange-600 */
+  --primary: #000;
+
+  @media (prefers-color-scheme: dark) {
+    --brand: oklch(0.646 0.222 41.116);
+    --primary: #fff;
+  }
+}
 
 @theme {
+  /* === Core Token Declarations === */
   --color-*: initial;
   --font-*: initial;
+  --text-*: initial;
   --shadow-*: initial;
   --transition-*: initial;
   --gradient-*: initial;
+  --motion-*: initial;
+  --space-*: initial;
+  --duration-*: initial;
+  --ease-*: initial;
 
-  /* Colors */
-  --color-brand: oklch(0.646 0.222 41.116); /* orange-600 */
+  /* bg */
+  --color-primary: #000;
+  --color-primary-forground: #333;
+  --color-secondary: #eee;
+  --color-surface: #fff;
+  --color-forground: #333;
 
+  --color-bg-surface: #fff;
+  --color-bg-surface-disabled: #f9f9f9;
   /* Content */
   --color-on-surface: #fff;
+
+  /* Font */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  /* === Semantic Color Tokens === */
+  /* Surface Colors */
+  --surface-default: oklch(0.98 0.003 255);
+  --surface-subdued: oklch(0.95 0.003 255);
+  --surface-hovered: oklch(0.9 0.003 255);
+  --surface-pressed: oklch(0.85 0.003 255);
+  --surface-selected: oklch(0.95 0.1 250);
+  --surface-disabled: oklch(0.95 0.003 255);
+  --surface-critical: oklch(0.98 0.03 30);
+  --surface-warning: oklch(0.98 0.03 80);
+  --surface-success: oklch(0.98 0.03 150);
+  --surface-highlight: oklch(0.98 0.03 250);
+
+  /* Text Colors */
+  --text-default: oklch(0.25 0.003 255);
+  --text-subdued: oklch(0.45 0.003 255);
+  --text-disabled: oklch(0.65 0.003 255);
+  --text-critical: oklch(0.45 0.18 30);
+  --text-warning: oklch(0.45 0.18 80);
+  --text-success: oklch(0.45 0.18 150);
+  --text-highlight: oklch(0.45 0.18 250);
+  --text-on-interactive: white;
+
+  /* Border Colors */
+  --border-default: oklch(0.85 0.003 255);
+  --border-subdued: oklch(0.9 0.003 255);
+  --border-hovered: oklch(0.75 0.003 255);
+  --border-pressed: oklch(0.65 0.003 255);
+  --border-disabled: oklch(0.9 0.003 255);
+  --border-critical: oklch(0.65 0.18 30);
+  --border-warning: oklch(0.65 0.18 80);
+  --border-success: oklch(0.65 0.18 150);
+  --border-focus: oklch(0.65 0.2 250);
+
+  /* Interactive Colors */
+  --interactive-default: oklch(0.65 0.2 250);
+  --interactive-hovered: oklch(0.55 0.2 250);
+  --interactive-pressed: oklch(0.45 0.2 250);
+  --interactive-disabled: oklch(0.85 0.1 250);
+
+  /* Icon Colors */
+  --icon-default: oklch(0.25 0.003 255);
+  --icon-subdued: oklch(0.45 0.003 255);
+  --icon-hovered: oklch(0.15 0.003 255);
+  --icon-pressed: oklch(0.05 0.003 255);
+  --icon-disabled: oklch(0.65 0.003 255);
+  --icon-critical: oklch(0.45 0.18 30);
+  --icon-warning: oklch(0.45 0.18 80);
+  --icon-success: oklch(0.45 0.18 150);
+
+  /* === Border Radius Tokens === */
+  --radius-none: 0;
+  --radius-small: 0.125rem;
+  --radius-base: 0.25rem;
+  --radius-large: 0.5rem;
+  --radius-extra-large: 0.75rem;
+  --radius-circular: 9999px;
+
+  /* === Shadow Tokens === */
+  --shadow-none: none;
+  --shadow-minimal: 0 1px 1px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-deep: 0 4px 6px rgba(0, 0, 0, 0.12);
+  --shadow-floating: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+  /* === Motion Tokens === */
+  --duration-instant: 50ms;
+  --duration-fast: 100ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 400ms;
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+  /* === Typography Tokens === */
+  --text-caption: 0.75rem;
+  --text-body-small: 0.875rem;
+  --text-body: 1rem;
+  --text-subtitle: 1.125rem;
+  --text-title: 1.25rem;
+  --text-heading: 1.5rem;
+  --text-display: 2rem;
+
+  --font-weight-regular: 440;
+  --font-weight-medium: 550;
+  --font-weight-semibold: 660;
+
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+  --line-height-loose: 1.75;
+
+  /* === Z-Index Tokens === */
+  --z-negative: -1;
+  --z-base: 1;
+  --z-floating: 10;
+  --z-overlay: 20;
+  --z-modal: 30;
+  --z-popover: 40;
+  --z-maximum: 50;
+
+  /* Font */
+  --font-display--font-feature-settings: 'ss01' on, 'ss02' on, 'cv10' on;
+  --font-display--font-variation-settings: 'opsz' 32;
+  --font-display--fontvariant-numeric: lining-nums tabular-nums;
 
   /* Shadows */
   --shadow-btn-brand: 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset,
     0px 0px 0px 0.5px rgba(134, 30, 9, 0.6) inset,
     0px 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
+}
+
+@layer utilities {
+}
+
+/* Base styles */
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight;
+  }
+  input,
+  textarea,
+  select,
+  button {
+    border: 0px solid;
+    border-radius: 0;
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+  }
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-primary: var(--primary);
 }
