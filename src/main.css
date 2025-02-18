@@ -120,16 +120,6 @@
   --interactive-pressed: oklch(0.45 0.2 250);
   --interactive-disabled: oklch(0.85 0.1 250);
 
-  /* Icon Colors */
-  --icon-default: oklch(0.25 0.003 255);
-  --icon-subdued: oklch(0.45 0.003 255);
-  --icon-hovered: oklch(0.15 0.003 255);
-  --icon-pressed: oklch(0.05 0.003 255);
-  --icon-disabled: oklch(0.65 0.003 255);
-  --icon-critical: oklch(0.45 0.18 30);
-  --icon-warning: oklch(0.45 0.18 80);
-  --icon-success: oklch(0.45 0.18 150);
-
   /* === Border Radius Tokens === */
   --radius-none: 0;
   --radius-small: 0.125rem;
@@ -174,7 +164,7 @@
   --text-display: 2rem; */
 
   --font-weight-regular: 440;
-  --font-weight-medium: 550;
+  --font-weight-medium: 570;
   --font-weight-semibold: 660;
 
   --line-height-tight: 1.25;
@@ -192,12 +182,13 @@
     0px 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
 }
 
+@utility text-heading {
+  @apply text-2xl/tight;
+}
+
 @theme inline {
   --color-brand: var(--ui-color-brand);
   --color-primary: var(--ui-color-primary);
   --color-secondary: var(--ui-color-secondary);
-}
-
-@utility text-heading {
-  @apply text-2xl/tight;
+  --color-sample: var(--ui-color-critical);
 }
