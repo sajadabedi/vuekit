@@ -5,7 +5,7 @@ A modern UI component library for Vue 3 applications.
 ## Installation
 
 ```bash
-npm install @firstbase/ui
+pnpm install @firstbase/ui
 ```
 
 ## Usage
@@ -27,15 +27,15 @@ import { ComponentName } from '@firstbase/ui'
 1. Clone the repository
 2. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 3. Start development server:
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 4. Run tests:
    ```bash
-   npm run test
+   pnpm run test
    ```
 
 ## Contributing
@@ -46,14 +46,14 @@ import { ComponentName } from '@firstbase/ui'
 
 ## Publishing
 
-The package is automatically published to npm when a new tag is pushed to the repository.
+The package is automatically published to pnpm when a new tag is pushed to the repository.
 
 To release a new version:
 
 ```bash
-npm version patch  # for bug fixes
-npm version minor  # for new features
-npm version major  # for breaking changes
+pnpm version patch  # for bug fixes
+pnpm version minor  # for new features
+pnpm version major  # for breaking changes
 git push origin main --tags
 ```
 
