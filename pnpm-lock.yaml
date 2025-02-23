@@ -17,6 +17,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      lucide-vue-next:
+        specifier: ^0.475.0
+        version: 0.475.0(vue@3.5.13(typescript@5.7.3))
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.0.1
@@ -1904,6 +1907,11 @@ packages:
     resolution: {integrity: sha512-MhWWlVnuab1RG5/zMRRcVGXZLCXrZTgfwMikgzCegsPnG62yDQo5JnqKkrK4jO5iKqDAZGItAqN5CtKBCBWRUA==}
     engines: {node: '>=16.14'}
 
+  lucide-vue-next@0.475.0:
+    resolution: {integrity: sha512-xzotVZV7en58Gm3b60YHlxX2YGlFWSN4D5VMMhU/rC9D/pkeRqve21TPMJdHQsdqFdoRthnaB2HrzL0PQXdNeA==}
+    peerDependencies:
+      vue: '>=3.0.1'
+
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -2547,6 +2555,9 @@ packages:
 
   vue-component-type-helpers@2.2.2:
     resolution: {integrity: sha512-6lLY+n2xz2kCYshl59mL6gy8OUUTmkscmDFMO8i7Lj+QKwgnIFUZmM1i/iTYObtrczZVdw7UakPqDTGwVSGaRg==}
+
+  vue-component-type-helpers@2.2.4:
+    resolution: {integrity: sha512-F66p0XLbAu92BRz6kakHyAcaUSF7HWpWX/THCqL0TxySSj7z/nok5UUMohfNkkCm1pZtawsdzoJ4p1cjNqCx0Q==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -3245,7 +3256,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.13(typescript@5.7.3)
-      vue-component-type-helpers: 2.2.2
+      vue-component-type-helpers: 2.2.4
 
   '@tailwindcss/node@4.0.6':
     dependencies:
@@ -4491,6 +4502,10 @@ snapshots:
 
   lru-cache@8.0.5: {}
 
+  lucide-vue-next@0.475.0(vue@3.5.13(typescript@5.7.3)):
+    dependencies:
+      vue: 3.5.13(typescript@5.7.3)
+
   lz-string@1.5.0: {}
 
   magic-string@0.30.17:
@@ -5108,6 +5123,8 @@ snapshots:
       typescript: 5.7.3
 
   vue-component-type-helpers@2.2.2: {}
+
+  vue-component-type-helpers@2.2.4: {}
 
   vue-docgen-api@4.79.2(vue@3.5.13(typescript@5.7.3)):
     dependencies:

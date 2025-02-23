@@ -51,6 +51,8 @@
 
 @theme {
   /* === Core Tokens === */
+
+  /* Remove Tailwind defaults */
   --color-*: initial;
   --font-*: initial;
   --font-weight-*: initial;
@@ -190,5 +192,4 @@
   --color-brand: var(--ui-color-brand);
   --color-primary: var(--ui-color-primary);
   --color-secondary: var(--ui-color-secondary);
-  --color-sample: var(--ui-color-critical);
 }
