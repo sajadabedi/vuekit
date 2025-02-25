@@ -1,37 +1,48 @@
 image: node:20
 
+variables:
+  PNPM_STORE_DIR: .pnpm-store
+
 stages:
   - test
   - build
   - publish
 
 cache:
+  key:
+    files:
+      - pnpm-lock.yaml
   paths:
+    - .pnpm-store
     - node_modules/
 
+.pnpm-install:
+  before_script:
+    - npm install -g pnpm
+    - pnpm config set store-dir $PNPM_STORE_DIR
+    - pnpm install --frozen-lockfile
+
 test:
+  extends: .pnpm-install
   stage: test
   script:
-    - npm ci
-    - npm run lint
-    - npm run test
+    - pnpm run lint
+    - pnpm run test
 
 build:
+  extends: .pnpm-install
   stage: build
   script:
-    - npm ci
-    - npm run build
+    - pnpm run build
   artifacts:
     paths:
       - dist/
 
 publish:
+  extends: .pnpm-install
   stage: publish
   script:
-    - npm ci
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-    - npm publish
-  only:
-    - tags
+    - pnpm publish --no-git-checks
   rules:
     - if: $CI_COMMIT_TAG
