@@ -1,4 +1,4 @@
-# @firstbase/ui
+# Firstbase Design system
 
 A modern UI component library for Vue 3 applications.
 
@@ -33,10 +33,6 @@ import { ComponentName } from '@firstbase/ui'
    ```bash
    pnpm run dev
    ```
-4. Run tests:
-   ```bash
-   pnpm run test
-   ```
 
 ## Contributing
 
@@ -56,7 +52,3 @@ pnpm version minor  # for new features
 pnpm version major  # for breaking changes
 git push origin main --tags
 ```
-
-## License
-
-[Add your license here]
