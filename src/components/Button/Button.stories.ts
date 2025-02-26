@@ -9,14 +9,8 @@ const meta = {
     variant: {
       description: 'The visual style of the button',
       control: 'select',
-      options: ['primary', 'secondary', 'ghost', 'outline', 'link'],
+      options: ['primary', 'secondary', 'ghost'],
       defaultValue: 'primary',
-    },
-    size: {
-      description: 'The size of the button',
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      defaultValue: 'md',
     },
     disabled: {
       description: 'Whether the button is disabled',
@@ -35,8 +29,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'A flexible button component that supports multiple variants and sizes.',
+        component: 'A flexible button component that supports multiple variants.',
       },
     },
   },
@@ -94,81 +87,6 @@ export const Ghost = {
     docs: {
       description: {
         story: 'Ghost button is used for subtle actions.',
-      },
-    },
-  },
-}
-
-export const Outline = {
-  render: Template,
-  args: {
-    variant: 'outline',
-    default: 'Outline Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Outline button is used for secondary actions with a border.',
-      },
-    },
-  },
-}
-
-export const Link = {
-  render: Template,
-  args: {
-    variant: 'link',
-    default: 'Link Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Link button is used for navigation actions.',
-      },
-    },
-  },
-}
-
-export const Small = {
-  render: Template,
-  args: {
-    size: 'sm',
-    default: 'Small Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Small size button for compact spaces.',
-      },
-    },
-  },
-}
-
-export const Medium = {
-  render: Template,
-  args: {
-    size: 'md',
-    default: 'Medium Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Medium size button for standard use.',
-      },
-    },
-  },
-}
-
-export const Large = {
-  render: Template,
-  args: {
-    size: 'lg',
-    default: 'Large Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Large size button for prominent actions.',
       },
     },
   },
