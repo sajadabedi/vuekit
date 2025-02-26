@@ -3,9 +3,9 @@
 /* Base styles */
 @layer base {
   :root {
-    --ui-color-brand: oklch(0.705 0.213 47.604); /* orange-600 */
+    --ui-color-brand: oklch(0.646 0.222 41.116); /* orange-600 */
     --ui-color-primary: oklch(0.25 0.003 255);
-    --ui-color-secondary: #fff;
+    --ui-color-secondary: #eee;
     --ui-color-muted: #eee;
     --ui-color-subdued: #ccc;
     --ui-color-disabled: #ccc;
@@ -17,9 +17,8 @@
     --ui-color-on-surface: #000;
 
     @media (prefers-color-scheme: dark) {
-      --ui-color-brand: oklch(0.646 0.222 41.116);
       --ui-color-primary: #fff;
-      --ui-color-secondary: #000;
+      --ui-color-secondary: #eee;
       --ui-color-disabled: #666;
       --ui-color-critical: #ff6347;
       --ui-color-warning: #ffab00;

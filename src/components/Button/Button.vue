@@ -19,8 +19,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-brand text-on-surface hover:bg-brand/90',
-        secondary: 'bg-neutral-200 text-neutral-900 hover:bg-neutral-300',
-        ghost: 'hover:bg-neutral-100 hover:text-neutral-900',
+        secondary: 'border border-brand text-brand',
+        ghost: 'bg-secondary',
       },
     },
     defaultVariants: {
