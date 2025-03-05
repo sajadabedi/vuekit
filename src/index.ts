@@ -1,4 +1,4 @@
-import 'main.css'
+import './main.css'
 import type { App } from 'vue'
 import * as components from './components'
 
