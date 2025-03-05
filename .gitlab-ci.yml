@@ -42,7 +42,7 @@ pages:
   stage: build
   script:
     - npm run build-storybook
-    - mv storybook-static public
+    - mv storybook-static/* public/
   artifacts:
     paths:
       - public
