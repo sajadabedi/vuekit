@@ -1,3 +1,4 @@
+@import url('https://rsms.me/inter/inter.css');
 @import 'tailwindcss';
 
 /* Base styles */
@@ -31,12 +32,8 @@
       --ui-color-on-surface-variant: #ccc;
     }
   }
-  * {
-    font-feature-settings: var(--font-display--font-feature-settings);
-    font-variant-numeric: var(--font-display--fontvariant-numeric);
-  }
   body {
-    @apply antialiased font-sans font-regular text-base;
+    @apply antialiased font-regular text-base font-sans;
   }
   h1,
   h2,
@@ -63,63 +60,15 @@
   --space-*: initial;
   --duration-*: initial;
   --ease-*: initial;
-
-  /* bg */
-  --color-primary: #000;
-  --color-primary-forground: #333;
-  --color-secondary: #eee;
-  --color-surface: #fff;
-  --color-forground: #333;
-
-  --color-bg-surface: #fff;
-  --color-bg-surface-disabled: #f9f9f9;
-  /* Content */
-  --color-on-surface: #fff;
+  --line-height-*: initial;
 
   /* Font */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  --font-sans: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
-
-  /* === Semantic Color Tokens === */
-  /* Surface Colors */
-  --surface-default: oklch(0.98 0.003 255);
-  --surface-subdued: oklch(0.95 0.003 255);
-  --surface-hovered: oklch(0.9 0.003 255);
-  --surface-pressed: oklch(0.85 0.003 255);
-  --surface-selected: oklch(0.95 0.1 250);
-  --surface-disabled: oklch(0.95 0.003 255);
-  --surface-critical: oklch(0.98 0.03 30);
-  --surface-warning: oklch(0.98 0.03 80);
-  --surface-success: oklch(0.98 0.03 150);
-  --surface-highlight: oklch(0.98 0.03 250);
-
-  /* Text Colors */
-  --text-default: oklch(0.25 0.003 255);
-  --text-subdued: oklch(0.45 0.003 255);
-  --text-disabled: oklch(0.65 0.003 255);
-  --text-critical: oklch(0.45 0.18 30);
-  --text-warning: oklch(0.45 0.18 80);
-  --text-success: oklch(0.45 0.18 150);
-  --text-highlight: oklch(0.45 0.18 250);
-  --text-on-interactive: white;
-
-  /* Border Colors */
-  --border-default: oklch(0.85 0.003 255);
-  --border-subdued: oklch(0.9 0.003 255);
-  --border-hovered: oklch(0.75 0.003 255);
-  --border-pressed: oklch(0.65 0.003 255);
-  --border-disabled: oklch(0.9 0.003 255);
-  --border-critical: oklch(0.65 0.18 30);
-  --border-warning: oklch(0.65 0.18 80);
-  --border-success: oklch(0.65 0.18 150);
-  --border-focus: oklch(0.65 0.2 250);
-
-  /* Interactive Colors */
-  --interactive-default: oklch(0.65 0.2 250);
-  --interactive-hovered: oklch(0.55 0.2 250);
-  --interactive-pressed: oklch(0.45 0.2 250);
-  --interactive-disabled: oklch(0.85 0.1 250);
+  --font-sans--font-feature-settings: 'cv08', 'cv10', 'cv02';
+  --font-sans--fontvariant-numeric: lining-nums tabular-nums;
 
   /* === Border Radius Tokens === */
   --radius-none: 0;
@@ -128,14 +77,6 @@
   --radius-large: 0.5rem;
   --radius-extra-large: 0.75rem;
   --radius-circular: 9999px;
-
-  /* === Shadow Tokens === */
-  --shadow-none: none;
-  --shadow-minimal: 0 1px 1px rgba(0, 0, 0, 0.05);
-  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-deep: 0 4px 6px rgba(0, 0, 0, 0.12);
-  --shadow-floating: 0 8px 16px rgba(0, 0, 0, 0.15);
-  --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
 
   /* === Motion Tokens === */
   --duration-instant: 50ms;
@@ -147,48 +88,40 @@
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
   --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 
+  /* === Shadow Tokens === */
+  --shadow-none: none;
+  --shadow-minimal: 0 1px 1px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-deep: 0 4px 6px rgba(0, 0, 0, 0.12);
+  --shadow-floating: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
+  --shadow-btn-brand: 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset,
+    0px 0px 0px 0.5px rgba(134, 30, 9, 0.6) inset,
+    0px 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
+
   /* === Typography Tokens === */
-  --text-xs: 0.68rem; /* 11px */
-  --text-sm: 0.75rem; /* 12px */
-  --text-md: 0.87rem; /* 14px */
-  --text-base: 1rem; /* 16px */
-  --text-lg: 1.25rem; /* 18px */
-  --text-xl: 1.5rem; /* 24px */
-  --text-2xl: 1.875rem; /* 30px */
-
-  /* --text-caption: 0.75rem;
-  --text-body-small: 0.875rem;
-  --text-body: 1rem;
-  --text-subtitle: 1.125rem;
-  --text-title: 1.25rem;
-  --text-heading: 1.5rem;
-  --text-display: 2rem; */
-
   --font-weight-regular: 440;
   --font-weight-medium: 570;
   --font-weight-semibold: 660;
 
-  --line-height-tight: 1.25;
-  --line-height-base: 1.5;
-  --line-height-loose: 1.75;
+  --line-height-tight: 16px;
+  --line-height-base: 18px;
+  --line-height-loose: 24px;
 
-  /* Font */
-  --font-display--font-feature-settings: 'ss01' on, 'ss02' on, 'cv10' on;
-  --font-display--font-variation-settings: 'opsz' 32;
-  --font-display--fontvariant-numeric: lining-nums tabular-nums;
-
-  /* Shadows */
-  --shadow-btn-brand: 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset,
-    0px 0px 0px 0.5px rgba(134, 30, 9, 0.6) inset,
-    0px 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
-}
-
-@utility text-heading {
-  @apply text-2xl/tight;
+  --text-xs: 0.68rem; /* 11px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-base: 0.87rem; /* 14px */
+  --text-base--line-height: var(--line-height-base);
+  --text-lg: 1.25rem; /* 18px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 1.875rem; /* 30px */
 }
 
 @theme inline {
+  --color-white: #fff;
+  --color-black: #000;
   --color-brand: var(--ui-color-brand);
+
   --color-primary: var(--ui-color-primary);
   --color-secondary: var(--ui-color-secondary);
 }

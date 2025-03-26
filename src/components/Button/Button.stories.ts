@@ -51,7 +51,7 @@ export const Primary = {
   render: Template,
   args: {
     variant: 'primary',
-    default: 'Primary Button',
+    default: 'Button',
   },
   parameters: {
     docs: {

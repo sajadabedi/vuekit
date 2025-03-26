@@ -14,11 +14,16 @@ import { cn } from '@/lib/utils'
 import { cva } from 'class-variance-authority'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-base color-sample font-medium h-10 px-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  [
+    'inline-flex items-center justify-center rounded-md py-2 px-4 cursor-pointer',
+    'text-base font-medium transition-colors',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 ring-offset-black',
+    'disabled:pointer-events-none disabled:opacity-50',
+  ],
   {
     variants: {
       variant: {
-        primary: 'bg-brand text-on-surface hover:bg-brand/90',
+        primary: 'bg-brand shadow-btn-brand text-white hover:bg-brand/90',
         secondary: 'border border-brand text-brand',
         ghost: 'bg-secondary',
       },
