@@ -15,10 +15,11 @@ import { cva } from 'class-variance-authority'
 
 const buttonVariants = cva(
   [
-    'inline-flex items-center justify-center rounded-md py-2 px-4 cursor-pointer',
+    'inline-flex items-center justify-center rounded-lg py-2 px-4 cursor-pointer',
     'text-base font-medium transition-colors',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 ring-offset-black',
     'disabled:pointer-events-none disabled:opacity-50',
+    'active:scale-99',
   ],
   {
     variants: {
