@@ -10,11 +10,22 @@ pnpm install @firstbase/ui
 
 ## Usage
 
+1. Add Inter font to the your app head. and note that we are using `InterVariable` font.
+
+```html
+<head>
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+</head>
+```
+
+2. Add Your first component styles to your app
+
 ```vue
-import { ComponentName } from '@firstbase/ui'
+import { Button } from '@firstbase/ui'
 
 <template>
-  <ComponentName />
+  <Button>Click me</Button>
 </template>
 ```
 
@@ -31,8 +42,19 @@ import { ComponentName } from '@firstbase/ui'
    ```
 3. Start development server:
    ```bash
-   pnpm run dev
+   pnpm storybook
    ```
+4. Setup your editor:
+   Add the following to your `settings.json` to make sure the Tailwind CSS extension can parse the class names when using `cva`:
+
+```json
+"tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    "[\"'`]([^\"'`]*).*?[\"'`]",
+    "cx\\(((?:[^()]|\\([^()]*\\))*)\\)",
+    "(?:'|\"|`)([^']*)(?:'|\"|`)",
+  ],
+```
 
 ## Contributing
 

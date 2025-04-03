@@ -8,6 +8,7 @@
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
+    "src/colors.css",
     "src/main.css"
   ],
   "publishConfig": {
