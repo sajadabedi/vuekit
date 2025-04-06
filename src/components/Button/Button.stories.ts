@@ -62,16 +62,16 @@ export const Primary = {
   },
 }
 
-export const Secondary = {
+export const Default = {
   render: Template,
   args: {
-    variant: 'secondary',
-    default: 'Secondary Button',
+    variant: 'default',
+    default: 'Default Button',
   },
   parameters: {
     docs: {
       description: {
-        story: 'Secondary button is used for secondary actions.',
+        story: 'Default button is used for secondary actions.',
       },
     },
   },
@@ -87,6 +87,21 @@ export const Ghost = {
     docs: {
       description: {
         story: 'Ghost button is used for subtle actions.',
+      },
+    },
+  },
+}
+
+export const Critical = {
+  render: Template,
+  args: {
+    variant: 'critical',
+    default: 'Critical Button',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Critical button is used for actions that have high impact.',
       },
     },
   },

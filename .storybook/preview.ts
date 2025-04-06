@@ -11,13 +11,6 @@ const preview: Preview = {
         { name: 'dark', value: '#000' },
       ],
     },
-    darkMode: {
-      default: 'dark',
-      values: [
-        { name: 'light', value: '#fff' },
-        { name: 'dark', value: '#000' },
-      ],
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

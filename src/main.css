@@ -14,7 +14,7 @@
     --ui-color-text-placeholder: var(--tw-stone-400);
     --ui-color-text-disabled: var(--tw-stone-400);
     --ui-color-text-success: var(--tw-green-700);
-    --ui-color-text-critical: var(--tw-rose-900);
+    --ui-color-text-critical: var(--tw-red-900);
     --ui-color-text-warning: var(--tw-yellow-800);
     /* bg */
     --ui-color-bg-body: var(--tw-white);
@@ -23,20 +23,22 @@
     --ui-color-bg-tertiary: var(--tw-stone-100);
     --ui-color-bg-interactive: var(--tw-white);
     --ui-color-bg-success-muted: var(--tw-emerald-100);
-    --ui-color-bg-critical-muted: var(--tw-rose-100);
+    --ui-color-bg-critical-muted: var(--tw-red-100);
     --ui-color-bg-warning-muted: var(--tw-yellow-100);
     --ui-color-bg-elevated-on-dark: var(--tw-white);
     --ui-color-bg-contrast: var(--tw-stone-900);
+    --ui-color-bg-critical: var(--tw-red-700);
     /* border */
     --ui-color-border-default: var(--tw-stone-200);
     --ui-color-border-accent: var(--ui-color-accent);
     --ui-color-border-secondary: var(--tw-stone-100);
     --ui-color-border-contrast: var(--tw-stone-400);
-    --ui-color-border-critical: var(--tw-rose-500);
+    --ui-color-border-critical: var(--tw-red-500);
     /* Shadow colors */
-    --shadow-ring: rgba(0,0,0,0.11);
-    --shadow-ring-light: rgba(255,255,255,0.37);
+    --shadow-ring: rgba(0, 0, 0, 0.11);
+    --shadow-ring-light: rgba(255, 255, 255, 0.37);
     --shadow-ring-accent: color-mix(in oklab, var(--tw-orange-700) 70%, transparent);
+    --shadow-ring-critical: var(--tw-red-800);
 
     @media (prefers-color-scheme: dark) {
       --ui-color-primary: var(--tw-stone-50);
@@ -44,7 +46,7 @@
       --ui-color-text-tertiary: var(--tw-stone-600);
       --ui-color-text-placeholder: var(--tw-stone-700);
       --ui-color-text-success: var(--tw-green-400);
-      --ui-color-text-critical: var(--tw-rose-400);
+      --ui-color-text-critical: var(--tw-red-400);
       --ui-color-text-warning: var(--tw-yellow-400);
       /* bg */
       --ui-color-bg-body: var(--tw-stone-950);
@@ -58,7 +60,7 @@
       );
       --ui-color-bg-critical-muted: color-mix(
         in oklab,
-        var(--tw-rose-900) 40%,
+        var(--tw-red-900) 40%,
         transparent
       );
       --ui-color-bg-warning-muted: color-mix(
@@ -66,16 +68,17 @@
         var(--tw-yellow-900) 20%,
         transparent
       );
+      --ui-color-bg-critical: var(--tw-red-800);
       --ui-color-bg-elevated-on-dark: var(--tw-stone-900);
       --ui-color-bg-contrast: var(--tw-stone-800);
       /* border */
       --ui-color-border-default: var(--tw-stone-800);
       --ui-color-border-secondary: var(--tw-stone-900);
       --ui-color-border-contrast: var(--tw-stone-700);
-      --ui-color-border-critical: var(--tw-rose-500);
+      --ui-color-border-critical: var(--tw-red-500);
       /* Shadow colors */
-      --shadow-ring: rgba(255,255,255,0.10);
-      --shadow-ring-light: rgba(255,255,255,0.22);
+      --shadow-ring: rgba(255, 255, 255, 0.1);
+      --shadow-ring-light: rgba(255, 255, 255, 0.22);
     }
   }
   body {
@@ -157,12 +160,15 @@
 
   /* === Shadow Tokens === */
   --shadow-none: none;
-  --shadow-interactive: 0px 1px 0px 0px rgba(255, 255, 255, 0.11) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.04) inset, 0px 1px 0px 0px rgba(0, 0, 0, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);
-  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--ui-shadow-ring) inset;
-
+  --shadow-interactive: 0px 1px 0px 0px rgba(255, 255, 255, 0.11) inset,
+    0px 0px 0px 1px rgba(255, 255, 255, 0.04) inset, 0px 1px 0px 0px rgba(0, 0, 0, 0.02),
+    0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);
+  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05),
+    0px 0px 0px 1px var(--ui-shadow-ring) inset;
 
   --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-floating: 0px 0px 0px 1px var(--ui-shadow-ring) inset, 0px 4px 8px 0px rgba(0, 0, 0, 0.08), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0px 0px 0px 1px var(--ui-shadow-ring) inset,
+    0px 4px 8px 0px rgba(0, 0, 0, 0.08), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
   --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
 
   /* === Typography Tokens === */
@@ -173,9 +179,6 @@
   --line-height-tight: 16px;
   --line-height-base: 18px;
   --line-height-loose: 24px;
-
-
-
 }
 
 @theme inline {
@@ -208,11 +211,12 @@
   --background-color-elevated-on-dark: var(--ui-color-bg-elevated-on-dark);
   --background-color-secondary: var(--ui-color-bg-secondary);
   --background-color-tertiary: var(--ui-color-bg-tertiary);
-  --background-color-contrast: var(--ui-color-bg-contrast)
+  --background-color-contrast: var(--ui-color-bg-contrast);
   --background-color-interactive: var(--ui-color-bg-interactive);
   --background-color-success-muted: var(--ui-color-bg-success-muted);
   --background-color-critical-muted: var(--ui-color-bg-critical-muted);
   --background-color-warning-muted: var(--ui-color-bg-warning-muted);
+  --background-color-critical: var(--ui-color-bg-critical);
   /* border */
   --border-color-default: var(--ui-color-border-default);
   --border-color-accent: var(--ui-color-border-accent);
