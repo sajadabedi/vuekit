@@ -142,10 +142,9 @@
 
   /* === Border Radius Tokens === */
   --radius-none: 0;
-  --radius-small: 0.125rem;
-  --radius-base: 0.25rem;
-  --radius-large: 0.5rem;
-  --radius-extra-large: 0.75rem;
+  --radius-sm: 0.312rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
   --radius-circular: 9999px;
 
   /* === Motion Tokens === */

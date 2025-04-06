@@ -1,138 +1,60 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { PhCube } from '@phosphor-icons/vue'
 import Button from './Button.vue'
 
 const meta = {
   title: 'Components/Button',
   component: Button,
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      description: 'The visual style of the button',
-      control: 'select',
-      options: ['primary', 'secondary', 'ghost'],
-      defaultValue: 'primary',
-    },
-    disabled: {
-      description: 'Whether the button is disabled',
-      control: 'boolean',
-      defaultValue: false,
-    },
-    class: {
-      description: 'Additional CSS classes to apply',
-      control: 'text',
-    },
-    default: {
-      description: 'Default slot content',
-      control: 'text',
-    },
-  },
   parameters: {
-    docs: {
-      description: {
-        component: 'A flexible button component that supports multiple variants.',
-      },
-    },
+    layout: 'centered',
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-// Template for all stories
-const Template: StoryFn<typeof Button> = (args) => ({
-  components: { Button },
-  setup() {
-    return { args }
-  },
-  template:
-    '<Button v-bind="args"><template v-if="args.default">{{ args.default }}</template></Button>',
-})
-
-export const Primary = {
-  render: Template,
+export const Primary: Story = {
   args: {
     variant: 'primary',
     default: 'Button',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Primary button is used for main actions.',
-      },
-    },
-  },
 }
 
-export const Default = {
-  render: Template,
+export const Default: Story = {
   args: {
     variant: 'default',
     default: 'Default Button',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Default button is used for secondary actions.',
-      },
-    },
-  },
 }
 
-export const Ghost = {
-  render: Template,
-  args: {
-    variant: 'ghost',
-    default: 'Ghost Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Ghost button is used for subtle actions.',
-      },
+export const WithIcon: Story = {
+  render: () => ({
+    components: { Button, PhCube },
+    setup() {
+      return {
+        variant: 'default',
+      }
     },
-  },
+    template: `
+      <Button :variant="variant">
+        <PhCube weight="bold" size="16" />
+        box
+      </Button>
+    `,
+  }),
 }
 
-export const Critical = {
-  render: Template,
+export const Critical: Story = {
   args: {
     variant: 'critical',
-    default: 'Critical Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Critical button is used for actions that have high impact.',
-      },
-    },
+    default: 'Delete',
   },
 }
 
-export const Disabled = {
-  render: Template,
+export const Disabled: Story = {
   args: {
     disabled: true,
     default: 'Disabled Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Disabled state of the button.',
-      },
-    },
-  },
-}
-
-export const WithCustomClass = {
-  render: Template,
-  args: {
-    class: 'w-full',
-    default: 'Full Width Button',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Button with custom classes applied.',
-      },
-    },
   },
 }

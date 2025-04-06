@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils'
 import { buttonVariants, type ButtonProps } from '.'
 
 withDefaults(defineProps<ButtonProps>(), {
-  variant: 'primary',
+  variant: 'default',
   disabled: false,
 })
 

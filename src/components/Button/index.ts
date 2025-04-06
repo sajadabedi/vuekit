@@ -3,9 +3,9 @@ import { cva } from 'class-variance-authority'
 export const buttonVariants = cva(
   [
     // Layout
-    'text-action font-medium relative min-w-15 isolate inline-flex items-center justify-center rounded-lg py-2 px-2 cursor-pointer',
+    'text-action font-medium relative min-w-15 has-[svg]:min-w-8 gap-1 isolate inline-flex items-center justify-center rounded-md py-2 px-2 cursor-pointer',
     // Transitions
-    'transition-all ease-fluid duration-500',
+    'transition-colors duration-500',
     // State
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)]',
     'disabled:pointer-events-none disabled:opacity-70',
@@ -19,7 +19,7 @@ export const buttonVariants = cva(
         default: 'bg-interactive text-default shadow-interactive hover:bg-secondary',
         ghost: 'bg-transparent hover:bg-tertiary',
         critical:
-          'bg-critical text-white shadow-[0px_0px_0px_1px_var(--shadow-ring-critical)_inset,0px_2px_0px_0px_var(--shadow-ring-light)_inset] hover:bg-critical/90',
+          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--shadow-ring-critical)_inset,0px_2px_0px_0px_var(--shadow-ring-light)_inset] hover:bg-critical/90',
       },
     },
     defaultVariants: {

@@ -6,10 +6,10 @@ const preview: Preview = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     backgrounds: {
       default: 'light',
-      values: [
-        { name: 'light', value: '#fff' },
-        { name: 'dark', value: '#000' },
-      ],
+      // values: [
+      //   { name: 'light', value: '#fff' },
+      //   { name: 'dark', value: 'var(--ui---color-accent' },
+      // ],
     },
     controls: {
       matchers: {
