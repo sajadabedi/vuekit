@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './colors.css';
+/* @import './styles/typography.css'; */
 
 /* Base styles */
 @layer base {
@@ -188,9 +189,9 @@
   --text-base-bold: var(--text-base);
   --text-base-bold--font-weight: var(--font-weight-semibold);
   --text-base-bold--line-height: var(--line-height-base);
-  --text-lg: 1.25rem; /* 18px */
-  --text-xl: 1.5rem; /* 24px */
-  --text-2xl: 1.875rem; /* 30px */
+  --text-lg: 1.25rem; /* 16px */
+  --text-xl: 1.25rem; /* 18px */
+  --text-2xl: 1.5rem; /* 24px */
 
   --color-white: var(--ui-white);
   --color-accent: var(--ui-color-accent);
