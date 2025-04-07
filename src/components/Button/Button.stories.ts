@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { PhCube } from '@phosphor-icons/vue';
-import Button from './Button.vue';
+import { PhCube } from '@phosphor-icons/vue'
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Button from './Button.vue'
 
 const meta = {
   title: 'Components/Button',
@@ -9,24 +9,24 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs']
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Button>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
     variant: 'primary',
     default: 'Button'
   }
-};
+}
 
 export const Default: Story = {
   args: {
     variant: 'default',
     default: 'Default Button'
   }
-};
+}
 
 export const WithIcon: Story = {
   render: () => ({
@@ -34,7 +34,7 @@ export const WithIcon: Story = {
     setup() {
       return {
         variant: 'default'
-      };
+      }
     },
     template: `
       <Button :variant="variant">
@@ -43,18 +43,18 @@ export const WithIcon: Story = {
       </Button>
     `
   })
-};
+}
 
 export const Critical: Story = {
   args: {
     variant: 'critical',
     default: 'Delete'
   }
-};
+}
 
 export const Disabled: Story = {
   args: {
     disabled: true,
     default: 'Disabled Button'
   }
-};
+}

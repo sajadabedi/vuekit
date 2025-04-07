@@ -14,11 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 
 export interface Props {
-  class?: string;
+  class?: string
 }
 
-defineProps<Props>();
+defineProps<Props>()
 </script>

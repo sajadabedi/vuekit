@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority';
+import { cva } from 'class-variance-authority'
 
 export const colors = {
   red: 'bg-red-muted text-red-contrast',
@@ -10,9 +10,9 @@ export const colors = {
   stone: 'bg-stone-muted text-stone-contrast',
   pink: 'bg-pink-muted text-pink-contrast',
   lime: 'bg-lime-muted text-lime-contrast'
-} as const;
+} as const
 
-export type Color = keyof typeof colors;
+export type Color = keyof typeof colors
 
 export const badgeVariants = cva(
   ['inline-flex gap-0.5 items-center rounded-sm px-1.5 h-5 text-xs font-medium max-w-64 truncate'],
@@ -24,10 +24,8 @@ export const badgeVariants = cva(
       color: 'stone'
     }
   }
-);
+)
 
 export interface BadgeProps {
-  color?: Color;
+  color?: Color
 }
-
-export { default as Badge } from './Badge.vue';

@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
-import { badgeVariants, type BadgeProps } from '.';
+import { cn } from '@/lib/utils'
+import { badgeVariants, type BadgeProps } from '.'
 
 withDefaults(defineProps<BadgeProps>(), {
   color: 'stone'
-});
+})
 </script>

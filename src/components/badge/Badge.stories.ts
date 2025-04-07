@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import Badge from './Badge.vue';
+import type { Meta, StoryObj } from '@storybook/vue3'
+import Badge from './Badge.vue'
 
 const meta = {
   title: 'Components/Badge',
@@ -14,73 +14,73 @@ const meta = {
     }
   },
   tags: ['autodocs']
-} satisfies Meta<typeof Badge>;
+} satisfies Meta<typeof Badge>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
     color: 'stone',
     default: 'default'
   }
-};
+}
 
 export const Red: Story = {
   args: {
     color: 'red',
     default: 'bug'
   }
-};
+}
 
 export const Pink: Story = {
   args: {
     color: 'pink',
     default: 'bug'
   }
-};
+}
 
 export const Lime: Story = {
   args: {
     color: 'lime',
     default: 'bug'
   }
-};
+}
 
 export const Green: Story = {
   args: {
     color: 'green',
     default: 'feature'
   }
-};
+}
 
 export const Yellow: Story = {
   args: {
     color: 'yellow',
     default: 'warning'
   }
-};
+}
 
 export const Blue: Story = {
   args: {
     color: 'blue',
     default: 'info'
   }
-};
+}
 
 export const Indigo: Story = {
   args: {
     color: 'indigo',
     default: 'enhancement'
   }
-};
+}
 
 export const Purple: Story = {
   args: {
     color: 'purple',
     default: 'docs'
   }
-};
+}
 
 export const AllVariants: Story = {
   render: () => ({
@@ -99,4 +99,4 @@ export const AllVariants: Story = {
       </div>
     `
   })
-};
+}
