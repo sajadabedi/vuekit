@@ -1,5 +1,5 @@
 <template>
-  <div class="grid w-full gap-1.5">
+  <div class="grid w-full gap-1">
     <Label v-if="label" :for="id">{{ label }}</Label>
     <input
       :id="id"
@@ -10,13 +10,13 @@
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       v-bind="$attrs"
     />
-    <p v-if="error" class="text-red-contrast text-sm">{{ error }}</p>
+    <p v-if="error" class="text-critical text-sm">{{ error }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import { Label } from '@/components'
+import { cn } from '@/lib/utils'
 import { textFieldVariants, type TextFieldProps } from './index'
 
 withDefaults(defineProps<TextFieldProps>(), {

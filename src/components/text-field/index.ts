@@ -2,16 +2,23 @@ import { cva } from 'class-variance-authority'
 
 export const textFieldVariants = cva(
   [
-    'flex h-9 w-full rounded-md border border-stone-muted bg-transparent px-3 py-1 text-sm shadow-sm transition-colors',
+    // Layout
+    'flex w-full h-8 rounded-md bg-elevated-on-dark px-2 p-2 text-base shadow-input',
+    // Transitions
+    'transition-colors duration-200',
+    // File
     'file:border-0 file:bg-transparent file:text-sm file:font-medium',
+    // Placeholder
     'placeholder:text-stone-muted',
-    'focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-stone-contrast',
-    'disabled:cursor-not-allowed disabled:opacity-50'
+    // Focus
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)] hover:bg-secondary/30',
+    // Disabled
+    'disabled:cursor-not-allowed disabled:opacity-70'
   ],
   {
     variants: {
       error: {
-        true: 'border-red-contrast focus-visible:ring-red-contrast'
+        true: 'border-critical focus-visible:ring-critical'
       }
     }
   }

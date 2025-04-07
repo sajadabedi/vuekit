@@ -65,16 +65,14 @@
       --ui-color-text-placeholder: var(--tw-stone-700);
       --ui-color-text-success: var(--tw-green-400);
       --ui-color-text-critical: var(--tw-red-400);
-      --ui-color-text-warning: var(--tw-yellow-400);
-      /* color static */
+      --ui-color-text-warning: var(--tw-yellow-400); /* color static */
       --ui-color-text-red-contrast: var(--tw-red-400);
       --ui-color-text-green-contrast: var(--tw-green-400);
       --ui-color-text-yellow-contrast: var(--tw-yellow-400);
       --ui-color-text-blue-contrast: var(--tw-blue-400);
       --ui-color-text-indigo-contrast: var(--tw-indigo-400);
       --ui-color-text-purple-contrast: var(--tw-purple-400);
-      --ui-color-text-stone-contrast: var(--tw-stone-400);
-      /* bg */
+      --ui-color-text-stone-contrast: var(--tw-stone-400); /* bg */
       --ui-color-bg-body: var(--tw-stone-950);
       --ui-color-bg-secondary: var(--tw-stone-900);
       --ui-color-bg-tertiary: var(--tw-stone-800);
@@ -84,8 +82,7 @@
       --ui-color-bg-warning-muted: color-mix(in oklab, var(--tw-yellow-900) 20%, transparent);
       --ui-color-bg-critical: var(--tw-red-800);
       --ui-color-bg-elevated-on-dark: var(--tw-stone-900);
-      --ui-color-bg-contrast: var(--tw-stone-800);
-      /* bg static */
+      --ui-color-bg-contrast: var(--tw-stone-800); /* bg static */
       --ui-color-bg-red-muted: color-mix(in oklab, var(--tw-red-800) 20%, transparent);
       --ui-color-bg-green-muted: color-mix(in oklab, var(--tw-green-800) 20%, transparent);
       --ui-color-bg-yellow-muted: color-mix(in oklab, var(--tw-yellow-800) 20%, transparent);
@@ -94,8 +91,7 @@
       --ui-color-bg-purple-muted: color-mix(in oklab, var(--tw-purple-800) 20%, transparent);
       --ui-color-bg-stone-muted: color-mix(in oklab, var(--tw-stone-800) 20%, transparent);
       --ui-color-bg-lime-muted: color-mix(in oklab, var(--tw-lime-800) 20%, transparent);
-      --ui-color-bg-pink-muted: color-mix(in oklab, var(--tw-pink-800) 20%, transparent);
-      /* border */
+      --ui-color-bg-pink-muted: color-mix(in oklab, var(--tw-pink-800) 20%, transparent); /* border */
       --ui-color-border-default: var(--tw-stone-800);
       --ui-color-border-secondary: var(--tw-stone-900);
       --ui-color-border-contrast: var(--tw-stone-700);
@@ -184,7 +180,6 @@
   --shadow-interactive:
     0px 1px 0px 0px rgba(255, 255, 255, 0.11) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.04) inset,
     0px 1px 0px 0px rgba(0, 0, 0, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);
-  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--ui-shadow-ring) inset;
 
   --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-floating:
@@ -203,6 +198,7 @@
 }
 
 @theme inline {
+  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--shadow-ring) inset;
   --text-xs: 0.68rem; /* 11px */
   --text-sm: 0.75rem; /* 12px */
   --text-sm--line-height: var(--line-height-base);
