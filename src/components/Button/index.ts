@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority';
+import { cva } from 'class-variance-authority'
 
 export const buttonVariants = cva(
   [
@@ -15,28 +15,28 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-accent bg-linear-to-t from-accent to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--shadow-ring-accent)_inset,0px_2px_0px_0px_var(--shadow-ring-light)_inset] text-white hover:bg-accent/90',
+          'bg-accent bg-linear-to-t from-accent to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-accent)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] text-white hover:bg-accent/90',
         default: 'bg-interactive text-default shadow-interactive hover:bg-secondary',
         ghost: 'bg-transparent hover:bg-tertiary',
         critical:
-          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--shadow-ring-critical)_inset,0px_2px_0px_0px_var(--shadow-ring-light)_inset] hover:bg-critical/90'
+          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-critical)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] hover:bg-critical/90'
       }
     },
     defaultVariants: {
       variant: 'primary'
     }
   }
-);
+)
 
 export interface ButtonProps {
   /**
    * The variant of the button
    * @default "primary"
    */
-  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant'];
+  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']
   /**
    * Whether the button is disabled
    * @default false
    */
-  disabled?: boolean;
+  disabled?: boolean
 }

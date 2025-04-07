@@ -1,24 +1,15 @@
 <template>
   <div ref="referenceRef" class="inline-block" @mouseenter="show" @mouseleave="hide" @focus="show" @blur="hide">
     <slot />
-    <Transition
-      enter-active-class="transition ease-out duration-[150ms]"
-      enter-from-class="opacity-0 translate-y-1"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition ease-in duration-[100ms]"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 translate-y-1"
+    <div
+      v-if="isOpen"
+      ref="floatingRef"
+      :style="floatingStyles"
+      :class="cn(tooltipVariants({ side }), className)"
+      role="tooltip"
     >
-      <div
-        v-if="isOpen"
-        ref="floatingRef"
-        :style="floatingStyles"
-        :class="cn(tooltipVariants({ side }), className)"
-        role="tooltip"
-      >
-        {{ content }}
-      </div>
-    </Transition>
+      {{ content }}
+    </div>
   </div>
 </template>
 
@@ -38,7 +29,7 @@ const { floatingStyles } = useFloating(referenceRef, floatingRef, {
   placement: side,
   whileElementsMounted: (...args) => autoUpdate(...args, { animationFrame: true }),
   middleware: [
-    offset(8),
+    offset(4),
     flip(),
     shift({ padding: 8 }),
 

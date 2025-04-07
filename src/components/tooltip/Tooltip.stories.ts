@@ -32,7 +32,7 @@ export const Default: Story = {
     },
     template: `
       <Tooltip v-bind="args">
-        <Button>Hover me</Button>
+        <Button variant="primary">Hover me</Button>
       </Tooltip>
     `
   }),
@@ -83,7 +83,7 @@ export const NoDelay: Story = {
     },
     template: `
       <Tooltip v-bind="args">
-        <Button>Instant tooltip</Button>
+        <Button variant="primary">Instant tooltip</Button>
       </Tooltip>
     `
   }),

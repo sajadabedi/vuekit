@@ -53,10 +53,10 @@
     --ui-color-border-contrast: var(--tw-stone-400);
     --ui-color-border-critical: var(--tw-red-500);
     /* Shadow colors */
-    --shadow-ring: rgba(0, 0, 0, 0.11);
-    --shadow-ring-light: rgba(255, 255, 255, 0.37);
-    --shadow-ring-accent: color-mix(in oklab, var(--tw-orange-700) 70%, transparent);
-    --shadow-ring-critical: var(--tw-red-800);
+    --ui-shadow-ring: rgba(0, 0, 0, 0.11);
+    --ui-shadow-ring-light: rgba(255, 255, 255, 0.37);
+    --ui-shadow-ring-accent: color-mix(in oklab, var(--tw-orange-700) 70%, transparent);
+    --ui-shadow-ring-critical: var(--tw-red-800);
 
     @media (prefers-color-scheme: dark) {
       --ui-color-primary: var(--tw-stone-50);
@@ -97,8 +97,8 @@
       --ui-color-border-contrast: var(--tw-stone-700);
       --ui-color-border-critical: var(--tw-red-500);
       /* Shadow colors */
-      --shadow-ring: rgba(255, 255, 255, 0.1);
-      --shadow-ring-light: rgba(255, 255, 255, 0.22);
+      --ui-shadow-ring: rgba(255, 255, 255, 0.1);
+      --ui-shadow-ring-light: rgba(255, 255, 255, 0.22);
     }
   }
   body {
@@ -166,11 +166,6 @@
   --radius-circular: 9999px;
 
   /* === Motion Tokens === */
-  --duration-instant: 50ms;
-  --duration-fast: 100ms;
-  --duration-base: 200ms;
-  --duration-slow: 300ms;
-  --duration-slower: 400ms;
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
   --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
@@ -182,9 +177,7 @@
     0px 1px 0px 0px rgba(0, 0, 0, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);
 
   --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-floating:
-    0px 0px 0px 1px var(--ui-shadow-ring) inset, 0px 4px 8px 0px rgba(0, 0, 0, 0.08),
-    0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+
   --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
 
   /* === Typography Tokens === */
@@ -198,7 +191,10 @@
 }
 
 @theme inline {
-  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--shadow-ring) inset;
+  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--ui-shadow-ring) inset;
+  --shadow-floating:
+    0px 0px 0px 1px var(--ui-shadow-ring) inset, 0px 4px 8px 0px rgba(0, 0, 0, 0.08),
+    0px 8px 16px 0px rgba(0, 0, 0, 0.08);
   --text-xs: 0.68rem; /* 11px */
   --text-sm: 0.75rem; /* 12px */
   --text-sm--line-height: var(--line-height-base);
