@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority'
+import { cva } from 'class-variance-authority';
 
 export const buttonVariants = cva(
   [
@@ -9,7 +9,7 @@ export const buttonVariants = cva(
     // State
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)]',
     'disabled:pointer-events-none disabled:opacity-70',
-    'active:scale-99',
+    'active:scale-99'
   ],
   {
     variants: {
@@ -19,24 +19,24 @@ export const buttonVariants = cva(
         default: 'bg-interactive text-default shadow-interactive hover:bg-secondary',
         ghost: 'bg-transparent hover:bg-tertiary',
         critical:
-          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--shadow-ring-critical)_inset,0px_2px_0px_0px_var(--shadow-ring-light)_inset] hover:bg-critical/90',
-      },
+          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--shadow-ring-critical)_inset,0px_2px_0px_0px_var(--shadow-ring-light)_inset] hover:bg-critical/90'
+      }
     },
     defaultVariants: {
-      variant: 'primary',
-    },
+      variant: 'primary'
+    }
   }
-)
+);
 
 export interface ButtonProps {
   /**
    * The variant of the button
    * @default "primary"
    */
-  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']
+  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant'];
   /**
    * Whether the button is disabled
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean;
 }
