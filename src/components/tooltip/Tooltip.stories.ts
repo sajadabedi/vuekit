@@ -13,6 +13,10 @@ const meta = {
     side: {
       control: 'select',
       options: ['top', 'right', 'bottom', 'left']
+    },
+    delay: {
+      control: 'number',
+      description: 'Delay in milliseconds before showing the tooltip'
     }
   }
 } satisfies Meta<typeof Tooltip>
@@ -34,7 +38,8 @@ export const Default: Story = {
   }),
   args: {
     content: 'This is a tooltip',
-    side: 'top'
+    side: 'top',
+    delay: 200
   }
 }
 
@@ -46,18 +51,18 @@ export const Placements: Story = {
     },
     template: `
       <div class="flex flex-col items-center gap-8">
-        <Tooltip content="Top tooltip" side="top">
+        <Tooltip content="Top tooltip" side="top" delay="200">
           <Button>Top</Button>
         </Tooltip>
         <div class="flex gap-8">
-          <Tooltip content="Left tooltip" side="left">
+          <Tooltip content="Left tooltip" side="left" delay="200">
             <Button>Left</Button>
           </Tooltip>
-          <Tooltip content="Right tooltip" side="right">
+          <Tooltip content="Right tooltip" side="right" delay="200">
             <Button>Right</Button>
           </Tooltip>
         </div>
-        <Tooltip content="Bottom tooltip" side="bottom">
+        <Tooltip content="Bottom tooltip" side="bottom" delay="200">
           <Button>Bottom</Button>
         </Tooltip>
       </div>
@@ -65,7 +70,27 @@ export const Placements: Story = {
   }),
   args: {
     content: 'Tooltip content',
-    side: 'top'
+    side: 'top',
+    delay: 200
+  }
+}
+
+export const NoDelay: Story = {
+  render: (args) => ({
+    components: { Tooltip, Button },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Tooltip v-bind="args">
+        <Button>Instant tooltip</Button>
+      </Tooltip>
+    `
+  }),
+  args: {
+    content: 'This tooltip appears instantly',
+    side: 'top',
+    delay: 0
   }
 }
 
@@ -83,6 +108,7 @@ export const WithLongContent: Story = {
   }),
   args: {
     content: 'This is a tooltip with a very long content that should wrap nicely and maintain readability.',
-    side: 'top'
+    side: 'top',
+    delay: 200
   }
 }

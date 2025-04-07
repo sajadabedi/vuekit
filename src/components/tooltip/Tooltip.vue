@@ -10,7 +10,7 @@
       leave-to-class="opacity-0 translate-y-1"
     >
       <div
-        v-if="isVisible"
+        v-if="isOpen"
         ref="floatingRef"
         :style="floatingStyles"
         :class="cn(tooltipVariants({ side }), className)"
@@ -25,25 +25,60 @@
 <script setup lang="ts">
 import { tooltipVariants, type TooltipProps } from '@/components/tooltip'
 import { cn } from '@/lib/utils'
-import { flip, offset, shift, useFloating } from '@floating-ui/vue'
-import { ref } from 'vue'
+import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui/vue'
+import { onBeforeUnmount, ref } from 'vue'
 
-const { content, side = 'top', className } = defineProps<TooltipProps>()
+const { content, side = 'top', className, delay = 200 } = defineProps<TooltipProps>()
 
-const isVisible = ref(false)
-const referenceRef = ref<HTMLElement | null>(null)
-const floatingRef = ref<HTMLElement | null>(null)
+const isOpen = ref(false)
+const referenceRef = ref<HTMLElement | undefined>()
+const floatingRef = ref<HTMLElement | undefined>()
 
 const { floatingStyles } = useFloating(referenceRef, floatingRef, {
   placement: side,
-  middleware: [offset(8), flip(), shift()]
+  whileElementsMounted: (...args) => autoUpdate(...args, { animationFrame: true }),
+  middleware: [
+    offset(8),
+    flip(),
+    shift({ padding: 8 }),
+
+    size({
+      apply({ availableWidth, elements }) {
+        Object.assign(elements.floating.style, {
+          maxWidth: `${Math.min(availableWidth, 250)}px`,
+          width: 'max-content'
+        })
+      }
+    })
+  ]
 })
 
+let timer: ReturnType<typeof setTimeout> | undefined
+
+function clearTimer() {
+  if (timer) {
+    clearTimeout(timer)
+    timer = undefined
+  }
+}
+
 function show() {
-  isVisible.value = true
+  clearTimer()
+  if (delay === 0) {
+    isOpen.value = true
+    return
+  }
+  timer = setTimeout(() => {
+    isOpen.value = true
+  }, delay)
 }
 
 function hide() {
-  isVisible.value = false
+  clearTimer()
+  isOpen.value = false
 }
+
+onBeforeUnmount(() => {
+  clearTimer()
+})
 </script>

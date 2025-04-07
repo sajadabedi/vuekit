@@ -4,7 +4,7 @@ export type Side = 'top' | 'right' | 'bottom' | 'left'
 
 export const tooltipVariants = cva(
   [
-    'z-50 overflow-hidden rounded-md bg-contrast px-2 py-1 text-sm text-white shadow-floating w-auto max-w-[200px]',
+    'z-50 overflow-hidden rounded-md bg-contrast px-2 py-1 text-sm text-white shadow-floating',
     'animate-in fade-in-0 zoom-in-95',
     'data-[side=bottom]:slide-in-from-top-2',
     'data-[side=left]:slide-in-from-right-2',
@@ -30,6 +30,7 @@ export interface TooltipProps {
   content: string
   side?: Side
   className?: string
+  delay?: number
 }
 
 export { default as Tooltip } from './Tooltip.vue'
