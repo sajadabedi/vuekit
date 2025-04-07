@@ -11,15 +11,15 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { buttonVariants, type ButtonProps } from '.'
+import { cn } from '@/lib/utils';
+import { buttonVariants, type ButtonProps } from '.';
 
 withDefaults(defineProps<ButtonProps>(), {
   variant: 'default',
-  disabled: false,
-})
+  disabled: false
+});
 
 defineEmits<{
-  (e: 'click', event: MouseEvent): void
-}>()
+  (e: 'click', event: MouseEvent): void;
+}>();
 </script>
