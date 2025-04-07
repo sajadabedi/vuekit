@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority'
 export const textFieldVariants = cva(
   [
     // Layout
-    'flex w-full h-8 rounded-md bg-elevated-on-dark px-2 p-2 text-base shadow-input',
+    'flex w-full h-9 rounded-md bg-elevated-on-dark px-2 p-2 text-base shadow-input',
     // Transitions
     'transition-colors duration-200',
     // File
