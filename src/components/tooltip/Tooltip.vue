@@ -1,15 +1,21 @@
 <template>
   <div ref="referenceRef" class="inline-block" @mouseenter="show" @mouseleave="hide" @focus="show" @blur="hide">
     <slot />
-    <div
-      v-if="isOpen"
-      ref="floatingRef"
-      :style="floatingStyles"
-      :class="cn(tooltipVariants({ side }), className)"
-      role="tooltip"
-    >
-      {{ content }}
-    </div>
+    <AnimatePresence>
+      <motion.div
+        :animate="{ opacity: isOpen ? 1 : 0 }"
+        :initial="{ opacity: 0 }"
+        :exit="{ opacity: 0 }"
+        :transition="{ duration: 0.2, ease: 'easeInOut' }"
+        v-if="isOpen"
+        ref="floatingRef"
+        :style="floatingStyles"
+        :class="cn(tooltipVariants({ side }), className)"
+        role="tooltip"
+      >
+        {{ content }}
+      </motion.div>
+    </AnimatePresence>
   </div>
 </template>
 
@@ -17,6 +23,7 @@
 import { tooltipVariants, type TooltipProps } from '@/components/tooltip'
 import { cn } from '@/lib/utils'
 import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui/vue'
+import { AnimatePresence, motion } from 'motion-v'
 import { onBeforeUnmount, ref } from 'vue'
 
 const { content, side = 'top', className, delay = 200 } = defineProps<TooltipProps>()
