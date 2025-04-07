@@ -10,7 +10,7 @@ pnpm install @firstbase/ui
 
 ## Usage
 
-1. Add Inter font to the your app head. and note that we are using `InterVariable` font.
+Add Inter font to the your app head. and note that we are using `InterVariable` font.
 
 ```html
 <head>
@@ -19,7 +19,18 @@ pnpm install @firstbase/ui
 </head>
 ```
 
-2. Add Your first component styles to your app
+Add this snippet to a top level layout in your app to set the default icon setting in the product. [Read more](https://github.com/PhosphorIcons/Phosphor-Vue)
+
+```vue
+<script lang="ts" setup>
+import { provide } from 'vue'
+
+provide('size', 16)
+provide('weight', 'bold')
+</script>
+```
+
+Add Your first component styles to your app
 
 ```vue
 import { Button } from '@firstbase/ui'
@@ -28,10 +39,6 @@ import { Button } from '@firstbase/ui'
   <Button>Click me</Button>
 </template>
 ```
-
-## Available Components
-
-[List of components and their usage will be added here]
 
 ## Development
 
