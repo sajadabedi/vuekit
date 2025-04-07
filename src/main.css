@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "./colors.css";
+@import 'tailwindcss';
+@import './colors.css';
 
 /* Base styles */
 @layer base {
@@ -13,8 +13,17 @@
     --ui-color-text-placeholder: var(--tw-stone-400);
     --ui-color-text-disabled: var(--tw-stone-400);
     --ui-color-text-success: var(--tw-green-700);
-    --ui-color-text-critical: var(--tw-red-900);
-    --ui-color-text-warning: var(--tw-yellow-800);
+    --ui-color-text-critical: var(--tw-red-700);
+    --ui-color-text-warning: var(--tw-yellow-700);
+    --ui-color-text-red-contrast: var(--tw-red-700);
+    --ui-color-text-green-contrast: var(--tw-green-700);
+    --ui-color-text-yellow-contrast: var(--tw-yellow-700);
+    --ui-color-text-blue-contrast: var(--tw-blue-700);
+    --ui-color-text-indigo-contrast: var(--tw-indigo-700);
+    --ui-color-text-purple-contrast: var(--tw-purple-700);
+    --ui-color-text-stone-contrast: var(--tw-stone-700);
+    --ui-color-text-lime-contrast: var(--tw-lime-700);
+    --ui-color-text-pink-contrast: var(--tw-pink-700);
     /* bg */
     --ui-color-bg-body: var(--tw-white);
     --ui-color-bg-accent: var(--ui-color-accent);
@@ -27,6 +36,16 @@
     --ui-color-bg-elevated-on-dark: var(--tw-white);
     --ui-color-bg-contrast: var(--tw-stone-900);
     --ui-color-bg-critical: var(--tw-red-700);
+    --ui-color-bg-red-contrast: var(--tw-red-700);
+    --ui-color-bg-red-muted: color-mix(in oklab, var(--tw-red-500) 15%, transparent);
+    --ui-color-bg-green-muted: color-mix(in oklab, var(--tw-green-500) 15%, transparent);
+    --ui-color-bg-yellow-muted: color-mix(in oklab, var(--tw-yellow-500) 15%, transparent);
+    --ui-color-bg-blue-muted: color-mix(in oklab, var(--tw-blue-500) 15%, transparent);
+    --ui-color-bg-indigo-muted: color-mix(in oklab, var(--tw-indigo-500) 15%, transparent);
+    --ui-color-bg-purple-muted: color-mix(in oklab, var(--tw-purple-500) 15%, transparent);
+    --ui-color-bg-stone-muted: color-mix(in oklab, var(--tw-stone-500) 15%, transparent);
+    --ui-color-bg-lime-muted: color-mix(in oklab, var(--tw-lime-500) 15%, transparent);
+    --ui-color-bg-pink-muted: color-mix(in oklab, var(--tw-pink-500) 15%, transparent);
     /* border */
     --ui-color-border-default: var(--tw-stone-200);
     --ui-color-border-accent: var(--ui-color-accent);
@@ -47,6 +66,14 @@
       --ui-color-text-success: var(--tw-green-400);
       --ui-color-text-critical: var(--tw-red-400);
       --ui-color-text-warning: var(--tw-yellow-400);
+      /* color static */
+      --ui-color-text-red-contrast: var(--tw-red-400);
+      --ui-color-text-green-contrast: var(--tw-green-400);
+      --ui-color-text-yellow-contrast: var(--tw-yellow-400);
+      --ui-color-text-blue-contrast: var(--tw-blue-400);
+      --ui-color-text-indigo-contrast: var(--tw-indigo-400);
+      --ui-color-text-purple-contrast: var(--tw-purple-400);
+      --ui-color-text-stone-contrast: var(--tw-stone-400);
       /* bg */
       --ui-color-bg-body: var(--tw-stone-950);
       --ui-color-bg-secondary: var(--tw-stone-900);
@@ -58,6 +85,16 @@
       --ui-color-bg-critical: var(--tw-red-800);
       --ui-color-bg-elevated-on-dark: var(--tw-stone-900);
       --ui-color-bg-contrast: var(--tw-stone-800);
+      /* bg static */
+      --ui-color-bg-red-muted: color-mix(in oklab, var(--tw-red-800) 20%, transparent);
+      --ui-color-bg-green-muted: color-mix(in oklab, var(--tw-green-800) 20%, transparent);
+      --ui-color-bg-yellow-muted: color-mix(in oklab, var(--tw-yellow-800) 20%, transparent);
+      --ui-color-bg-blue-muted: color-mix(in oklab, var(--tw-blue-800) 20%, transparent);
+      --ui-color-bg-indigo-muted: color-mix(in oklab, var(--tw-indigo-800) 20%, transparent);
+      --ui-color-bg-purple-muted: color-mix(in oklab, var(--tw-purple-800) 20%, transparent);
+      --ui-color-bg-stone-muted: color-mix(in oklab, var(--tw-stone-800) 20%, transparent);
+      --ui-color-bg-lime-muted: color-mix(in oklab, var(--tw-lime-800) 20%, transparent);
+      --ui-color-bg-pink-muted: color-mix(in oklab, var(--tw-pink-800) 20%, transparent);
       /* border */
       --ui-color-border-default: var(--tw-stone-800);
       --ui-color-border-secondary: var(--tw-stone-900);
@@ -69,7 +106,7 @@
     }
   }
   body {
-    @apply antialiased font-regular text-base font-sans;
+    @apply font-regular font-sans text-base antialiased;
   }
   h1,
   h2,
@@ -120,10 +157,10 @@
   --leading-*: initial;
 
   /* Font */
-  --font-sans: "InterVariable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-  --font-sans--font-feature-settings: "cv08", "cv10", "cv02";
+  --font-sans: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  --font-sans--font-feature-settings: 'cv08', 'cv10', 'cv02';
   --font-sans--fontvariant-numeric: lining-nums tabular-nums;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   /* === Border Radius Tokens === */
   --radius-none: 0;
@@ -201,6 +238,15 @@
   --text-color-success: var(--ui-color-text-success);
   --text-color-critical: var(--ui-color-text-critical);
   --text-color-warning: var(--ui-color-text-warning);
+  --text-color-red-contrast: var(--ui-color-text-red-contrast);
+  --text-color-green-contrast: var(--ui-color-text-green-contrast);
+  --text-color-yellow-contrast: var(--ui-color-text-yellow-contrast);
+  --text-color-blue-contrast: var(--ui-color-text-blue-contrast);
+  --text-color-indigo-contrast: var(--ui-color-text-indigo-contrast);
+  --text-color-purple-contrast: var(--ui-color-text-purple-contrast);
+  --text-color-gray-contrast: var(--ui-color-text-gray-contrast);
+  --text-color-lime-contrast: var(--ui-color-text-lime-contrast);
+  --text-color-pink-contrast: var(--ui-color-text-pink-contrast);
   /* bg */
   --background-color-body: var(--ui-color-bg-body);
   --background-color-elevated-on-dark: var(--ui-color-bg-elevated-on-dark);
@@ -212,6 +258,15 @@
   --background-color-critical-muted: var(--ui-color-bg-critical-muted);
   --background-color-warning-muted: var(--ui-color-bg-warning-muted);
   --background-color-critical: var(--ui-color-bg-critical);
+  --background-color-red-muted: var(--ui-color-bg-red-muted);
+  --background-color-green-muted: var(--ui-color-bg-green-muted);
+  --background-color-yellow-muted: var(--ui-color-bg-yellow-muted);
+  --background-color-blue-muted: var(--ui-color-bg-blue-muted);
+  --background-color-indigo-muted: var(--ui-color-bg-indigo-muted);
+  --background-color-purple-muted: var(--ui-color-bg-purple-muted);
+  --background-color-stone-muted: var(--ui-color-bg-stone-muted);
+  --background-color-lime-muted: var(--ui-color-bg-lime-muted);
+  --background-color-pink-muted: var(--ui-color-bg-pink-muted);
   /* border */
   --border-color-default: var(--ui-color-border-default);
   --border-color-accent: var(--ui-color-border-accent);

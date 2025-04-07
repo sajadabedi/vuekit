@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const buttonVariants = cva(
   [
     // Layout
-    'text-action font-medium relative min-w-15 has-[svg]:min-w-8 gap-1 isolate inline-flex items-center justify-center rounded-md py-2 px-2 cursor-pointer',
+    'text-action font-medium relative min-w-15 has-[svg]:min-w-8 max-w-32 truncate gap-1 isolate inline-flex items-center justify-center rounded-md py-2 px-2 cursor-pointer',
     // Transitions
     'transition-colors duration-500',
     // State

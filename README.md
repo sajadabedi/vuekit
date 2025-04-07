@@ -23,10 +23,11 @@ Add this snippet to a top level layout in your app to set the default icon setti
 
 ```vue
 <script lang="ts" setup>
-import { provide } from 'vue'
+import { provide } from 'vue';
 
-provide('size', 16)
-provide('weight', 'bold')
+provide('color', 'currentColor');
+provide('size', 16);
+provide('weight', 'bold');
 </script>
 ```
 
