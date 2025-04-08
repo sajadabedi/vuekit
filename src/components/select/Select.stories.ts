@@ -1,0 +1,149 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  SelectGroup,
+  SelectLabel,
+  SelectSeparator
+} from '.'
+import { ref } from 'vue'
+
+const meta: Meta<typeof Select> = {
+  title: 'Components/Select',
+  component: Select,
+  tags: ['autodocs']
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  render: () => ({
+    components: {
+      Select,
+      SelectTrigger,
+      SelectValue,
+      SelectContent,
+      SelectItem
+    },
+    setup() {
+      const framework = ref('')
+      return { framework }
+    },
+    template: `
+      <Select v-model="framework">
+        <SelectTrigger class="w-[180px]">
+          <SelectValue placeholder="Select a framework" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="next">Next.js</SelectItem>
+          <SelectItem value="vue">Vue</SelectItem>
+          <SelectItem value="nuxt">Nuxt.js</SelectItem>
+          <SelectItem value="astro">Astro</SelectItem>
+        </SelectContent>
+      </Select>
+    `
+  })
+}
+
+export const WithGroups: Story = {
+  render: () => ({
+    components: {
+      Select,
+      SelectTrigger,
+      SelectValue,
+      SelectContent,
+      SelectItem,
+      SelectGroup,
+      SelectLabel,
+      SelectSeparator
+    },
+    setup() {
+      const os = ref('')
+      return { os }
+    },
+    template: `
+      <Select v-model="os">
+        <SelectTrigger class="w-[180px]">
+          <SelectValue placeholder="Select an OS" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Desktop</SelectLabel>
+            <SelectItem value="windows">Windows</SelectItem>
+            <SelectItem value="macos">macOS</SelectItem>
+            <SelectItem value="linux">Linux</SelectItem>
+          </SelectGroup>
+          <SelectSeparator />
+          <SelectGroup>
+            <SelectLabel>Mobile</SelectLabel>
+            <SelectItem value="ios">iOS</SelectItem>
+            <SelectItem value="android">Android</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    `
+  })
+}
+
+export const Disabled: Story = {
+  render: () => ({
+    components: {
+      Select,
+      SelectTrigger,
+      SelectValue,
+      SelectContent,
+      SelectItem
+    },
+    setup() {
+      const value = ref('')
+      return { value }
+    },
+    template: `
+      <Select v-model="value" disabled>
+        <SelectTrigger class="w-[180px]">
+          <SelectValue placeholder="Select an option" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="1">Option 1</SelectItem>
+          <SelectItem value="2">Option 2</SelectItem>
+          <SelectItem value="3">Option 3</SelectItem>
+        </SelectContent>
+      </Select>
+    `
+  })
+}
+
+export const WithError: Story = {
+  render: () => ({
+    components: {
+      Select,
+      SelectTrigger,
+      SelectValue,
+      SelectContent,
+      SelectItem
+    },
+    setup() {
+      const value = ref('')
+      return { value }
+    },
+    template: `
+      <div class="grid gap-2">
+        <Select v-model="value">
+          <SelectTrigger class="w-[180px] border-red-500">
+            <SelectValue placeholder="Select an option" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="1">Option 1</SelectItem>
+            <SelectItem value="2">Option 2</SelectItem>
+            <SelectItem value="3">Option 3</SelectItem>
+          </SelectContent>
+        </Select>
+        <p class="text-sm text-red-500">Please select an option</p>
+      </div>
+    `
+  })
+}

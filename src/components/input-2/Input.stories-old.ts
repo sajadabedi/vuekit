@@ -1,4 +1,4 @@
-import Field from '@/components/form-old/field/Field.vue'
+import Field from '@/components/form-2/field/Field.vue'
 import Label from '@/components/label-2/Label.vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Input from './Input-old.vue'
