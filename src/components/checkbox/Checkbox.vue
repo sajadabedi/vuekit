@@ -27,12 +27,6 @@ const draw = {
     }
   }
 }
-
-const shape = {
-  strokeWidth: 2,
-  strokeLinecap: 'round',
-  fill: 'transparent'
-}
 </script>
 
 <template>
@@ -51,18 +45,14 @@ const shape = {
       class="flex items-center justify-center text-current transition-none"
     >
       <slot>
-        <motion.svg
-          width="10"
-          height="8"
-          viewBox="0 0 10 8"
-          initial="hidden"
-          :animate="forwarded.modelValue ? 'visible' : 'hidden'"
-        >
+        <motion.svg width="10" height="8" viewBox="0 0 10 8" initial="hidden" animate="visible">
           <motion.path
             d="M1.00013 3.98401L3.08316 6.06707C3.41134 6.39526 3.94343 6.39526 4.27161 6.06708L9 1.3387"
             stroke="currentColor"
             :variants="draw"
-            :style="shape"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="transparent"
           />
         </motion.svg>
       </slot>
