@@ -1,8 +1,7 @@
-export { Field } from './field'
-export type { FieldProps } from './field'
-
-export { FieldDescription } from './field-description'
-export type { FieldDescriptionProps } from './field-description'
-
-export { FieldError } from './field-error'
-export type { FieldErrorProps } from './field-error'
+export { default as FormControl } from './FormControl.vue'
+export { default as FormDescription } from './FormDescription.vue'
+export { default as FormItem } from './FormItem.vue'
+export { default as FormLabel } from './FormLabel.vue'
+export { default as FormMessage } from './FormMessage.vue'
+export { FORM_ITEM_INJECTION_KEY } from './injectionKeys'
+export { Form, Field as FormField, FieldArray as FormFieldArray } from 'vee-validate'
