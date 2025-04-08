@@ -1,5 +1,5 @@
 <template>
-  <Tooltip :content="content">
+  <Tooltip :content="tooltip">
     <button type="button" :class="cn(infoIconVariants(), $attrs.class ?? '')" v-bind="$attrs">
       <svg width="16" height="16" viewBox="0 0 16 16" class="currentColor">
         <path

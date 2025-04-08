@@ -1,6 +1,6 @@
 <template>
   <div class="grid w-full gap-1">
-    <Label v-if="label" :for="id">{{ label }}</Label>
+    <Label v-if="label" :for="id" optional>{{ label }}</Label>
     <input
       :id="id"
       :class="cn(textFieldVariants({ error: !!error }), $attrs.class ?? '')"

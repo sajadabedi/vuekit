@@ -4,4 +4,6 @@ export const labelVariants = cva(['text-base flex gap-0.5 peer-disabled:cursor-n
 
 export interface LabelProps {
   class?: string
+  optional?: boolean
+  tooltip?: string
 }

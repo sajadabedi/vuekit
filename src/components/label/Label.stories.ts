@@ -21,9 +21,7 @@ export const Default: Story = {
     },
     template: '<Label v-bind="args">Email</Label>'
   }),
-  args: {
-    class: 'text-stone-contrast'
-  }
+  args: {}
 }
 
 export const Optional: Story = {
@@ -32,9 +30,10 @@ export const Optional: Story = {
     setup() {
       return { args }
     },
-    template: '<Label v-bind="args">Email (optional)</Label>'
+    template: '<Label v-bind="args">Email</Label>'
   }),
   args: {
-    class: 'text-stone-contrast'
+    optional: true,
+    tooltip: 'This is helpful information'
   }
 }

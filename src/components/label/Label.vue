@@ -1,6 +1,8 @@
 <template>
   <label :class="cn(labelVariants(), $attrs.class ?? '')" v-bind="$attrs">
-    <slot /> <InfoIcon content="content" />
+    <slot />
+    <span v-if="optional" class="text-tertiary text-sm">(Optional)</span>
+    <InfoIcon v-if="tooltip" :tooltip="tooltip" />
   </label>
 </template>
 

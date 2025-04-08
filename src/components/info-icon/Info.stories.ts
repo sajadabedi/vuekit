@@ -6,10 +6,10 @@ const meta = {
   component: InfoIcon,
   tags: ['autodocs'],
   args: {
-    content: 'This is an information tooltip'
+    tooltip: 'This is an information tooltip'
   },
   argTypes: {
-    content: {
+    tooltip: {
       control: 'text',
       description: 'Content to display in the tooltip'
     },
@@ -25,13 +25,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    content: 'This is helpful information'
+    tooltip: 'This is helpful information'
   }
 }
 
 export const CustomStyle: Story = {
   args: {
-    content: 'Custom styled info icon',
+    tooltip: 'Custom styled info icon',
     class: 'text-accent'
   }
 }
