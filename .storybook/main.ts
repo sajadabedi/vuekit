@@ -6,12 +6,13 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-mdx'
   ],
   framework: {
     name: '@storybook/vue3-vite',
-    options: {},
+    options: {}
   },
-  docs: {},
+  docs: {}
 }
 
 export default config

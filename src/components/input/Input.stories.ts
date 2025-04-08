@@ -1,9 +1,11 @@
+import Field from '@/components/form/field/Field.vue'
+import Label from '@/components/label/Label.vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
-import TextField from './TextField.vue'
+import Input from './Input.vue'
 
 const meta = {
-  title: 'Components/TextField',
-  component: TextField,
+  title: 'Components/Input',
+  component: Input,
   parameters: {
     layout: 'centered'
   },
@@ -13,67 +15,64 @@ const meta = {
       control: 'text'
     }
   }
-} satisfies Meta<typeof TextField>
+} satisfies Meta<typeof Input>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: (args) => ({
-    components: { TextField },
+    components: { Input, Label, Field },
     setup() {
       return { args }
     },
-    template: '<TextField v-bind="args" />'
+    template: '<Field><Label for="email">Email address</Label><Input v-bind="args" id="email" /></Field>'
   }),
   args: {
     modelValue: '',
-    label: 'Email',
     placeholder: 'Enter your email'
   }
 }
 
 export const WithLabel: Story = {
   render: (args) => ({
-    components: { TextField },
+    components: { Input, Label, Field },
     setup() {
       return { args }
     },
-    template: '<TextField v-bind="args" />'
+    template: '<Field><Label for="email">Email address</Label><Input v-bind="args" id="email" /></Field>'
   }),
   args: {
-    label: 'Email',
+    modelValue: '',
     placeholder: 'Enter your email'
   }
 }
 
 export const WithError: Story = {
   render: (args) => ({
-    components: { TextField },
+    components: { Input },
     setup() {
       return { args }
     },
-    template: '<TextField v-bind="args" />'
+    template: '<Input v-bind="args" />'
   }),
   args: {
     modelValue: '',
-    label: 'Email',
     placeholder: 'Enter your email',
-    error: 'Please enter a valid email address'
+    error: true
   }
 }
 
 export const Disabled: Story = {
   render: (args) => ({
-    components: { TextField },
+    components: { Input },
     setup() {
       return { args }
     },
-    template: '<TextField v-bind="args" />'
+    template: '<Input v-bind="args" />'
   }),
   args: {
     modelValue: '',
-    label: 'Email',
     placeholder: 'Enter your email',
     disabled: true
   }

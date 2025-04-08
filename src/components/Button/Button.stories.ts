@@ -58,3 +58,11 @@ export const Disabled: Story = {
     default: 'Disabled Button'
   }
 }
+
+export const Full: Story = {
+  args: {
+    variant: 'primary',
+    class: 'w-full absolute',
+    default: 'Full Width Button'
+  }
+}

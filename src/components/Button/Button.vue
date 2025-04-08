@@ -1,8 +1,8 @@
 <template>
   <button
-    :class="cn(buttonVariants({ variant }), $attrs.class ?? '')"
-    :disabled="disabled"
     v-bind="$attrs"
+    :class="[buttonVariants({ variant })]"
+    :disabled="disabled"
     @click="$emit('click', $event)"
     data-slot="control"
   >
@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import { buttonVariants, type ButtonProps } from '.'
 
 withDefaults(defineProps<ButtonProps>(), {
