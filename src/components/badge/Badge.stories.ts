@@ -1,101 +1,77 @@
+import { PhStar } from '@phosphor-icons/vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
-import Badge from './Badge.vue'
+import { Badge } from '.'
 
-const meta = {
+const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
-  parameters: {
-    layout: 'centered'
-  },
+  tags: ['autodocs'],
   argTypes: {
     color: {
       control: 'select',
-      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'lime', 'pink']
+      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime']
     }
-  },
-  tags: ['autodocs']
-} satisfies Meta<typeof Badge>
+  }
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    color: 'stone',
-    default: 'default'
-  }
-}
-
-export const Red: Story = {
-  args: {
-    color: 'red',
-    default: 'bug'
-  }
-}
-
-export const Pink: Story = {
-  args: {
-    color: 'pink',
-    default: 'bug'
-  }
-}
-
-export const Lime: Story = {
-  args: {
-    color: 'lime',
-    default: 'bug'
-  }
-}
-
-export const Green: Story = {
-  args: {
-    color: 'green',
-    default: 'feature'
-  }
-}
-
-export const Yellow: Story = {
-  args: {
-    color: 'yellow',
-    default: 'warning'
-  }
-}
-
-export const Blue: Story = {
-  args: {
-    color: 'blue',
-    default: 'info'
-  }
-}
-
-export const Indigo: Story = {
-  args: {
-    color: 'indigo',
-    default: 'enhancement'
-  }
-}
-
-export const Purple: Story = {
-  args: {
-    color: 'purple',
-    default: 'docs'
-  }
-}
-
-export const AllVariants: Story = {
+export const AllColors: Story = {
   render: () => ({
     components: { Badge },
     template: `
-      <div class="flex flex-wrap gap-2">
-        <Badge color="stone">default</Badge>
-        <Badge color="red">bug</Badge>
-        <Badge color="green">feature</Badge>
-        <Badge color="yellow">warning</Badge>
-        <Badge color="blue">info</Badge>
-        <Badge color="indigo">enhancement</Badge>
-        <Badge color="purple">docs</Badge>
-        <Badge color="pink">bug</Badge>
-        <Badge color="lime">bug</Badge>
+      <div class="flex flex-wrap gap-4">
+        <Badge color="red">Red</Badge>
+        <Badge color="green">Green</Badge>
+        <Badge color="yellow">Yellow</Badge>
+        <Badge color="blue">Blue</Badge>
+        <Badge color="indigo">Indigo</Badge>
+        <Badge color="purple">Purple</Badge>
+        <Badge color="stone">Stone</Badge>
+        <Badge color="pink">Pink</Badge>
+        <Badge color="lime">Lime</Badge>
+      </div>
+    `
+  })
+}
+
+export const WithIcon: Story = {
+  render: () => ({
+    components: { Badge, PhStar },
+    template: `
+      <div class="flex flex-wrap gap-4">
+        <Badge color="blue">
+          <PhStar weight="bold" />
+          With Icon
+        </Badge>
+        <Badge color="green">
+          <PhStar weight="bold" />
+          Success
+        </Badge>
+        <Badge color="red">
+          <PhStar weight="bold" />
+          Error
+        </Badge>
+      </div>
+    `
+  })
+}
+
+export const Default: Story = {
+  args: {
+    color: 'stone'
+  }
+}
+
+export const Truncated: Story = {
+  render: () => ({
+    components: { Badge },
+    template: `
+      <div class="w-32">
+        <Badge color="blue" class="w-full">
+          This is a very long text that will be truncated
+        </Badge>
       </div>
     `
   })

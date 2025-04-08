@@ -1,43 +1,30 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 
+export { default as Button } from './Button.vue'
+
 export const buttonVariants = cva(
-  [
-    'text-action font-medium relative min-w-15 has-[svg]:min-w-8 max-w-32 truncate gap-1 isolate inline-flex items-center justify-center rounded-md py-2 px-2 cursor-pointer',
-
-    'transition-colors duration-500',
-
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)]',
-    'disabled:pointer-events-none disabled:opacity-70',
-    'active:scale-99'
-  ],
+  "text-action relative inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)] active:scale-99",
   {
     variants: {
       variant: {
+        default: 'bg-interactive text-default shadow-interactive hover:bg-secondary',
+        destructive:
+          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-critical)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] hover:bg-critical/90',
         primary:
           'bg-accent bg-linear-to-t from-accent to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-accent)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] text-white hover:bg-accent/90',
-        default: 'bg-interactive text-default shadow-interactive hover:bg-secondary',
-        ghost: 'bg-transparent hover:bg-tertiary',
-        critical:
-          'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-critical)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] hover:bg-critical/90'
+        ghost: 'bg-transparent hover:bg-tertiary'
+      },
+      size: {
+        default: 'px-3 py-1 h-9 has-[>svg]:px-2',
+        sm: 'h-8 rounded-md gap-1 px-2 has-[>svg]:px-2',
+        icon: 'size-9'
       }
     },
     defaultVariants: {
-      variant: 'primary'
+      variant: 'default',
+      size: 'default'
     }
   }
 )
 
 export type ButtonVariants = VariantProps<typeof buttonVariants>
-
-export interface ButtonProps {
-  /**
-   * The variant of the button
-   * @default "primary"
-   */
-  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']
-  /**
-   * Whether the button is disabled
-   * @default false
-   */
-  disabled?: boolean
-}
