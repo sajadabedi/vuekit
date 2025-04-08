@@ -377,3 +377,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+@utility focus-ring {
+  @apply focus-visible:ring-accent/70 ring-offset-[var(--ui-color-bg-body)] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+}

@@ -17,7 +17,7 @@ export const colors = {
 export type Color = keyof typeof colors
 
 export const badgeVariants = cva(
-  'inline-flex gap-0.5 items-center rounded-sm px-1.5 h-5 text-xs font-medium max-w-64 truncate w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
+  'inline-flex gap-0.5 items-center rounded-sm px-1.5 h-5 text-xs font-medium max-w-64 truncate w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 [&>svg]:pointer-events-none focus-ring transition-[color,box-shadow]',
   {
     variants: {
       color: colors

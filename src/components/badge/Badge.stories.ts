@@ -59,17 +59,20 @@ export const WithIcon: Story = {
 }
 
 export const Default: Story = {
-  args: {
-    color: 'stone'
-  }
+  render: () => ({
+    components: { Badge },
+    template: `
+      <Badge color="stone">Default</Badge>
+    `
+  })
 }
 
 export const Truncated: Story = {
   render: () => ({
     components: { Badge },
     template: `
-      <div class="w-32">
-        <Badge color="blue" class="w-full">
+      <div class="w-32 ">
+        <Badge color="blue" class="truncate">
           This is a very long text that will be truncated
         </Badge>
       </div>
