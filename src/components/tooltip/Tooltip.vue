@@ -1,5 +1,12 @@
 <template>
-  <div ref="referenceRef" class="inline-block" @mouseenter="show" @mouseleave="hide" @focus="show" @blur="hide">
+  <div
+    ref="referenceRef"
+    class="flex place-content-center"
+    @mouseenter="show"
+    @mouseleave="hide"
+    @focus="show"
+    @blur="hide"
+  >
     <slot />
     <AnimatePresence>
       <motion.div

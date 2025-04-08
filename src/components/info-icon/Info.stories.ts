@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { InfoIcon } from './index'
 
 const meta = {
-  title: 'Components/Info',
+  title: 'Components/InfoIcon',
   component: InfoIcon,
   tags: ['autodocs'],
   args: {
@@ -13,16 +13,7 @@ const meta = {
       control: 'text',
       description: 'Content to display in the tooltip'
     },
-    side: {
-      control: 'select',
-      options: ['top', 'right', 'bottom', 'left'],
-      description: 'Position of the tooltip relative to the info icon'
-    },
-    delay: {
-      control: 'number',
-      description: 'Delay in milliseconds before showing the tooltip'
-    },
-    className: {
+    class: {
       control: 'text',
       description: 'Additional CSS classes to apply to the info icon'
     }
@@ -38,23 +29,9 @@ export const Default: Story = {
   }
 }
 
-export const CustomPosition: Story = {
-  args: {
-    content: 'Tooltip on the right',
-    side: 'right'
-  }
-}
-
-export const CustomDelay: Story = {
-  args: {
-    content: 'This tooltip appears with a delay',
-    delay: 500
-  }
-}
-
 export const CustomStyle: Story = {
   args: {
     content: 'Custom styled info icon',
-    className: 'text-accent'
+    class: 'text-blue-500'
   }
 }

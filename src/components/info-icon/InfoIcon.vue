@@ -1,6 +1,6 @@
 <template>
-  <Tooltip :content="content" :side="side" :delay="delay">
-    <button type="button" :class="cn('text-default focus:outline-none', className)" v-bind="$attrs">
+  <Tooltip :content="content">
+    <button type="button" :class="cn(infoIconVariants(), $attrs.class ?? '')" v-bind="$attrs">
       <svg width="16" height="16" viewBox="0 0 16 16" class="currentColor">
         <path
           opacity="0.15"
@@ -21,19 +21,7 @@
 <script setup lang="ts">
 import { Tooltip } from '@/components/tooltip'
 import { cn } from '@/lib/utils'
-
-export interface InfoProps {
-  content: string
-  side?: 'top' | 'right' | 'bottom' | 'left'
-  delay?: number
-  className?: string
-}
+import { infoIconVariants, type InfoProps } from '.'
 
 defineProps<InfoProps>()
-</script>
-
-<script lang="ts">
-export default {
-  name: 'InfoIcon'
-}
 </script>
