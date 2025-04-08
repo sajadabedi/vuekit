@@ -11,7 +11,7 @@ export const textFieldVariants = cva(
     // Placeholder
     'placeholder:text-stone-muted',
     // Focus
-    'focus-within:outline-none focus-within:ring-2 focus-within:ring-accent/70 focus-within:ring-offset-2 ring-offset-[var(--ui-color-bg-body)]',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)]',
     // Disabled
     'disabled:cursor-not-allowed disabled:opacity-70'
   ],

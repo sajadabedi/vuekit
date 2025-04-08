@@ -32,6 +32,6 @@ export const Default: Story = {
 export const CustomStyle: Story = {
   args: {
     content: 'Custom styled info icon',
-    class: 'text-blue-500'
+    class: 'text-accent'
   }
 }
