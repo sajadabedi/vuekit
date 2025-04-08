@@ -1,7 +1,6 @@
 <template>
   <button
-    v-bind="$attrs"
-    :class="[buttonVariants({ variant })]"
+    :class="cn(buttonVariants({ variant }), props.class)"
     :disabled="disabled"
     @click="$emit('click', $event)"
     data-slot="control"
@@ -11,9 +10,17 @@
 </template>
 
 <script setup lang="ts">
-import { buttonVariants, type ButtonProps } from '.'
+import type { HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
+import { type ButtonVariants, buttonVariants } from '.'
 
-withDefaults(defineProps<ButtonProps>(), {
+interface Props {
+  variant?: ButtonVariants['variant']
+  disabled?: boolean
+  class?: HTMLAttributes['class']
+}
+
+const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
   disabled: false
 })

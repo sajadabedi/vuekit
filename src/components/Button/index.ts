@@ -1,9 +1,11 @@
-import { cva } from 'class-variance-authority'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 export const buttonVariants = cva(
   [
     'text-action font-medium relative min-w-15 has-[svg]:min-w-8 max-w-32 truncate gap-1 isolate inline-flex items-center justify-center rounded-md py-2 px-2 cursor-pointer',
+
     'transition-colors duration-500',
+
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 ring-offset-[var(--ui-color-bg-body)]',
     'disabled:pointer-events-none disabled:opacity-70',
     'active:scale-99'
@@ -24,6 +26,8 @@ export const buttonVariants = cva(
     }
   }
 )
+
+export type ButtonVariants = VariantProps<typeof buttonVariants>
 
 export interface ButtonProps {
   /**
