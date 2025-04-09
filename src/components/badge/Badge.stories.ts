@@ -1,6 +1,6 @@
-import { PhStar } from '@phosphor-icons/vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Badge } from '.'
+import { PhStar } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Badge } from '.';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
@@ -12,16 +12,16 @@ const meta: Meta<typeof Badge> = {
       options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime']
     }
   }
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const AllColors: Story = {
   render: () => ({
     components: { Badge },
     template: `
-      <div class="flex flex-wrap gap-4">
+      <div class="flex gap-4">
         <Badge color="red">Red</Badge>
         <Badge color="green">Green</Badge>
         <Badge color="yellow">Yellow</Badge>
@@ -34,7 +34,7 @@ export const AllColors: Story = {
       </div>
     `
   })
-}
+};
 
 export const WithIcon: Story = {
   render: () => ({
@@ -56,7 +56,7 @@ export const WithIcon: Story = {
       </div>
     `
   })
-}
+};
 
 export const Default: Story = {
   render: () => ({
@@ -65,7 +65,7 @@ export const Default: Story = {
       <Badge color="stone">Default</Badge>
     `
   })
-}
+};
 
 export const Truncated: Story = {
   render: () => ({
@@ -78,4 +78,4 @@ export const Truncated: Story = {
       </div>
     `
   })
-}
+};

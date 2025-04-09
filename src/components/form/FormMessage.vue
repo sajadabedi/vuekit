@@ -11,12 +11,7 @@ const { formMessageId, error } = useFormField();
 </script>
 
 <template>
-  <p
-    v-if="error"
-    :id="formMessageId"
-    data-slot="form-message"
-    :class="cn('text-sm font-medium text-critical', props.class)"
-  >
+  <p v-if="error" :id="formMessageId" data-slot="form-message" :class="cn('text-critical text-sm', props.class)">
     {{ error }}
   </p>
 </template>

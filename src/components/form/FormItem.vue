@@ -16,11 +16,7 @@ provide(FORM_ITEM_INJECTION_KEY, { id: id.value, error: errorMessage });
 </script>
 
 <template>
-  <div
-    data-slot="form-item"
-    :class="cn('grid gap-2', props.class)"
-    :data-error="!!errorMessage"
-  >
+  <div data-slot="form-item" :class="cn('grid gap-1', props.class)" :data-error="!!errorMessage">
     <slot />
   </div>
 </template>
