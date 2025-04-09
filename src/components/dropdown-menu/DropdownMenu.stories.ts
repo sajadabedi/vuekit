@@ -1,6 +1,6 @@
-import { Button } from '@/components'
-import { PhBell, PhCaretRight, PhCheck, PhCloud, PhCreditCard, PhGear, PhUser } from '@phosphor-icons/vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
+import { Button } from '@/components';
+import { PhBell, PhCaretRight, PhCheck, PhCloud, PhCreditCard, PhGear, PhUser } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -16,16 +16,16 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '.'
+} from '.';
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'Components/DropdownMenu',
   component: DropdownMenu,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
@@ -48,22 +48,22 @@ export const Default: Story = {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <PhUser class="size-4" />
+            <PhUser weight="bold" />
             <span>Profile</span>
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <PhCreditCard class="size-4" />
+            <PhCreditCard weight="bold" />
             <span>Billing</span>
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <PhGear class="size-4" />
+            <PhGear weight="bold" />
             <span>Settings</span>
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <PhCloud class="size-4" />
+            <PhCloud weight="bold" />
             <span>New Team</span>
             <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
           </DropdownMenuItem>
@@ -71,7 +71,7 @@ export const Default: Story = {
       </DropdownMenu>
     `
   })
-}
+};
 
 export const WithGroups: Story = {
   render: () => ({
@@ -99,17 +99,17 @@ export const WithGroups: Story = {
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <PhUser class="size-4" />
+              <PhUser weight="bold" />
               <span>Profile</span>
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <PhCreditCard class="size-4" />
+              <PhCreditCard weight="bold" />
               <span>Billing</span>
               <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <PhGear class="size-4" />
+              <PhGear weight="bold" />
               <span>Settings</span>
               <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
             </DropdownMenuItem>
@@ -117,7 +117,7 @@ export const WithGroups: Story = {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <PhCloud class="size-4" />
+              <PhCloud weight="bold" />
               <span>Team</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
@@ -125,7 +125,7 @@ export const WithGroups: Story = {
       </DropdownMenu>
     `
   })
-}
+};
 
 export const WithSubmenus: Story = {
   render: () => ({
@@ -152,13 +152,13 @@ export const WithSubmenus: Story = {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <PhUser class="size-4" />
+            <PhUser weight="bold" />
             <span>Profile</span>
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <PhBell class="size-4" />
+              <PhBell weight="bold" />
               <span>Notifications</span>
               <PhCaretRight class="ml-auto size-4" />
             </DropdownMenuSubTrigger>
@@ -175,7 +175,7 @@ export const WithSubmenus: Story = {
             </DropdownMenuSubContent>
           </DropdownMenuSub>
           <DropdownMenuItem>
-            <PhGear class="size-4" />
+            <PhGear weight="bold" />
             <span>Settings</span>
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
@@ -183,7 +183,7 @@ export const WithSubmenus: Story = {
       </DropdownMenu>
     `
   })
-}
+};
 
 export const WithRadioGroups: Story = {
   render: () => ({
@@ -200,7 +200,7 @@ export const WithRadioGroups: Story = {
     setup() {
       return {
         selected: 'comfortable'
-      }
+      };
     },
     template: `
       <DropdownMenu>
@@ -211,11 +211,11 @@ export const WithRadioGroups: Story = {
           <DropdownMenuLabel>Display Density</DropdownMenuLabel>
           <DropdownMenuRadioGroup v-model="selected">
             <DropdownMenuRadioItem value="compact">
-              <PhCheck class="size-4" />
+              <PhCheck weight="bold" />
               <span>Compact</span>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="comfortable">
-              <PhCheck class="size-4" />
+              <PhCheck weight="bold" />
               <span>Comfortable</span>
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
@@ -223,7 +223,7 @@ export const WithRadioGroups: Story = {
       </DropdownMenu>
     `
   })
-}
+};
 
 export const WithCheckboxItems: Story = {
   render: () => ({
@@ -241,7 +241,7 @@ export const WithCheckboxItems: Story = {
         showStatusBar: true,
         showActivityBar: false,
         showPanel: false
-      }
+      };
     },
     template: `
       <DropdownMenu>
@@ -251,19 +251,19 @@ export const WithCheckboxItems: Story = {
         <DropdownMenuContent>
           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
           <DropdownMenuCheckboxItem v-model="showStatusBar">
-            <PhCheck class="size-4" />
+            <PhCheck weight="bold" />
             <span>Status Bar</span>
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem v-model="showActivityBar">
-            <PhCheck class="size-4" />
+            <PhCheck weight="bold" />
             <span>Activity Bar</span>
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem v-model="showPanel">
-            <PhCheck class="size-4" />
-            <span>Panel</span>
+            <PhCheck weight="bold" />
+            Panel
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
     `
   })
-}
+};
