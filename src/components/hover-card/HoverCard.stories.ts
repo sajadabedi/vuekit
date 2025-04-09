@@ -1,19 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import {
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent
-} from '.'
-import { Button } from '@/components/button'
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '.';
+import { Button } from '@/components/button';
 
 const meta: Meta<typeof HoverCard> = {
   title: 'Components/HoverCard',
   component: HoverCard,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
@@ -26,19 +22,14 @@ export const Default: Story = {
     template: `
       <HoverCard>
         <HoverCardTrigger>
-          <Button variant="ghost">@nextjs</Button>
+          <Button variant="ghost">Button</Button>
         </HoverCardTrigger>
         <HoverCardContent class="w-80">
           <div class="flex justify-between">
             <div class="flex gap-4">
-              <img
-                src="https://github.com/vercel.png"
-                class="size-10 rounded-full"
-                alt="Vercel"
-              />
               <div>
-                <h4 class="text-sm font-semibold">@nextjs</h4>
-                <p class="text-sm">The React Framework – created and maintained by @vercel.</p>
+                <h4 class="text-sm font-semibold">NuxtJS</h4>
+                <p class="text-sm">The Vue.js framework for building server-side rendered applications.</p>
               </div>
             </div>
           </div>
@@ -46,7 +37,7 @@ export const Default: Story = {
       </HoverCard>
     `
   })
-}
+};
 
 export const WithLink: Story = {
   render: () => ({
@@ -63,11 +54,6 @@ export const WithLink: Story = {
         <HoverCardContent class="w-80">
           <div class="flex justify-between">
             <div class="flex gap-4">
-              <img
-                src="https://github.com/radix-vue.png"
-                class="size-10 rounded-full"
-                alt="Radix Vue"
-              />
               <div>
                 <h4 class="text-sm font-semibold">@radix-vue</h4>
                 <p class="text-sm">Vue port of Radix UI primitives. An open-source UI component library.</p>
@@ -78,4 +64,4 @@ export const WithLink: Story = {
       </HoverCard>
     `
   })
-}
+};

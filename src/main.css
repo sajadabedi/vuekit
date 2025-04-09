@@ -103,7 +103,7 @@
     }
   }
   body {
-    @apply font-regular font-sans text-base antialiased;
+    @apply font-regular text-default font-sans text-base antialiased;
   }
   h1,
   h2,
