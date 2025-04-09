@@ -1,22 +1,27 @@
 <script setup lang="ts">
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip'
+import { Tooltip } from '@/components'
 import { type Component, computed } from 'vue'
 import SidebarMenuButtonChild, { type SidebarMenuButtonProps } from './SidebarMenuButtonChild.vue'
 import { useSidebar } from './utils'
 
 defineOptions({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 
-const props = withDefaults(defineProps<SidebarMenuButtonProps & {
-  tooltip?: string | Component
-}>(), {
-  as: 'button',
-  variant: 'default',
-  size: 'default',
-})
+const props = withDefaults(
+  defineProps<
+    SidebarMenuButtonProps & {
+      tooltip?: string | Component
+    }
+  >(),
+  {
+    as: 'button',
+    variant: 'default',
+    size: 'default'
+  }
+)
 
-const { isMobile, state } = useSidebar()
+// const { isMobile, state } = useSidebar()
 
 const delegatedProps = computed(() => {
   const { tooltip, ...delegated } = props
@@ -29,21 +34,17 @@ const delegatedProps = computed(() => {
     <slot />
   </SidebarMenuButtonChild>
 
-  <Tooltip v-else>
+  <!-- <Tooltip v-else>
     <TooltipTrigger as-child>
       <SidebarMenuButtonChild v-bind="{ ...delegatedProps, ...$attrs }">
         <slot />
       </SidebarMenuButtonChild>
     </TooltipTrigger>
-    <TooltipContent
-      side="right"
-      align="center"
-      :hidden="state !== 'collapsed' || isMobile"
-    >
+    <TooltipContent side="right" align="center" :hidden="state !== 'collapsed' || isMobile">
       <template v-if="typeof tooltip === 'string'">
         {{ tooltip }}
       </template>
       <component :is="tooltip" v-else />
     </TooltipContent>
-  </Tooltip>
+  </Tooltip> -->
 </template>

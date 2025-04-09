@@ -1,6 +1,6 @@
-import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Button } from '.'
+import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Button } from '.';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -16,10 +16,10 @@ const meta: Meta<typeof Button> = {
       options: ['default', 'sm', 'icon']
     }
   }
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const AllVariants: Story = {
   render: () => ({
@@ -33,28 +33,28 @@ export const AllVariants: Story = {
       </div>
     `
   })
-}
+};
 
 export const Default: Story = {
   render: () => ({
     components: { Button },
     template: '<Button>Default</Button>'
   })
-}
+};
 
 export const WithIcon: Story = {
   render: () => ({
     components: { Button, PhHouse },
     template: '<Button><PhHouse weight="bold" /> With Icon</Button>'
   })
-}
+};
 
 export const IconOnly: Story = {
   render: () => ({
     components: { Button, PhHouse },
     template: '<Button size="icon"><PhHouse weight="bold" /></Button>'
   })
-}
+};
 
 export const States: Story = {
   render: () => ({
@@ -66,4 +66,4 @@ export const States: Story = {
       </div>
     `
   })
-}
+};

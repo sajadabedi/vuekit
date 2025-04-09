@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { HoverCard, HoverCardTrigger, HoverCardContent } from '.'
-import { Button } from '../button'
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent
+} from '.'
+import { Button } from '@/components/button'
 
 const meta: Meta<typeof HoverCard> = {
   title: 'Components/HoverCard',
@@ -22,19 +26,19 @@ export const Default: Story = {
     template: `
       <HoverCard>
         <HoverCardTrigger>
-          <Button variant="ghost">@username</Button>
+          <Button variant="ghost">@nextjs</Button>
         </HoverCardTrigger>
         <HoverCardContent class="w-80">
-          <div class="flex justify-between space-x-4">
-            <div class="space-y-1">
-              <h4 class="text-sm font-semibold">@username</h4>
-              <p class="text-sm">
-                The quick brown fox jumps over the lazy dog.
-              </p>
-              <div class="flex items-center pt-2">
-                <span class="text-xs text-gray-500">
-                  Joined December 2021
-                </span>
+          <div class="flex justify-between">
+            <div class="flex gap-4">
+              <img
+                src="https://github.com/vercel.png"
+                class="size-10 rounded-full"
+                alt="Vercel"
+              />
+              <div>
+                <h4 class="text-sm font-semibold">@nextjs</h4>
+                <p class="text-sm">The React Framework – created and maintained by @vercel.</p>
               </div>
             </div>
           </div>
@@ -44,32 +48,30 @@ export const Default: Story = {
   })
 }
 
-export const WithImage: Story = {
+export const WithLink: Story = {
   render: () => ({
     components: {
       HoverCard,
       HoverCardTrigger,
-      HoverCardContent,
-      Button
+      HoverCardContent
     },
     template: `
       <HoverCard>
         <HoverCardTrigger>
-          <Button variant="ghost">Product Info</Button>
+          <a href="#" class="text-sm font-medium underline">@radix-vue</a>
         </HoverCardTrigger>
         <HoverCardContent class="w-80">
-          <div class="flex justify-between space-x-4">
-            <img
-              class="h-24 w-24 rounded-md"
-              src="https://via.placeholder.com/150"
-              alt="Product"
-            />
-            <div class="space-y-1">
-              <h4 class="text-sm font-semibold">Product Name</h4>
-              <p class="text-sm text-gray-600">
-                Brief product description goes here.
-              </p>
-              <p class="text-sm font-semibold">$99.99</p>
+          <div class="flex justify-between">
+            <div class="flex gap-4">
+              <img
+                src="https://github.com/radix-vue.png"
+                class="size-10 rounded-full"
+                alt="Radix Vue"
+              />
+              <div>
+                <h4 class="text-sm font-semibold">@radix-vue</h4>
+                <p class="text-sm">Vue port of Radix UI primitives. An open-source UI component library.</p>
+              </div>
             </div>
           </div>
         </HoverCardContent>

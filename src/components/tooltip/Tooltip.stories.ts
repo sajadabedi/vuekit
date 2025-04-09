@@ -1,6 +1,6 @@
+import { Button } from '@/components'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { Tooltip } from './index'
-import { Button } from '@/components'
 
 const meta = {
   title: 'Components/Tooltip',

@@ -1,14 +1,6 @@
+import { Button } from '@/components/button'
 import type { Meta, StoryObj } from '@storybook/vue3'
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter
-} from '.'
-import { Button } from '../button'
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '.'
 
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',

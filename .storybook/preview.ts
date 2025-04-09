@@ -5,7 +5,7 @@ const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     backgrounds: {
-      default: 'light',
+      default: 'light'
       // values: [
       //   { name: 'light', value: '#fff' },
       //   { name: 'dark', value: 'var(--ui---color-accent' },
@@ -14,13 +14,13 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+        date: /Date$/i
+      }
     },
     docs: {
-      inlineStories: true,
-    },
-  },
+      inlineStories: true
+    }
+  }
 }
 
 export default preview

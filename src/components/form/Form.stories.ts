@@ -1,8 +1,7 @@
+import { Button, Input } from '@/components'
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { Form, FormItem, FormLabel, FormControl, FormMessage, FormDescription } from '.'
-import { Input } from '../input'
-import { Button } from '@components/button/'
 import { ref } from 'vue'
+import { Form, FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '.'
 
 const meta: Meta<typeof Form> = {
   title: 'Components/Form',

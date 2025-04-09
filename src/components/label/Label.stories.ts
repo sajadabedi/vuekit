@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { Label } from '.'
-import { Input } from '../input'
-import { Checkbox } from '../checkbox'
-import { RadioGroup, RadioGroupItem } from '../radio-group'
+import { Input } from '@/components/input'
+import { Checkbox } from '@/components/checkbox'
+import { RadioGroup, RadioGroupItem } from '@/components/radio-group'
 
 const meta: Meta<typeof Label> = {
   title: 'Components/Label',
@@ -24,8 +24,8 @@ export const WithInput: Story = {
   render: () => ({
     components: { Label, Input },
     template: `
-      <div class="grid w-full max-w-sm items-center gap-1.5">
-        <Label for="email">Email</Label>
+      <div class="grid gap-2">
+        <Label for="email">Your email address</Label>
         <Input type="email" id="email" placeholder="Email" />
       </div>
     `
@@ -36,7 +36,7 @@ export const WithCheckbox: Story = {
   render: () => ({
     components: { Label, Checkbox },
     template: `
-      <div class="flex items-center space-x-2">
+      <div class="flex gap-2">
         <Checkbox id="terms" />
         <Label for="terms">Accept terms and conditions</Label>
       </div>
@@ -49,11 +49,11 @@ export const WithRadioGroup: Story = {
     components: { Label, RadioGroup, RadioGroupItem },
     template: `
       <RadioGroup class="grid gap-2">
-        <div class="flex items-center space-x-2">
+        <div class="flex gap-2">
           <RadioGroupItem value="default" id="default" />
           <Label for="default">Default</Label>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex gap-2">
           <RadioGroupItem value="comfortable" id="comfortable" />
           <Label for="comfortable">Comfortable</Label>
         </div>
@@ -66,11 +66,9 @@ export const Required: Story = {
   render: () => ({
     components: { Label, Input },
     template: `
-      <div class="grid w-full max-w-sm items-center gap-1.5">
-        <Label for="username" class="after:content-['*'] after:ml-0.5 after:text-red-500">
-          Username
-        </Label>
-        <Input type="text" id="username" placeholder="Username" required />
+      <div class="grid gap-2">
+        <Label for="email" required>Email address</Label>
+        <Input type="email" id="email" placeholder="Email" required />
       </div>
     `
   })

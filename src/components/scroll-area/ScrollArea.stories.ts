@@ -10,15 +10,17 @@ const meta: Meta<typeof ScrollArea> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+const tags = Array.from({ length: 50 }).map((_, i) => `v1.2.${i}`)
+
 export const Default: Story = {
   render: () => ({
     components: { ScrollArea },
     template: `
-      <ScrollArea class="h-[200px] w-[350px] rounded-md border p-4">
-        <div class="space-y-4">
-          <h4 class="text-sm font-medium leading-none">Title</h4>
-          ${Array.from({ length: 50 }, (_, i) => `
-            <p class="text-sm">Item ${i + 1}</p>
+      <ScrollArea class="h-72 w-48">
+        <div class="p-4">
+          <h4 class="mb-4 text-sm font-medium leading-none">Tags</h4>
+          ${tags.map((tag) => `
+            <div class="text-sm" key="${tag}">${tag}</div>
           `).join('')}
         </div>
       </ScrollArea>
@@ -30,12 +32,10 @@ export const Horizontal: Story = {
   render: () => ({
     components: { ScrollArea },
     template: `
-      <ScrollArea class="w-[350px] whitespace-nowrap rounded-md border">
-        <div class="flex w-max space-x-4 p-4">
-          ${Array.from({ length: 50 }, (_, i) => `
-            <div class="w-[150px] flex-shrink-0 rounded-md border p-4">
-              <div class="text-sm">Item ${i + 1}</div>
-            </div>
+      <ScrollArea class="w-48 whitespace-nowrap">
+        <div class="flex w-max p-4">
+          ${tags.map((tag) => `
+            <div class="w-48 flex-shrink-0" key="${tag}">${tag}</div>
           `).join('')}
         </div>
       </ScrollArea>
@@ -47,7 +47,7 @@ export const WithContent: Story = {
   render: () => ({
     components: { ScrollArea },
     template: `
-      <ScrollArea class="h-[300px] w-[400px] rounded-md border p-4">
+      <ScrollArea class="h-72 w-48 p-4">
         <div class="space-y-4">
           <h4 class="text-xl font-bold">Lorem Ipsum</h4>
           <p class="text-sm text-gray-500">
@@ -70,6 +70,22 @@ export const WithContent: Story = {
             ipsa quae ab illo inventore veritatis et quasi architecto 
             beatae vitae dicta sunt explicabo.
           </p>
+        </div>
+      </ScrollArea>
+    `
+  })
+}
+
+export const WithBorder: Story = {
+  render: () => ({
+    components: { ScrollArea },
+    template: `
+      <ScrollArea class="h-72 w-48 border">
+        <div class="p-4">
+          <h4 class="mb-4 text-sm font-medium leading-none">Tags</h4>
+          ${tags.map((tag) => `
+            <div class="text-sm" key="${tag}">${tag}</div>
+          `).join('')}
         </div>
       </ScrollArea>
     `

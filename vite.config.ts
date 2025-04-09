@@ -8,29 +8,29 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      insertTypesEntry: true,
+      insertTypesEntry: true
     }),
-    tailwindcss(),
+    tailwindcss()
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-    },
+      '@': resolve(__dirname, './src')
+    }
   },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'FirstbaseUI',
-      fileName: (format) => `ui.${format}.js`,
+      fileName: (format) => `ui.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
       output: {
         globals: {
-          vue: 'Vue',
+          vue: 'Vue'
         },
         exports: 'named'
-      },
-    },
-  },
+      }
+    }
+  }
 })
