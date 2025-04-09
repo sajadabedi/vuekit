@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { Label } from '@/components/label-2'
-import { cn } from '@/lib/utils'
-import type { LabelProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
-import { useFormField } from './useFormField'
+import { Label } from '@/components';
+import { cn } from '@/lib/utils';
+import type { LabelProps } from 'reka-ui';
+import type { HTMLAttributes } from 'vue';
+import { useFormField } from './useFormField';
 
-const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>();
 
-const { error, formItemId } = useFormField()
+const { error, formItemId } = useFormField();
 </script>
 
 <template>

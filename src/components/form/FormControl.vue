@@ -1,17 +1,23 @@
 <script lang="ts" setup>
-import { Slot } from 'reka-ui'
-import { useFormField } from './useFormField'
+import { cn } from '@/lib/utils';
+import { type HTMLAttributes } from 'vue';
+import { useFormField } from './useFormField';
 
-const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
+const props = defineProps<{
+  class?: HTMLAttributes['class'];
+}>();
+
+const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
 </script>
 
 <template>
-  <Slot
+  <div
     :id="formItemId"
     data-slot="form-control"
-    :aria-describedby="!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`"
+    :aria-describedby="!error ? formDescriptionId : `${formDescriptionId} ${formMessageId}`"
     :aria-invalid="!!error"
+    :class="cn('relative', props.class)"
   >
     <slot />
-  </Slot>
+  </div>
 </template>
