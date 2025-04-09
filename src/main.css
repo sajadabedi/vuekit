@@ -14,7 +14,7 @@
     --ui-color-text-placeholder: var(--tw-stone-400);
     --ui-color-text-disabled: var(--tw-stone-400);
     --ui-color-text-success: var(--tw-green-700);
-    --ui-color-text-critical: var(--tw-red-700);
+    --ui-color-text-critical: var(--tw-red-600);
     --ui-color-text-warning: var(--tw-yellow-700);
     --ui-color-text-red-contrast: var(--tw-red-700);
     --ui-color-text-green-contrast: var(--tw-green-700);

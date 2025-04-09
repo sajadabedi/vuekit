@@ -30,7 +30,7 @@ export const WithLabel: Story = {
     components: { Input, FormItem, FormLabel, FormControl },
     template: `
     <FormItem>
-      <FormLabel>Email</FormLabel>
+      <FormLabel tooltip="test" optional>Email</FormLabel>
       <FormControl>
         <Input placeholder="Enter your email" />
       </FormControl>

@@ -4,6 +4,8 @@ import { useField } from 'vee-validate';
 import { type HTMLAttributes, provide, computed } from 'vue';
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys';
 
+// TODO: handling error and validation
+
 const props = defineProps<{
   class?: HTMLAttributes['class'];
   name?: string;
@@ -16,7 +18,11 @@ provide(FORM_ITEM_INJECTION_KEY, { id: id.value, error: errorMessage });
 </script>
 
 <template>
-  <div data-slot="form-item" :class="cn('isolate grid gap-1', props.class)" :data-error="!!errorMessage">
+  <div
+    data-slot="form-item"
+    :class="cn('isolate grid gap-1 [&>input]:scale-125', props.class)"
+    :data-error="!!errorMessage"
+  >
     <slot />
   </div>
 </template>
