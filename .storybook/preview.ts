@@ -1,5 +1,11 @@
 import type { Preview } from '@storybook/vue3'
 import '../src/main.css'
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 const preview: Preview = {
   parameters: {

@@ -1,15 +1,15 @@
-import { Button } from '@/components/button'
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '.'
+import { Button } from '@/components/button';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '.';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
   component: Dialog,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
@@ -35,15 +35,13 @@ export const Default: Story = {
               Make changes to your profile here. Click save when you're done.
             </DialogDescription>
           </DialogHeader>
-          <div class="py-4">
-            Some content here
-          </div>
+          <div class="px-4 pb-5">Your content goes here</div>
           <DialogFooter>
             <Button variant="ghost">Cancel</Button>
-            <Button>Save Changes</Button>
+            <Button variant="primary">Save Changes</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     `
   })
-}
+};
