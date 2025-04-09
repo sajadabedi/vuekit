@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Input } from '.';
-import { Label } from '@/components/label';
-import { PhUser } from '@phosphor-icons/vue';
+import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/components/form';
+import { PhMagnifyingGlass } from '@phosphor-icons/vue';
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -14,70 +14,90 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
-    components: { Input },
-    template: '<Input type="email" placeholder="Email" />'
+    components: { Input, FormItem, FormControl },
+    template: `
+    <FormItem>
+      <FormControl>
+        <Input placeholder="Email" />
+      </FormControl>
+    </FormItem>
+    `
   })
 };
 
 export const WithLabel: Story = {
   render: () => ({
-    components: { Input, Label },
+    components: { Input, FormItem, FormLabel, FormControl },
     template: `
-      <div class="grid gap-2">
-        <Label for="email">Email</Label>
-        <Input type="email" id="email" placeholder="Email" />
-      </div>
+    <FormItem>
+      <FormLabel>Email</FormLabel>
+      <FormControl>
+        <Input placeholder="Enter your email" />
+      </FormControl>
+    </FormItem>
     `
   })
 };
 
-export const WithText: Story = {
+export const WithDescription: Story = {
   render: () => ({
-    components: { Input },
+    components: { Input, FormItem, FormLabel, FormControl, FormDescription },
     template: `
-      <div class="grid gap-2">
-        <Input type="email" value="example@email.com" />
-      </div>
+    <FormItem>
+      <FormLabel>Email</FormLabel>
+      <FormControl>
+        <Input placeholder="Enter your email" />
+      </FormControl>
+      <FormDescription>
+        This is the email we'll use for important notifications.
+      </FormDescription>
+    </FormItem>
     `
   })
 };
 
 export const WithError: Story = {
   render: () => ({
-    components: { Input, Label },
+    components: { Input, FormItem, FormLabel, FormControl, FormMessage },
     template: `
-      <div class="grid gap-2">
-        <Label for="email">Email</Label>
+    <FormItem>
+      <FormLabel>Email</FormLabel>
+      <FormControl>
         <Input
-          type="email"
-          id="email"
           placeholder="Enter your email"
           modelValue="invalid.email"
-          error
           aria-invalid="true"
-          aria-describedby="email-error"
         />
-        <p id="email-error" class="text-sm font-medium text-critical">Please enter a valid email address</p>
-      </div>
+      </FormControl>
+      <FormMessage>Please enter a valid email address</FormMessage>
+    </FormItem>
     `
   })
 };
 
 export const WithIcon: Story = {
   render: () => ({
-    components: { Input, PhUser },
+    components: { Input, FormItem, FormControl, PhMagnifyingGlass },
     template: `
-      <div class="relative">
-        <PhUser class="absolute left-3 top-2.5 size-4 text-gray-500" />
-        <Input placeholder="Username" class="pl-10" />
-      </div>
+    <FormItem>
+      <FormControl>
+        <PhMagnifyingGlass weight="bold" />
+        <Input placeholder="Search" />
+      </FormControl>
+    </FormItem>
     `
   })
 };
 
 export const Disabled: Story = {
   render: () => ({
-    components: { Input },
-    template: '<Input disabled placeholder="Email" />'
+    components: { Input, FormItem, FormControl },
+    template: `
+    <FormItem>
+      <FormControl>
+        <Input disabled placeholder="Email" />
+      </FormControl>
+    </FormItem>
+    `
   })
 };

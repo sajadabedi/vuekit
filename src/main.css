@@ -129,27 +129,6 @@
 @theme {
   /* === Core Tokens === */
 
-  /* shadcn */
-  /* === shadcn === */
-  /* --sidebar: oklch(0.985 0.001 106.423);
-  --sidebar-foreground: oklch(0.147 0.004 49.25);
-  --sidebar-primary: oklch(0.216 0.006 56.043);
-  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-accent: oklch(0.97 0.001 106.424);
-  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
-  --sidebar-border: oklch(0.923 0.003 48.717);
-  --sidebar-ring: oklch(0.709 0.01 56.259); */
-
-  /* sidebar */
-  /* --sidebar-background: rgb(255 255 255);
-  --sidebar-foreground: rgb(240 240 240);
-  --sidebar-primary: rgb(240 240 240);
-  --sidebar-primary-foreground: rgb(255 255 255);
-  --sidebar-accent: rgb(240 240 240);
-  --sidebar-accent-foreground: rgb(255 255 255);
-  --sidebar-border: rgb(220 220 220);
-  --sidebar-ring: rgb(217.2 91.2% 59.8%); */
-
   /* Remove Tailwind defaults */
   --color-*: initial;
   --font-*: initial;
@@ -159,13 +138,9 @@
   --transition-*: initial;
   --gradient-*: initial;
   --motion-*: initial;
-  --space-*: initial;
-  --duration-*: initial;
   --ease-*: initial;
   --leading-*: initial;
   --radius-*: initial;
-  --rounding-*: initial;
-  --rounded-*: initial;
 
   /* Font */
   --font-sans: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;

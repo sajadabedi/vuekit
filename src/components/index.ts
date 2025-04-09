@@ -4,9 +4,6 @@ export { Button } from './button';
 export { Checkbox } from './checkbox';
 export { Dialog, DialogContent, DialogTrigger } from './dialog';
 export { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu';
-// export { Field } from './form-2/field'
-// export { FieldDescription } from './form-2/field-description'
-// export { FieldError } from './form-2/field-error'
 export { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card';
 export { InfoIcon } from './info-icon';
 export { Input } from './input';
@@ -22,3 +19,4 @@ export { Switch } from './switch';
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
 export { Textarea } from './textarea';
 export { Tooltip } from './tooltip';
+export { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from './form';
