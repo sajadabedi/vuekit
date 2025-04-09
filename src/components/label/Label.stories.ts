@@ -1,24 +1,35 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Label } from '.'
-import { Input } from '@/components/input'
-import { Checkbox } from '@/components/checkbox'
-import { RadioGroup, RadioGroupItem } from '@/components/radio-group'
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Label } from '.';
+import { Input } from '@/components/input';
+import { Checkbox } from '@/components/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/radio-group';
 
 const meta: Meta<typeof Label> = {
   title: 'Components/Label',
   component: Label,
-  tags: ['autodocs']
-}
+  tags: ['autodocs'],
+  argTypes: {
+    optional: {
+      control: 'boolean',
+      description: 'Show optional indicator',
+      defaultValue: false
+    },
+    tooltip: {
+      control: 'text',
+      description: 'Tooltip text to show when hovering over the info icon'
+    }
+  }
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
     components: { Label },
     template: '<Label>Accept terms and conditions</Label>'
   })
-}
+};
 
 export const WithInput: Story = {
   render: () => ({
@@ -30,7 +41,7 @@ export const WithInput: Story = {
       </div>
     `
   })
-}
+};
 
 export const WithCheckbox: Story = {
   render: () => ({
@@ -42,7 +53,7 @@ export const WithCheckbox: Story = {
       </div>
     `
   })
-}
+};
 
 export const WithRadioGroup: Story = {
   render: () => ({
@@ -60,7 +71,7 @@ export const WithRadioGroup: Story = {
       </RadioGroup>
     `
   })
-}
+};
 
 export const Required: Story = {
   render: () => ({
@@ -72,4 +83,25 @@ export const Required: Story = {
       </div>
     `
   })
-}
+};
+
+export const Optional: Story = {
+  render: () => ({
+    components: { Label },
+    template: '<Label optional>Email</Label>'
+  })
+};
+
+export const WithTooltip: Story = {
+  render: () => ({
+    components: { Label },
+    template: '<Label tooltip="Will be used for notifications">Email</Label>'
+  })
+};
+
+export const OptionalWithTooltip: Story = {
+  render: () => ({
+    components: { Label },
+    template: '<Label optional tooltip="Will be used for notifications">Email</Label>'
+  })
+};

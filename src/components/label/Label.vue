@@ -2,11 +2,18 @@
 import { cn } from '@/lib/utils';
 import { Label, type LabelProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
+import { InfoIcon } from '@/components/info-icon';
 
-const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>();
+interface ExtendedLabelProps extends LabelProps {
+  class?: HTMLAttributes['class'];
+  optional?: boolean;
+  tooltip?: string;
+}
+
+const props = defineProps<ExtendedLabelProps>();
 
 const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
+  const { class: _, optional, tooltip, ...delegated } = props;
 
   return delegated;
 });
@@ -24,5 +31,7 @@ const delegatedProps = computed(() => {
     "
   >
     <slot />
+    <span v-if="optional" class="text-tertiary text-sm">(Optional)</span>
+    <InfoIcon v-if="tooltip" :tooltip="tooltip" />
   </Label>
 </template>
