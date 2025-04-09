@@ -1,25 +1,25 @@
-import { Label } from '@/components'
-import { PhCheck } from '@phosphor-icons/vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { computed, ref } from 'vue'
-import { Checkbox } from '.'
+import { Label } from '@/components';
+import { PhCheck } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { computed, ref } from 'vue';
+import { Checkbox } from '.';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Checkbox',
   component: Checkbox,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const AllStates: Story = {
   render: () => ({
     components: { Checkbox, Label },
     setup() {
-      const checked = ref(true)
-      const indeterminate = ref(true)
-      return { checked, indeterminate }
+      const checked = ref(true);
+      const indeterminate = ref(true);
+      return { checked, indeterminate };
     },
     template: `
       <div class="flex flex-col gap-4">
@@ -42,14 +42,14 @@ export const AllStates: Story = {
       </div>
     `
   })
-}
+};
 
 export const CustomIcon: Story = {
   render: () => ({
     components: { Checkbox, PhCheck },
     setup() {
-      const checked = ref(true)
-      return { checked }
+      const checked = ref(true);
+      return { checked };
     },
     template: `
       <div class="flex items-center gap-2">
@@ -60,21 +60,21 @@ export const CustomIcon: Story = {
       </div>
     `
   })
-}
+};
 
 export const FormGroup: Story = {
   render: () => ({
     components: { Checkbox, Label },
     setup() {
-      const items = ref([false, false, false])
-      const allChecked = computed(() => items.value.every(Boolean))
-      const isIndeterminate = computed(() => items.value.some(Boolean) && !allChecked.value)
+      const items = ref([false, false, false]);
+      const allChecked = computed(() => items.value.every(Boolean));
+      const isIndeterminate = computed(() => items.value.some(Boolean) && !allChecked.value);
 
       function toggleAll(checked: boolean) {
-        items.value = items.value.map(() => checked)
+        items.value = items.value.map(() => checked);
       }
 
-      return { items, allChecked, isIndeterminate, toggleAll }
+      return { items, allChecked, isIndeterminate, toggleAll };
     },
     template: `
       <div class="flex flex-col gap-4">
@@ -95,14 +95,14 @@ export const FormGroup: Story = {
       </div>
     `
   })
-}
+};
 
 export const WithDescription: Story = {
   render: () => ({
     components: { Checkbox, Label },
     setup() {
-      const checked = ref(false)
-      return { checked }
+      const checked = ref(false);
+      return { checked };
     },
     template: `
       <div class="flex gap-2">
@@ -116,4 +116,4 @@ export const WithDescription: Story = {
       </div>
     `
   })
-}
+};
