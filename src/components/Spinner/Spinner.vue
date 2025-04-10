@@ -14,11 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
+import type { SpinnerProps } from './Spinner.types';
 
-export interface Props {
-  class?: string
-}
-
-defineProps<Props>()
+defineProps<SpinnerProps>();
 </script>
