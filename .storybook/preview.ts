@@ -10,9 +10,13 @@ export function cn(...inputs: ClassValue[]) {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
-    // backgrounds: {
-    //   default: 'light'
-    // },
+    backgrounds: {
+      values: [
+        { name: 'Dark', value: 'var(--ui-color-bg-body)' },
+        { name: 'Light', value: 'var(--ui-color-bg-body)' }
+      ],
+      default: 'Light'
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
