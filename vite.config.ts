@@ -26,18 +26,15 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'FirstbaseUI',
+      formats: ['es'],
       fileName: (format) => `ui.${format}.js`
     },
     rollupOptions: {
       external: ['vue', /\.stories\.ts$/],
-      input: {
-        main: resolve(__dirname, 'src/index.ts')
-      },
       output: {
         globals: {
           vue: 'Vue'
         },
-        exports: 'named',
         preserveModules: true,
         preserveModulesRoot: 'src',
         entryFileNames: '[name].js'
