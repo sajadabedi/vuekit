@@ -73,9 +73,11 @@
       --ui-color-text-green-contrast: var(--tw-green-400);
       --ui-color-text-yellow-contrast: var(--tw-yellow-400);
       --ui-color-text-blue-contrast: var(--tw-blue-400);
-      --ui-color-text-indigo-contrast: var(--tw-indigo-400);
-      --ui-color-text-purple-contrast: var(--tw-purple-400);
+      --ui-color-text-indigo-contrast: var(--tw-indigo-300);
+      --ui-color-text-purple-contrast: var(--tw-purple-300);
       --ui-color-text-stone-contrast: var(--tw-stone-400); /* bg */
+      --ui-color-text-lime-contrast: var(--tw-lime-300);
+      --ui-color-text-pink-contrast: var(--tw-pink-300);
       --ui-color-bg-body: var(--tw-stone-950);
       --ui-color-bg-secondary: var(--tw-stone-900);
       --ui-color-bg-tertiary: var(--tw-stone-800);
