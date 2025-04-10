@@ -141,9 +141,9 @@
   --font-weight-*: initial;
   --text-*: initial;
   /* --shadow-*: initial; */
-  --gradient-*: initial;
+  /* --gradient-*: initial; */
   /* --leading-*: initial; */
-  --radius-*: initial;
+  /* --radius-*: initial; */
 
   /* Font */
   --font-sans: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;

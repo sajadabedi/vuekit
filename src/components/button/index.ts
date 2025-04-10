@@ -6,12 +6,13 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-interactive text-default shadow-interactive hover:bg-secondary',
+        default:
+          'bg-interactive bg-linear-to-t from-white/5 to-white/1 text-default shadow-interactive hover:bg-secondary',
         destructive:
           'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-critical)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] hover:bg-critical/80',
         primary:
           'bg-accent bg-linear-to-t from-accent to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-accent)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] text-white hover:bg-accent/90',
-        ghost: 'text-default bg-transparent hover:bg-tertiary'
+        ghost: 'text-default bg-transparent hover:bg-muted/75'
       },
       size: {
         default: 'px-3 py-1 h-8.5 has-[>svg]:px-2',
