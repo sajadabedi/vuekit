@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { Toaster, toast } from '.'
-import { Button } from '../button/'
+import { Button } from '../button'
 
 const meta: Meta<typeof Toaster> = {
   title: 'Components/Sonner',

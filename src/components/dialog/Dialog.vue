@@ -4,7 +4,7 @@ import { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardProps
 const props = defineProps<DialogRootProps>();
 const emits = defineEmits<DialogRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(props, emits) as { [K in keyof DialogRootProps]: DialogRootProps[K] };
 </script>
 
 <template>

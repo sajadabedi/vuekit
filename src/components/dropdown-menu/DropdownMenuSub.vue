@@ -9,7 +9,7 @@ import {
 const props = defineProps<DropdownMenuSubProps>()
 const emits = defineEmits<DropdownMenuSubEmits>()
 
-const forwarded = useForwardPropsEmits(props, emits)
+const forwarded = useForwardPropsEmits(props, emits) as { [K in keyof DropdownMenuSubProps]: DropdownMenuSubProps[K] }
 </script>
 
 <template>

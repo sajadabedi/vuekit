@@ -1,27 +1,16 @@
 <script setup lang="ts">
-import { Tooltip } from '@/components'
-import { type Component, computed } from 'vue'
+import { computed } from 'vue'
 import SidebarMenuButtonChild, { type SidebarMenuButtonProps } from './SidebarMenuButtonChild.vue'
-import { useSidebar } from './utils'
 
 defineOptions({
   inheritAttrs: false
 })
 
-const props = withDefaults(
-  defineProps<
-    SidebarMenuButtonProps & {
-      tooltip?: string | Component
-    }
-  >(),
-  {
-    as: 'button',
-    variant: 'default',
-    size: 'default'
-  }
-)
-
-// const { isMobile, state } = useSidebar()
+const props = withDefaults(defineProps<SidebarMenuButtonProps & { tooltip?: string }>(), {
+  tooltip: '',
+  variant: 'default',
+  size: 'default'
+})
 
 const delegatedProps = computed(() => {
   const { tooltip, ...delegated } = props

@@ -8,8 +8,9 @@ import { TabsRoot, useForwardPropsEmits } from 'reka-ui'
 const props = defineProps<TabsRootProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<TabsRootEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
-const forwarded = useForwardPropsEmits(delegatedProps, emits)
+const delegatedProps = reactiveOmit(props, 'class', 'defaultValue')
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits) as { [K in keyof TabsRootProps]: TabsRootProps[K] }
 </script>
 
 <template>

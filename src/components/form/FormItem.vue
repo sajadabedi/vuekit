@@ -11,10 +11,10 @@ const props = defineProps<{
   name?: string;
 }>();
 
-const { errorMessage, value } = useField(() => props.name ?? '');
+const { errorMessage } = useField(() => props.name ?? '');
 
 const id = computed(() => `${props.name}-form-item`);
-provide(FORM_ITEM_INJECTION_KEY, { id: id.value, error: errorMessage });
+provide(FORM_ITEM_INJECTION_KEY, { id: id.value, error: errorMessage.value });
 </script>
 
 <template>

@@ -11,8 +11,9 @@ import {
 
 const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'], inset?: boolean }>()
 
-const delegatedProps = reactiveOmit(props, 'class', 'inset')
-const forwardedProps = useForwardProps(delegatedProps)
+type DelegatedProps = Omit<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'], inset?: boolean }, 'class' | 'inset'>;
+const delegatedProps = reactiveOmit(props, 'class', 'inset') as DelegatedProps;
+const forwardedProps = useForwardProps(delegatedProps) as DelegatedProps;
 </script>
 
 <template>

@@ -8,7 +8,7 @@ import {
   SheetTitle,
   SheetDescription
 } from '.'
-import { Button } from '@/components/button'
+import { Button } from '../button'
 import { Input } from '@/components/input'
 import { Label } from '@/components/label'
 
