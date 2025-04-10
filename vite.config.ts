@@ -9,7 +9,11 @@ export default defineConfig({
     vue(),
     dts({
       insertTypesEntry: true,
-      include: ['src/**/*.ts', 'src/**/*.vue']
+      include: ['src/**/*.ts', 'src/**/*.vue'],
+      beforeWriteFile: (filePath, content) => ({
+        filePath: filePath.replace('/dist/src/', '/dist/'),
+        content
+      })
     }),
     tailwindcss()
   ],
@@ -31,7 +35,9 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         },
-        exports: 'named'
+        exports: 'named',
+        preserveModules: true,
+        preserveModulesRoot: 'src'
       }
     }
   }
