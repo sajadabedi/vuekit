@@ -1,21 +1,23 @@
-import tailwindcss from '@tailwindcss/vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
+import tailwindcss from '@tailwindcss/vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
     vue(),
     dts({
-      insertTypesEntry: true
+      insertTypesEntry: true,
+      include: ['src/**/*.ts', 'src/**/*.vue']
     }),
     tailwindcss()
   ],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src')
-    }
+    },
+    dedupe: ['vue']
   },
   build: {
     lib: {
@@ -33,4 +35,4 @@ export default defineConfig({
       }
     }
   }
-})
+});
