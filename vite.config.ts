@@ -18,10 +18,12 @@ export default defineConfig({
     tailwindcss()
   ],
   resolve: {
-    alias: {
-      '@': resolve(__dirname, './src')
-    },
-    dedupe: ['vue']
+    alias: [
+      {
+        find: '@',
+        replacement: resolve(__dirname, './src')
+      }
+    ]
   },
   build: {
     lib: {
