@@ -17,14 +17,6 @@ export default defineConfig({
     }),
     tailwindcss()
   ],
-  resolve: {
-    alias: [
-      {
-        find: '@',
-        replacement: resolve(__dirname, './src')
-      }
-    ]
-  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -33,13 +25,17 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['vue'],
+      input: {
+        main: resolve(__dirname, 'src/index.ts')
+      },
       output: {
         globals: {
           vue: 'Vue'
         },
         exports: 'named',
         preserveModules: true,
-        preserveModulesRoot: 'src'
+        preserveModulesRoot: 'src',
+        entryFileNames: '[name].js'
       }
     }
   }
