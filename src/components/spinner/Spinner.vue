@@ -15,7 +15,10 @@
 
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import type { SpinnerProps } from './Spinner.types';
+
+interface SpinnerProps {
+  class?: string;
+}
 
 defineProps<SpinnerProps>();
 </script>

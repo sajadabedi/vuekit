@@ -6,7 +6,10 @@ import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 
 
 const props = defineProps<DropdownMenuLabelProps & { class?: HTMLAttributes['class']; inset?: boolean }>();
 
-type DelegatedProps = Omit<DropdownMenuLabelProps & { class?: HTMLAttributes['class']; inset?: boolean }, 'class' | 'inset'>;
+type DelegatedProps = Omit<
+  DropdownMenuLabelProps & { class?: HTMLAttributes['class']; inset?: boolean },
+  'class' | 'inset'
+>;
 const delegatedProps = reactiveOmit(props, 'class', 'inset') as DelegatedProps;
 const forwardedProps = useForwardProps(delegatedProps) as DelegatedProps;
 </script>
@@ -16,7 +19,7 @@ const forwardedProps = useForwardProps(delegatedProps) as DelegatedProps;
     data-slot="dropdown-menu-label"
     :data-inset="inset ? '' : undefined"
     v-bind="forwardedProps"
-    :class="cn('px-2 py-1.5 text-sm data-[inset]:pl-8', props.class)"
+    :class="cn('px-2 py-1.5 text-xs data-[inset]:pl-8', props.class)"
   >
     <slot />
   </DropdownMenuLabel>
