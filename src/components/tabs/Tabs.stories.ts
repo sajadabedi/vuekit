@@ -1,17 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '.'
-import { Button } from '../button'
-import { Input } from '../input'
-import { Label } from '../label'
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '.';
+import { Button, Input, Label } from '@/components';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
@@ -40,7 +38,7 @@ export const Default: Story = {
       </Tabs>
     `
   })
-}
+};
 
 export const WithForm: Story = {
   render: () => ({
@@ -88,7 +86,7 @@ export const WithForm: Story = {
       </Tabs>
     `
   })
-}
+};
 
 export const Disabled: Story = {
   render: () => ({
@@ -117,4 +115,4 @@ export const Disabled: Story = {
       </Tabs>
     `
   })
-}
+};

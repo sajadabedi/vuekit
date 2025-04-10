@@ -1,4 +1,4 @@
-import { Button } from '@/components/button';
+import { Button } from '@/components';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '.';
 

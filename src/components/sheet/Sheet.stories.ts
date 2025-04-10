@@ -1,25 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription
-} from '.'
-import { Button } from '../button'
-import { Input } from '@/components/input'
-import { Label } from '@/components/label'
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription } from '.';
+import { Button, Input, Label } from '@/components';
 
 const meta: Meta<typeof Sheet> = {
   title: 'Components/Sheet',
   component: Sheet,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
@@ -62,7 +52,7 @@ export const Default: Story = {
       </Sheet>
     `
   })
-}
+};
 
 export const Side: Story = {
   render: () => ({
@@ -135,4 +125,4 @@ export const Side: Story = {
       </div>
     `
   })
-}
+};

@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Toaster, toast } from '.'
-import { Button } from '../button'
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Toaster, toast } from '.';
+import { Button } from '@/components';
 
 const meta: Meta<typeof Toaster> = {
   title: 'Components/Sonner',
   component: Toaster,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
     components: { Toaster, Button },
     setup() {
       const showToast = () => {
-        toast('Event has been created')
-      }
-      return { showToast }
+        toast('Event has been created');
+      };
+      return { showToast };
     },
     template: `
       <div>
@@ -27,7 +27,7 @@ export const Default: Story = {
       </div>
     `
   })
-}
+};
 
 export const WithDescription: Story = {
   render: () => ({
@@ -36,9 +36,9 @@ export const WithDescription: Story = {
       const showToast = () => {
         toast('Event Created', {
           description: 'Your event has been successfully created.'
-        })
-      }
-      return { showToast }
+        });
+      };
+      return { showToast };
     },
     template: `
       <div>
@@ -47,7 +47,7 @@ export const WithDescription: Story = {
       </div>
     `
   })
-}
+};
 
 export const WithAction: Story = {
   render: () => ({
@@ -59,9 +59,9 @@ export const WithAction: Story = {
             label: 'Undo',
             onClick: () => console.log('Undo')
           }
-        })
-      }
-      return { showToast }
+        });
+      };
+      return { showToast };
     },
     template: `
       <div>
@@ -70,22 +70,22 @@ export const WithAction: Story = {
       </div>
     `
   })
-}
+};
 
 export const Variants: Story = {
   render: () => ({
     components: { Toaster, Button },
     setup() {
       const showSuccess = () => {
-        toast.success('Success message')
-      }
+        toast.success('Success message');
+      };
       const showError = () => {
-        toast.error('Error message')
-      }
+        toast.error('Error message');
+      };
       const showWarning = () => {
-        toast.warning('Warning message')
-      }
-      return { showSuccess, showError, showWarning }
+        toast.warning('Warning message');
+      };
+      return { showSuccess, showError, showWarning };
     },
     template: `
       <div class="flex space-x-2">
@@ -96,4 +96,4 @@ export const Variants: Story = {
       </div>
     `
   })
-}
+};
