@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite build && vite build-storybook",
     "build-storybook": "storybook build",
     "test": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
