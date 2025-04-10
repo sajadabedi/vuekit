@@ -15,6 +15,7 @@ export { Separator } from './separator';
 export { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './sheet';
 export { Sidebar } from './sidebar';
 export { Skeleton } from './skeleton';
+export { Spinner } from './spinner';
 export { Switch } from './switch';
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
 export { Textarea } from './textarea';
