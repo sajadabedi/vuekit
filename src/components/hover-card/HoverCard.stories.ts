@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '.';
-import { Button } from '../button';
+import { Button } from '@/components';
 
 const meta: Meta<typeof HoverCard> = {
   title: 'Components/HoverCard',
