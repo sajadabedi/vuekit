@@ -17,6 +17,11 @@ export default defineConfig({
     }),
     tailwindcss()
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src')
+    }
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -24,7 +29,7 @@ export default defineConfig({
       fileName: (format) => `ui.${format}.js`
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', /\.stories\.ts$/],
       input: {
         main: resolve(__dirname, 'src/index.ts')
       },
