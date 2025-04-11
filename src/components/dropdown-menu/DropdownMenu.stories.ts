@@ -160,7 +160,6 @@ export const WithSubmenus: Story = {
             <DropdownMenuSubTrigger>
               <PhBell weight="bold" />
               <span>Notifications</span>
-              <PhCaretRight class="ml-auto size-4" />
             </DropdownMenuSubTrigger>
             <DropdownMenuSubContent>
               <DropdownMenuItem>
@@ -211,11 +210,9 @@ export const WithRadioGroups: Story = {
           <DropdownMenuLabel>Display Density</DropdownMenuLabel>
           <DropdownMenuRadioGroup v-model="selected">
             <DropdownMenuRadioItem value="compact">
-              <PhCheck weight="bold" />
               <span>Compact</span>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="comfortable">
-              <PhCheck weight="bold" />
               <span>Comfortable</span>
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
