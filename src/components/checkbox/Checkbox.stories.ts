@@ -16,27 +16,30 @@ export const AllStates: Story = {
   render: () => ({
     components: { Checkbox, Label },
     setup() {
-      const checked = ref(true);
-      const indeterminate = ref(true);
-      return { checked, indeterminate };
+      const uncheckedState = ref(false);
+      const checkedState = ref(true);
+      const disabledState = ref(false);
+      const disabledCheckedState = ref(true);
+
+      return { uncheckedState, checkedState, disabledState, disabledCheckedState };
     },
     template: `
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-2">
-          <Checkbox id="221" />
-          <Label for="221">Unchecked</Label>
+          <Checkbox v-model="uncheckedState" id="checkbox-unchecked" />
+          <Label for="checkbox-unchecked">Unchecked</Label>
         </div>
         <div class="flex items-center gap-2">
-          <Checkbox v-model="checked" id="aa" />
-          <Label for="aa">Checked</Label>
+          <Checkbox v-model="checkedState" id="checkbox-checked" />
+          <Label for="checkbox-checked">Checked</Label>
         </div>
         <div class="flex items-center gap-2">
-          <Checkbox disabled id="bb" />
-          <Label for="bb" class="opacity-50">Disabled</Label>
+          <Checkbox v-model="disabledState" id="checkbox-disabled" disabled />
+          <Label for="checkbox-disabled" class="opacity-50">Disabled</Label>
         </div>
         <div class="flex items-center gap-2">
-          <Checkbox disabled v-model="checked" id="cc" />
-          <Label class="opacity-50">Disabled Checked</Label>
+          <Checkbox v-model="disabledCheckedState" id="checkbox-disabled-checked" disabled />
+          <Label for="checkbox-disabled-checked" class="opacity-50">Disabled Checked</Label>
         </div>
       </div>
     `
@@ -64,13 +67,14 @@ export const FormGroup: Story = {
             v-model="allChecked"
             :indeterminate="isIndeterminate"
             @update:model-value="toggleAll"
+            id="checkbox-select-all"
           />
-          <Label tooltip="Click to select all" for="terms">Select All</Label>
+          <Label for="checkbox-select-all">Select All</Label>
         </div>
         <div class="flex flex-col gap-2 pl-6">
           <div v-for="(_, i) in items" :key="i" class="flex items-center gap-2">
-            <Checkbox v-model="items[i]" id="terms" />
-            <Label for="terms">Item {{ i + 1 }}</Label>
+            <Checkbox v-model="items[i]" :id="'checkbox-item-' + (i + 1)" />
+            <Label :for="'checkbox-item-' + (i + 1)">Item {{ i + 1 }}</Label>
           </div>
         </div>
       </div>
@@ -82,14 +86,14 @@ export const WithDescription: Story = {
   render: () => ({
     components: { Checkbox, Label },
     setup() {
-      const checked = ref(false);
-      return { checked };
+      const termsAccepted = ref(false);
+      return { termsAccepted };
     },
     template: `
       <div class="flex gap-2">
-        <Checkbox v-model="checked" id="terms" />
+        <Checkbox v-model="termsAccepted" id="checkbox-terms" />
         <div class="grid gap-1">
-          <Label tooltip="Tooltip" for="terms">Accept terms and conditions</Label>
+          <Label for="checkbox-terms">Accept terms and conditions</Label>
           <p class="text-secondary">
             You agree to our Terms of Service and Privacy Policy by checking this box.
           </p>

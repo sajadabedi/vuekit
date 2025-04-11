@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion-v';
 import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
-import { computed, type HTMLAttributes } from 'vue';
+import { computed, onMounted, onUnmounted, ref, type HTMLAttributes } from 'vue';
 
 const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<CheckboxRootEmits>();
@@ -18,6 +18,22 @@ const delegatedProps = computed(() => {
 });
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
+
+const isFirstRender = ref(true);
+const timeoutId = ref<number>();
+
+onMounted(() => {
+  // Wait a tick to prevent initial animation
+  timeoutId.value = setTimeout(() => {
+    isFirstRender.value = false;
+  }, 0);
+});
+
+onUnmounted(() => {
+  if (timeoutId.value) {
+    clearTimeout(timeoutId.value);
+  }
+});
 </script>
 
 <template>
@@ -35,9 +51,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       <slot>
         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
           <motion.path
-            :initial="props.modelValue ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }"
-            :animate="{ pathLength: 1, opacity: 1 }"
-            :transition="props.modelValue ? { duration: 0, ease: 'easeOut' } : { duration: 0.2 }"
+            :initial="{ pathLength: 0, opacity: 0 }"
+            :animate="{ pathLength: props.modelValue ? 1 : 0, opacity: props.modelValue ? 1 : 0 }"
+            :transition="{ duration: isFirstRender ? 0 : 0.2, ease: 'easeOut' }"
             d="M1.00013 3.98401L3.08316 6.06707C3.41134 6.39526 3.94343 6.39526 4.27161 6.06708L9 1.3387"
             stroke="currentColor"
             stroke-width="2"
