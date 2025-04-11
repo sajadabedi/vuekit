@@ -62,7 +62,7 @@
     --ui-shadow-ring-light: rgba(255, 255, 255, 0.37);
     --ui-shadow-ring-accent: color-mix(in oklab, var(--tw-orange-700) 70%, transparent);
     --ui-shadow-ring-critical: var(--tw-red-800);
-
+    --ui-color-focus-ring-accent: color-mix(in oklab, var(--ui-color-accent) 30%, transparent);
     @media (prefers-color-scheme: dark) {
       --ui-color-primary: var(--tw-stone-50);
       --ui-color-text-secondary: var(--tw-stone-400);
@@ -112,7 +112,7 @@
     }
   }
   body {
-    @apply font-regular text-default font-sans text-base antialiased;
+    @apply font-regular text-default caret-accent font-sans text-base antialiased;
   }
   h1,
   h2,
@@ -124,7 +124,7 @@
   }
 }
 
-@variant dark {
+/* @variant dark {
   &:where(.dark, .dark *) {
     @slot;
   }
@@ -133,16 +133,16 @@
       @slot;
     }
   }
-}
+} */
 
 @theme {
   /* === Core Tokens === */
 
   /* Remove Tailwind defaults */
-  --color-*: initial;
-  --font-*: initial;
-  --font-weight-*: initial;
-  --text-*: initial;
+  /* --color-*: initial; */
+  /* --font-*: initial; */
+  /* --font-weight-*: initial; */
+  /* --text-*: initial; */
   /* --shadow-*: initial; */
   /* --gradient-*: initial; */
   /* --leading-*: initial; */
@@ -160,11 +160,6 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-circular: 9999px;
-
-  /* === Motion Tokens === */
-  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
-  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 
   /* === Shadow Tokens === */
   --shadow-none: none;
