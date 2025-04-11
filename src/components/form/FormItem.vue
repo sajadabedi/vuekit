@@ -20,7 +20,7 @@ provide(FORM_ITEM_INJECTION_KEY, { id: id.value, error: errorMessage.value });
 <template>
   <div
     data-slot="form-item"
-    :class="cn('isolate grid gap-1 [&>input]:scale-125', props.class)"
+    :class="cn('data-[error=true]:[&_[data-slot=control]]:shadow-error isolate grid gap-1', props.class)"
     :data-error="!!errorMessage"
   >
     <slot />

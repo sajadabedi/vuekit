@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Switch } from '.'
-import { Label } from '@/components/label'
+import { Label } from '@/components/label';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Switch } from '.';
 
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
     components: { Switch },
     template: '<Switch />'
   })
-}
+};
 
 export const WithLabel: Story = {
   render: () => ({
@@ -28,7 +28,7 @@ export const WithLabel: Story = {
       </div>
     `
   })
-}
+};
 
 export const Disabled: Story = {
   render: () => ({
@@ -40,4 +40,4 @@ export const Disabled: Story = {
       </div>
     `
   })
-}
+};

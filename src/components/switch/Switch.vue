@@ -22,7 +22,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     v-bind="forwarded"
     :class="
       cn(
-        'peer data-[state=checked]:bg-accent focus-ring data-[state=unchecked]:bg-muted inline-flex h-[1.15rem] w-7.5 shrink-0 items-center rounded-full shadow-[0_0_0_1px_inset_var(--ui-shadow-ring)] transition-all outline-none disabled:cursor-not-allowed disabled:opacity-70',
+        'peer group data-[state=checked]:bg-accent focus-ring data-[state=unchecked]:bg-muted disabled:text-disabled inline-flex h-[1.15rem] w-7.5 shrink-0 items-center rounded-full bg-linear-to-b from-black/10 to-white/8 shadow-[0_0_0_1px_inset_var(--ui-shadow-ring)] transition-all outline-none disabled:cursor-not-allowed data-[state=checked]:from-white/10',
         props.class
       )
     "
@@ -31,7 +31,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       data-slot="switch-thumb"
       :class="
         cn(
-          'pointer-events-none block size-3.5 rounded-full bg-white shadow-md transition-transform data-[state=checked]:translate-x-[calc(100%-0.5px)] data-[state=unchecked]:translate-x-0.5'
+          'pointer-events-none block size-3.5 rounded-full bg-white shadow-md transition-transform group-disabled:opacity-30 data-[state=checked]:translate-x-[calc(100%-0.5px)] data-[state=unchecked]:translate-x-0.5'
         )
       "
     >

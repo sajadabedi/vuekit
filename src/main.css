@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import './colors.css';
 @import './animate.css';
-/* @custom-variant dark (&:is(.dark *)); */
 
 /* Base styles */
 @layer base {
@@ -92,16 +91,17 @@
       --ui-color-bg-warning-muted: color-mix(in oklab, var(--tw-yellow-900) 20%, transparent);
       --ui-color-bg-critical: var(--tw-red-800);
       --ui-color-bg-elevated-on-dark: var(--tw-stone-900);
-      --ui-color-bg-contrast: var(--tw-stone-800); /* bg static */
-      --ui-color-bg-red-muted: color-mix(in oklab, var(--tw-red-800) 20%, transparent);
-      --ui-color-bg-green-muted: color-mix(in oklab, var(--tw-green-800) 20%, transparent);
-      --ui-color-bg-yellow-muted: color-mix(in oklab, var(--tw-yellow-800) 20%, transparent);
-      --ui-color-bg-blue-muted: color-mix(in oklab, var(--tw-blue-800) 20%, transparent);
-      --ui-color-bg-indigo-muted: color-mix(in oklab, var(--tw-indigo-800) 20%, transparent);
-      --ui-color-bg-purple-muted: color-mix(in oklab, var(--tw-purple-800) 20%, transparent);
-      --ui-color-bg-stone-muted: color-mix(in oklab, var(--tw-stone-800) 20%, transparent);
-      --ui-color-bg-lime-muted: color-mix(in oklab, var(--tw-lime-800) 20%, transparent);
-      --ui-color-bg-pink-muted: color-mix(in oklab, var(--tw-pink-800) 20%, transparent); /* border */
+      --ui-color-bg-contrast: var(--tw-stone-800);
+      /* bg static */
+      --ui-color-bg-red-muted: color-mix(in oklab, var(--tw-red-500) 20%, transparent);
+      --ui-color-bg-green-muted: color-mix(in oklab, var(--tw-green-500) 20%, transparent);
+      --ui-color-bg-yellow-muted: color-mix(in oklab, var(--tw-yellow-500) 20%, transparent);
+      --ui-color-bg-blue-muted: color-mix(in oklab, var(--tw-blue-500) 20%, transparent);
+      --ui-color-bg-indigo-muted: color-mix(in oklab, var(--tw-indigo-500) 20%, transparent);
+      --ui-color-bg-purple-muted: color-mix(in oklab, var(--tw-purple-500) 20%, transparent);
+      --ui-color-bg-stone-muted: color-mix(in oklab, var(--tw-stone-500) 20%, transparent);
+      --ui-color-bg-lime-muted: color-mix(in oklab, var(--tw-lime-500) 20%, transparent);
+      --ui-color-bg-pink-muted: color-mix(in oklab, var(--tw-pink-500) 20%, transparent); /* border */
       --ui-color-border-default: var(--tw-stone-800);
       --ui-color-border-secondary: var(--tw-stone-900);
       --ui-color-border-contrast: var(--tw-stone-700);
@@ -112,7 +112,7 @@
     }
   }
   body {
-    @apply font-regular text-default caret-accent font-sans text-base antialiased;
+    @apply font-regular text-default caret-accent font-sans text-base antialiased dark:selection:bg-white/30;
   }
   h1,
   h2,
@@ -124,7 +124,7 @@
   }
 }
 
-/* @variant dark {
+@variant dark {
   &:where(.dark, .dark *) {
     @slot;
   }
@@ -133,7 +133,7 @@
       @slot;
     }
   }
-} */
+}
 
 @theme {
   /* === Core Tokens === */
@@ -185,6 +185,9 @@
   --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--ui-shadow-ring) inset;
   --shadow-floating:
     0px 0px 0px 1px var(--ui-shadow-ring) inset, 0px 4px 8px 0px rgba(0, 0, 0, 0.08),
+    0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+  --shadow-error:
+    0px 0px 0px 1px var(--ui-color-border-critical) inset, 0px 0px 0px 3px var(--ui-color-bg-red-muted),
     0px 8px 16px 0px rgba(0, 0, 0, 0.08);
   --text-xs: 0.68rem; /* 11px */
   --text-sm: 0.75rem; /* 12px */
@@ -262,6 +265,12 @@
   --border-color-critical: var(--ui-color-border-critical);
 }
 
+/* Focus state for the buttons and other actions */
 @utility focus-ring {
   @apply focus-visible:ring-accent/70 ring-offset-[var(--ui-color-bg-body)] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+}
+
+/* Focus state for inputs,textarea, select */
+@utility focus-ring-input {
+  @apply outline-none focus-visible:shadow-[0_0_0_1px_rgba(0,0,0,0.18)_inset,0_0_0_2px_rgba(0,0,0,0.08)] focus-visible:outline-none dark:focus-visible:shadow-[0_0_0_1px_rgba(255,255,255,0.30)_inset,0_0_0_3px_rgba(255,255,255,0.15)];
 }

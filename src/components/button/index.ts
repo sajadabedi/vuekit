@@ -7,7 +7,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-interactive bg-linear-to-t from-white/5 to-white/1 text-default shadow-interactive hover:bg-secondary',
+          'bg-interactive dark:bg-linear-to-t dark:from-white/8 dark:to-white/1 text-default shadow-interactive hover:bg-secondary',
         destructive:
           'bg-critical text-white bg-linear-to-t from-critical to-white/10 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-critical)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] hover:bg-critical/80',
         primary:
