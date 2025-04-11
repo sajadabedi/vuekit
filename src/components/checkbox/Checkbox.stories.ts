@@ -36,7 +36,7 @@ export const AllStates: Story = {
           <Label for="bb" class="opacity-50">Disabled</Label>
         </div>
         <div class="flex items-center gap-2">
-          <Checkbox disabled checked id="cc" />
+          <Checkbox disabled v-model="checked" id="cc" />
           <Label class="opacity-50">Disabled Checked</Label>
         </div>
       </div>
@@ -78,7 +78,7 @@ export const FormGroup: Story = {
     },
     template: `
       <div class="flex flex-col gap-4">
-        <div class="flex items-center gap-2 pb-2 border-b">
+        <div class="flex items-center gap-2 pb-2 border-b border-default">
           <Checkbox
             v-model="allChecked"
             :indeterminate="isIndeterminate"

@@ -38,6 +38,7 @@
     --ui-color-bg-contrast: var(--tw-stone-900);
     --ui-color-bg-critical: var(--tw-red-700);
     --ui-color-bg-red-contrast: var(--tw-red-700);
+    --ui-color-bg-disabled: var(--tw-stone-200);
     --ui-color-bg-backdrop: color-mix(in oklab, var(--tw-black) 15%, transparent);
     --ui-color-bg-red-muted: color-mix(in oklab, var(--tw-red-500) 15%, transparent);
     --ui-color-bg-green-muted: color-mix(in oklab, var(--tw-green-500) 15%, transparent);
@@ -83,6 +84,7 @@
       --ui-color-bg-tertiary: var(--tw-stone-800);
       --ui-color-bg-interactive: var(--tw-stone-900);
       --ui-color-bg-muted: var(--tw-stone-700);
+      --ui-color-bg-disabled: var(--tw-stone-800);
       --ui-color-bg-backdrop: color-mix(in oklab, var(--tw-white) 10%, transparent);
       --ui-color-bg-success-muted: color-mix(in oklab, var(--tw-emerald-900) 60%, transparent);
       --ui-color-bg-critical-muted: color-mix(in oklab, var(--tw-red-900) 40%, transparent);
@@ -232,6 +234,7 @@
   --text-color-gray-contrast: var(--ui-color-text-gray-contrast);
   --text-color-lime-contrast: var(--ui-color-text-lime-contrast);
   --text-color-pink-contrast: var(--ui-color-text-pink-contrast);
+  --text-color-disabled: var(--ui-color-text-disabled);
   /* bg */
   --background-color-body: var(--ui-color-bg-body);
   --background-color-elevated-on-dark: var(--ui-color-bg-elevated-on-dark);
@@ -254,6 +257,7 @@
   --background-color-lime-muted: var(--ui-color-bg-lime-muted);
   --background-color-pink-muted: var(--ui-color-bg-pink-muted);
   --background-color-backdrop: var(--ui-color-bg-backdrop);
+  --background-color-disabled: var(--ui-color-bg-disabled);
   /* border */
   --border-color-default: var(--ui-color-border-default);
   --border-color-accent: var(--ui-color-border-accent);
