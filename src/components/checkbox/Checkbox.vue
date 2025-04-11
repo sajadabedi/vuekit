@@ -35,13 +35,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       <slot>
         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
           <motion.path
-            :initial="
-              $el.closest('[data-slot=checkbox]')?.getAttribute('data-state') === 'checked'
-                ? { pathLength: 1, opacity: 1 }
-                : { pathLength: 0, opacity: 0 }
-            "
+            :initial="props.modelValue ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }"
             :animate="{ pathLength: 1, opacity: 1 }"
-            :transition="{ duration: 0.2, ease: 'easeOut' }"
+            :transition="props.modelValue ? { duration: 0, ease: 'easeOut' } : { duration: 0.2 }"
             d="M1.00013 3.98401L3.08316 6.06707C3.41134 6.39526 3.94343 6.39526 4.27161 6.06708L9 1.3387"
             stroke="currentColor"
             stroke-width="2"

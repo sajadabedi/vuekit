@@ -1,5 +1,4 @@
 import { Label } from '@/components';
-import { PhCheck } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { computed, ref } from 'vue';
 import { Checkbox } from '.';
@@ -39,24 +38,6 @@ export const AllStates: Story = {
           <Checkbox disabled v-model="checked" id="cc" />
           <Label class="opacity-50">Disabled Checked</Label>
         </div>
-      </div>
-    `
-  })
-};
-
-export const CustomIcon: Story = {
-  render: () => ({
-    components: { Checkbox, PhCheck },
-    setup() {
-      const checked = ref(true);
-      return { checked };
-    },
-    template: `
-      <div class="flex items-center gap-2">
-        <Checkbox v-model="checked" id="terms">
-          <PhCheck weight="bold" class="text-white" />
-        </Checkbox>
-        <Label for="terms">With Custom Icon</Label>
       </div>
     `
   })
