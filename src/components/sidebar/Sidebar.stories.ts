@@ -1,22 +1,24 @@
+import { Button } from '@/components/button';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { Home, Settings, User } from 'lucide-vue-next';
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger
 } from '.';
-import { Home } from 'lucide-vue-next';
 
-const meta: Meta<typeof Sidebar> = {
+const meta = {
   title: 'Components/Sidebar',
-  component: Sidebar,
+  component: SidebarProvider,
   tags: ['autodocs']
-};
+} satisfies Meta<typeof SidebarProvider>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -24,42 +26,68 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => ({
     components: {
+      SidebarProvider,
       Sidebar,
       SidebarContent,
-      SidebarHeader,
       SidebarGroup,
-      SidebarGroupContent,
       SidebarGroupLabel,
+      SidebarGroupContent,
       SidebarMenu,
-      SidebarMenuButton,
       SidebarMenuItem,
-      Home
+      SidebarMenuButton,
+      SidebarTrigger,
+      Button,
+      Home,
+      Settings,
+      User
+    },
+    setup() {
+      const items = [
+        {
+          title: 'Home',
+          url: '#',
+          icon: Home
+        },
+        {
+          title: 'Profile',
+          url: '#',
+          icon: User
+        },
+        {
+          title: 'Settings',
+          url: '#',
+          icon: Settings
+        }
+      ];
+      return { items };
     },
     template: `
-      <Sidebar>
-        <SidebarHeader>
-          <div class="p-4">
-            <span class="font-semibold">Sidebar Example</span>
-          </div>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Navigation</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <a href="#">
-                      <Home class="size-4" />
-                      <span>Home</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
+      <SidebarProvider>
+        <Sidebar>
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarGroupLabel>Menu</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem v-for="item in items" :key="item.title">
+                    <SidebarMenuButton asChild>
+                      <a :href="item.url">
+                        <component :is="item.icon" class="w-4 h-4" />
+                        <span>{{ item.title }}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </Sidebar>
+        <div class="p-8">
+          <SidebarTrigger asChild>
+            <Button variant="outline">Toggle Sidebar</Button>
+          </SidebarTrigger>
+        </div>
+      </SidebarProvider>
     `
   })
 };
