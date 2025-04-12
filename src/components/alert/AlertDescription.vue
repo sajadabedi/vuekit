@@ -10,9 +10,7 @@ const props = defineProps<{
 <template>
   <div
     data-slot="alert-description"
-    :class="
-      cn('text-secondary col-start-2 grid justify-items-start gap-1 text-base [&_p]:leading-relaxed', props.class)
-    "
+    :class="cn('text-secondary col-start-2 grid justify-items-start gap-1 text-base', props.class)"
   >
     <slot />
   </div>

@@ -124,7 +124,7 @@
   }
 }
 
-@variant dark {
+/* @variant dark {
   &:where(.dark, .dark *) {
     @slot;
   }
@@ -133,7 +133,7 @@
       @slot;
     }
   }
-}
+} */
 
 @theme {
   /* === Core Tokens === */
