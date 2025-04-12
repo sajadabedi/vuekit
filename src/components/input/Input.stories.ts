@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Input } from '.';
-import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/components/form';
+import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/components';
 import { PhMagnifyingGlass } from '@phosphor-icons/vue';
 
 const meta: Meta<typeof Input> = {
