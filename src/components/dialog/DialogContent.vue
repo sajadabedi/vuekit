@@ -40,7 +40,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       <slot />
 
       <DialogClose
-        class="focus-ring absolute top-4 right-4 rounded-sm transition-all disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        class="focus-ring hover:bg-tertiary absolute top-3 right-3 flex size-5.5 place-items-center justify-center rounded-md transition-all disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
       >
         <PhX weight="bold" />
         <span class="sr-only">Close</span>
