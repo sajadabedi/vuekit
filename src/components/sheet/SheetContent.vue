@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
 import { reactiveOmit } from '@vueuse/core';
-import { X } from 'lucide-vue-next';
+import { PhX } from '@phosphor-icons/vue';
 import {
   DialogClose,
   DialogContent,
@@ -56,9 +56,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       <slot />
 
       <DialogClose
-        class="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none"
+        class="focus:ring-ring data-[state=open]:bg-secondary hover:bg-tertiary focus-ring absolute top-3.5 right-3.5 flex size-5.5 cursor-pointer items-center justify-center rounded-md opacity-70 transition-all hover:opacity-100 focus-visible:opacity-100"
       >
-        <X class="size-4" />
+        <PhX weight="bold" />
         <span class="sr-only">Close</span>
       </DialogClose>
     </DialogContent>
