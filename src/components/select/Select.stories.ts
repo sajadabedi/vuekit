@@ -1,24 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import { FormControl, FormItem, FormMessage } from '@/components/form';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
-  SelectItem,
   SelectGroup,
+  SelectItem,
   SelectLabel,
-  SelectSeparator
-} from '.'
-import { ref } from 'vue'
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue
+} from '.';
 
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
   component: Select,
   tags: ['autodocs']
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => ({
@@ -30,13 +31,13 @@ export const Default: Story = {
       SelectItem
     },
     setup() {
-      const framework = ref('')
-      return { framework }
+      const framework = ref('');
+      return { framework };
     },
     template: `
       <Select v-model="framework">
         <SelectTrigger class="w-[180px]">
-          <SelectValue placeholder="Select a framework" />
+          <SelectValue placeholder="Select" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="next">Next.js</SelectItem>
@@ -47,7 +48,7 @@ export const Default: Story = {
       </Select>
     `
   })
-}
+};
 
 export const WithGroups: Story = {
   render: () => ({
@@ -62,8 +63,8 @@ export const WithGroups: Story = {
       SelectSeparator
     },
     setup() {
-      const os = ref('')
-      return { os }
+      const os = ref('');
+      return { os };
     },
     template: `
       <Select v-model="os">
@@ -87,7 +88,7 @@ export const WithGroups: Story = {
       </Select>
     `
   })
-}
+};
 
 export const Disabled: Story = {
   render: () => ({
@@ -99,8 +100,8 @@ export const Disabled: Story = {
       SelectItem
     },
     setup() {
-      const value = ref('')
-      return { value }
+      const value = ref('');
+      return { value };
     },
     template: `
       <Select v-model="value" disabled>
@@ -115,35 +116,4 @@ export const Disabled: Story = {
       </Select>
     `
   })
-}
-
-export const WithError: Story = {
-  render: () => ({
-    components: {
-      Select,
-      SelectTrigger,
-      SelectValue,
-      SelectContent,
-      SelectItem
-    },
-    setup() {
-      const value = ref('')
-      return { value }
-    },
-    template: `
-      <div class="grid gap-2">
-        <Select v-model="value">
-          <SelectTrigger class="w-[180px] border-red-500">
-            <SelectValue placeholder="Select an option" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1">Option 1</SelectItem>
-            <SelectItem value="2">Option 2</SelectItem>
-            <SelectItem value="3">Option 3</SelectItem>
-          </SelectContent>
-        </Select>
-        <p class="text-sm text-red-500">Please select an option</p>
-      </div>
-    `
-  })
-}
+};

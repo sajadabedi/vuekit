@@ -66,7 +66,7 @@
       --ui-color-primary: var(--tw-stone-50);
       --ui-color-text-secondary: var(--tw-stone-400);
       --ui-color-text-tertiary: var(--tw-stone-600);
-      --ui-color-text-placeholder: var(--tw-stone-700);
+      --ui-color-text-placeholder: var(--tw-stone-500);
       --ui-color-text-success: var(--tw-green-400);
       --ui-color-text-critical: var(--tw-red-400);
       --ui-color-text-warning: var(--tw-yellow-400); /* color static */
