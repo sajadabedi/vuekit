@@ -3,6 +3,8 @@ import type { HTMLAttributes } from 'vue';
 import { cn } from '@/lib/utils';
 import { useVModel } from '@vueuse/core';
 
+// TODO: Cleaning
+
 const props = defineProps<{
   class?: HTMLAttributes['class'];
   defaultValue?: string | number;
@@ -27,6 +29,7 @@ const modelValue = useVModel(props, 'modelValue', emits, {
       cn(
         'placeholder:text-placeholder bg-elevated-on-dark shadow-input focus-ring-input disabled:bg-disabled flex field-sizing-content min-h-16 w-full min-w-0 rounded-md p-2 text-base transition-[color,box-shadow]',
         'disabled:pointer-events-none disabled:cursor-not-allowed disabled:shadow-none',
+        'hover:shadow-input-hover',
         props.class
       )
     "
