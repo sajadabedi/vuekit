@@ -1,0 +1,42 @@
+@theme {
+  /* Font */
+  --font-sans: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  --font-sans--font-feature-settings: 'cv08', 'cv10', 'cv02';
+  --font-sans--fontvariant-numeric: lining-nums tabular-nums;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  /* === Typography Tokens === */
+  --font-weight-regular: 440;
+  --font-weight-medium: 530;
+  --font-weight-semibold: 660;
+
+  --line-height-tight: 16px;
+  --line-height-base: 18px;
+  --line-height-loose: 24px;
+}
+
+@theme inline {
+  --text-xs: 0.68rem; /* 11px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-sm--line-height: var(--line-height-base);
+  --text-sm-bold: var(--text-sm);
+  --text-sm-bold--font-weight: var(--font-weight-medium);
+  --text-sm-bold--line-height: var(--line-height-base);
+  --text-base: 0.875rem; /* 14px */
+  --text-base--line-height: var(--line-height-base);
+  --text-action: var(--text-base);
+  --text-action--line-height: var(--line-height-base);
+  --text-action--font-weight: var(--font-weight-medium);
+
+  --text-base-bold: var(--text-base);
+  --text-base-bold--font-weight: var(--font-weight-semibold);
+  --text-base-bold--line-height: var(--line-height-base);
+  --text-lg: 1rem; /* 16px */
+  --text-lg--line-height: 20px;
+  --text-lg--font-weight: var(--font-weight-medium);
+  --text-xl: 1.25rem; /* 18px */
+  --text-xl--line-height: 24px;
+  --text-xl--font-weight: var(--font-weight-medium);
+  --text-2xl: 1.5rem; /* 24px */
+  --text-2xl--line-height: 30px;
+  --text-2xl--font-weight: var(--font-weight-medium);
+}
