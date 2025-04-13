@@ -35,16 +35,9 @@ export const Default: Story = {
               Make changes to your profile here. Click save when you're done.
             </SheetDescription>
           </SheetHeader>
-          <div class="grid gap-4 py-4">
-            <div class="grid gap-2">
-              <Label for="name">Name</Label>
-              <Input id="name" value="Pedro Duarte" />
+          <div class="p-4">
+              content goes here
             </div>
-            <div class="grid gap-2">
-              <Label for="username">Username</Label>
-              <Input id="username" value="@peduarte" />
-            </div>
-          </div>
           <SheetFooter>
             <Button>Save changes</Button>
           </SheetFooter>
@@ -81,15 +74,8 @@ export const Side: Story = {
                 Make changes to your profile here. Click save when you're done.
               </SheetDescription>
             </SheetHeader>
-            <div class="grid gap-4 py-4">
-              <div class="grid gap-2">
-                <Label for="name">Name</Label>
-                <Input id="name" value="Pedro Duarte" />
-              </div>
-              <div class="grid gap-2">
-                <Label for="username">Username</Label>
-                <Input id="username" value="@peduarte" />
-              </div>
+            <div class="p-4">
+              content goes here
             </div>
             <SheetFooter>
               <Button>Save changes</Button>
@@ -107,15 +93,8 @@ export const Side: Story = {
                 Make changes to your profile here. Click save when you're done.
               </SheetDescription>
             </SheetHeader>
-            <div class="grid gap-4 py-4">
-              <div class="grid gap-2">
-                <Label for="name2">Name</Label>
-                <Input id="name2" value="Pedro Duarte" />
-              </div>
-              <div class="grid gap-2">
-                <Label for="username2">Username</Label>
-                <Input id="username2" value="@peduarte" />
-              </div>
+            <div class="p-4">
+              content goes here
             </div>
             <SheetFooter>
               <Button>Save changes</Button>

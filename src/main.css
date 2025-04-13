@@ -1,7 +1,7 @@
 @import 'tailwindcss';
+@import './styles/decorative.css';
 @import './styles/typography.css';
 @import './styles/tailwind-colors.css';
-@import './styles/decorative.css';
 @import './styles/animate.css';
 
 /* Base styles */
@@ -73,7 +73,7 @@
       --ui-color-border-contrast: var(--tw-stone-700);
       --ui-color-border-critical: var(--tw-red-500);
       /* Shadow colors */
-      --ui-shadow-ring: rgba(0, 0, 0, 0.11);
+      --ui-shadow-ring: rgba(255, 255, 255, 0.1);
       --ui-shadow-ring-light: rgba(255, 255, 255, 0.22);
     }
   }
@@ -126,9 +126,7 @@
   --shadow-interactive:
     0px 1px 0px 0px rgba(255, 255, 255, 0.11) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.04) inset,
     0px 1px 0px 0px rgba(0, 0, 0, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);
-
   --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
-
   --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
