@@ -248,15 +248,12 @@ export const WithCheckboxItems: Story = {
         <DropdownMenuContent>
           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
           <DropdownMenuCheckboxItem v-model="showStatusBar">
-            <PhCheck weight="bold" />
             <span>Status Bar</span>
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem v-model="showActivityBar">
-            <PhCheck weight="bold" />
             <span>Activity Bar</span>
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem v-model="showPanel">
-            <PhCheck weight="bold" />
             Panel
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
