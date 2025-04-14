@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref, watch } from 'vue'
-import { useMagicKeys, watchDebounced } from '@vueuse/core'
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { useMagicKeys, watchDebounced } from '@vueuse/core';
+import { ref, watch } from 'vue';
 import {
   CommandDialog,
   CommandEmpty,
@@ -8,23 +8,24 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-} from './index'
+  CommandSeparator
+} from './index';
 
 const meta = {
-  title: 'UI/Command',
+  title: 'Components/Command',
   component: CommandDialog, // Use CommandDialog as the main component for the story context
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   tags: ['autodocs'],
-  argTypes: {}, // No args needed for this specific example
-} satisfies Meta<typeof CommandDialog>
+  argTypes: {} // No args needed for this specific example
+} satisfies Meta<typeof CommandDialog>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const kbdClasses = "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100";
+const kbdClasses =
+  'pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100';
 
 export const Default: Story = {
   render: () => ({
@@ -44,9 +45,9 @@ export const Default: Story = {
         </kbd>
          in the 'Dialog Usage' story.
       </p>
-    `,
-  }),
-}
+    `
+  })
+};
 
 export const DialogExample: Story = {
   name: 'Dialog Usage',
@@ -58,27 +59,26 @@ export const DialogExample: Story = {
       CommandInput,
       CommandItem,
       CommandList,
-      CommandSeparator,
+      CommandSeparator
     },
     setup() {
-      const open = ref(false)
+      const open = ref(false);
 
       const { Meta_J, Ctrl_J } = useMagicKeys({
         passive: false,
         onEventFired(e) {
-          if (e.key === 'j' && (e.metaKey || e.ctrlKey))
-            e.preventDefault()
-        },
-      })
+          if (e.key === 'j' && (e.metaKey || e.ctrlKey)) e.preventDefault();
+        }
+      });
 
       watchDebounced(
         [Meta_J, Ctrl_J],
         (v) => {
           if (v[0] || v[1]) {
-            open.value = !open.value
+            open.value = !open.value;
           }
         },
-        { debounce: 100, maxWait: 200 }, // Adjust debounce/maxWait as needed
+        { debounce: 100, maxWait: 200 } // Adjust debounce/maxWait as needed
       );
 
       // Expose refs and methods to the template
@@ -127,7 +127,7 @@ export const DialogExample: Story = {
           </CommandList>
         </CommandDialog>
       </div>
-    `,
+    `
   }),
   parameters: {
     docs: {
@@ -211,8 +211,8 @@ watchDebounced(
       </CommandList>
     </CommandDialog>
   </div>
-</template>`,
-      },
-    },
-  },
-}
+</template>`
+      }
+    }
+  }
+};
