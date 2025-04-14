@@ -1,6 +1,6 @@
+import { Label } from '@/components/label';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Textarea } from '.';
-import { Label } from '@/components/label';
 
 const meta: Meta<typeof Textarea> = {
   title: 'Components/Textarea',
@@ -40,18 +40,6 @@ export const Disabled: Story = {
 export const WithText: Story = {
   render: () => ({
     components: { Textarea },
-    template: '<Textarea>This is a textarea with text.</Textarea>'
-  })
-};
-
-export const WithError: Story = {
-  render: () => ({
-    components: { Textarea, Label },
-    template: `
-      <div class="grid gap-2">
-        <Label for="message">Your message</Label>
-        <Textarea id="message" class="border-red-500" />
-      </div>
-    `
+    template: '<Textarea model-value="This is a textarea with text." placeholder="Type your message here." />'
   })
 };
