@@ -41,6 +41,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
       <DialogClose
         class="focus-ring hover:bg-tertiary absolute top-3 right-3 flex size-5.5 place-items-center justify-center rounded-md transition-all disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        data-slot="dialog-close"
       >
         <PhX weight="bold" />
         <span class="sr-only">Close</span>
