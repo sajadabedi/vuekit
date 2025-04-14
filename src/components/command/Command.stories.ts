@@ -36,7 +36,7 @@ export const Default: Story = {
       <p class="text-sm">
         Press
         <kbd :class="kbdClasses" class="border-0 font-sans">
-            <span class="text-xs">⌘</span>k
+            <span class="text-xs">⌘</span>j
         </kbd>
       </p>
     `
@@ -58,15 +58,15 @@ export const DialogExample: Story = {
     setup() {
       const open = ref(false);
 
-      const { Meta_K, Ctrl_K } = useMagicKeys({
+      const { Meta_J, Ctrl_J } = useMagicKeys({
         passive: false,
         onEventFired(e) {
-          if (e.key === 'k' && (e.metaKey || e.ctrlKey)) e.preventDefault();
+          if (e.key === 'j' && (e.metaKey || e.ctrlKey)) e.preventDefault();
         }
       });
 
       watchDebounced(
-        [Meta_K, Ctrl_K],
+        [Meta_J, Ctrl_J],
         (v) => {
           if (v[0] || v[1]) {
             open.value = !open.value;
@@ -82,7 +82,7 @@ export const DialogExample: Story = {
         <p class="text-sm">
         Press
         <kbd :class="kbdClasses" class="border-0 font-sans">
-            <span class="text-xs">⌘</span>K
+            <span class="text-xs">⌘</span>J
         </kbd>
       </p>
         <CommandDialog v-model:open="open">
@@ -138,16 +138,16 @@ import { ref } from 'vue'
 const open = ref(false)
 const kbdClasses = "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100";
 
-const { Meta_K, Ctrl_K } = useMagicKeys({
+const { Meta_J, Ctrl_J } = useMagicKeys({
   passive: false,
   onEventFired(e) {
-    if (e.key === 'k' && (e.metaKey || e.ctrlKey))
+    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
       e.preventDefault()
   },
 })
 
 watchDebounced(
-  [Meta_K, Ctrl_K],
+  [Meta_J, Ctrl_J],
   (v) => {
     if (v[0] || v[1])
       open.value = !open.value
