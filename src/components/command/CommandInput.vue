@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import { Search } from 'lucide-vue-next';
+import { PhMagnifyingGlass } from '@phosphor-icons/vue';
 import { ListboxFilter, type ListboxFilterProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 import { useCommand } from '.';
@@ -31,7 +31,7 @@ const { filterState } = useCommand();
     data-slot="command-input-wrapper"
     class="border-secondary dark:border-contrast/30 flex h-12 items-center gap-2 border-b bg-white/5 px-3"
   >
-    <Search class="size-4 shrink-0 opacity-50" />
+    <PhMagnifyingGlass weight="bold" class="size-4 shrink-0 opacity-50" />
     <ListboxFilter
       v-bind="{ ...forwardedProps, ...$attrs }"
       v-model="filterState.search"

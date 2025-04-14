@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { useMagicKeys, watchDebounced } from '@vueuse/core';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import {
   CommandDialog,
   CommandEmpty,
@@ -33,17 +33,11 @@ export const Default: Story = {
       return { kbdClasses };
     },
     template: `
-      <p class="text-sm text-muted-foreground">
-        This is the Command component set. See the 'Dialog Usage' story for an interactive example.
+      <p class="text-sm">
         Press
-        <kbd :class="kbdClasses">
-            <span class="text-xs">⌘</span>J
+        <kbd :class="kbdClasses" class="border-0 font-sans">
+            <span class="text-xs">⌘</span>k
         </kbd>
-         or
-        <kbd :class="kbdClasses">
-            <span class="text-xs">Ctrl</span>J
-        </kbd>
-         in the 'Dialog Usage' story.
       </p>
     `
   })
@@ -64,15 +58,15 @@ export const DialogExample: Story = {
     setup() {
       const open = ref(false);
 
-      const { Meta_J, Ctrl_J } = useMagicKeys({
+      const { Meta_K, Ctrl_K } = useMagicKeys({
         passive: false,
         onEventFired(e) {
-          if (e.key === 'j' && (e.metaKey || e.ctrlKey)) e.preventDefault();
+          if (e.key === 'k' && (e.metaKey || e.ctrlKey)) e.preventDefault();
         }
       });
 
       watchDebounced(
-        [Meta_J, Ctrl_J],
+        [Meta_K, Ctrl_K],
         (v) => {
           if (v[0] || v[1]) {
             open.value = !open.value;
@@ -81,22 +75,16 @@ export const DialogExample: Story = {
         { debounce: 100, maxWait: 200 } // Adjust debounce/maxWait as needed
       );
 
-      // Expose refs and methods to the template
       return { args, open, kbdClasses };
     },
     template: `
       <div>
-        <p class="text-sm text-muted-foreground">
-          Press
-          <kbd :class="kbdClasses">
-            <span class="text-xs">⌘</span>J
-          </kbd>
-          or
-          <kbd :class="kbdClasses">
-            <span class="text-xs">Ctrl</span>J
-          </kbd>
-          to open/close the command dialog.
-        </p>
+        <p class="text-sm">
+        Press
+        <kbd :class="kbdClasses" class="border-0 font-sans">
+            <span class="text-xs">⌘</span>K
+        </kbd>
+      </p>
         <CommandDialog v-model:open="open">
           <CommandInput placeholder="Type a command or search..." />
           <CommandList>
@@ -150,16 +138,16 @@ import { ref } from 'vue'
 const open = ref(false)
 const kbdClasses = "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100";
 
-const { Meta_J, Ctrl_J } = useMagicKeys({
+const { Meta_K, Ctrl_K } = useMagicKeys({
   passive: false,
   onEventFired(e) {
-    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
+    if (e.key === 'k' && (e.metaKey || e.ctrlKey))
       e.preventDefault()
   },
 })
 
 watchDebounced(
-  [Meta_J, Ctrl_J],
+  [Meta_K, Ctrl_K],
   (v) => {
     if (v[0] || v[1])
       open.value = !open.value
@@ -170,42 +158,13 @@ watchDebounced(
 
 <template>
   <div>
-    <p class="text-sm text-muted-foreground">
-      Press
-      <kbd :class="kbdClasses">
-        <span class="text-xs">⌘</span>J
-      </kbd>
-      or
-      <kbd :class="kbdClasses">
-        <span class="text-xs">Ctrl</span>J
-      </kbd>
-       to open/close the command dialog.
-    </p>
     <CommandDialog v-model:open="open">
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
+        <CommandGroup>
           <CommandItem value="calendar">
             Calendar
-          </CommandItem>
-          <CommandItem value="search-emoji">
-            Search Emoji
-          </CommandItem>
-          <CommandItem value="calculator">
-            Calculator
-          </CommandItem>
-        </CommandGroup>
-        <CommandSeparator />
-        <CommandGroup heading="Settings">
-          <CommandItem value="profile">
-            Profile
-          </CommandItem>
-          <CommandItem value="billing">
-            Billing
-          </CommandItem>
-          <CommandItem value="settings">
-            Settings
           </CommandItem>
         </CommandGroup>
       </CommandList>
