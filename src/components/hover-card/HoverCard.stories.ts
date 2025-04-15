@@ -22,7 +22,7 @@ export const Default: Story = {
     template: `
       <HoverCard>
         <HoverCardTrigger>
-          <Button variant="ghost">Button</Button>
+          <Button variant="primary">Button</Button>
         </HoverCardTrigger>
         <HoverCardContent class="w-80">
           <div class="flex justify-between">
