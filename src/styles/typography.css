@@ -34,9 +34,18 @@
   --text-lg--line-height: 20px;
   --text-lg--font-weight: var(--font-weight-medium);
   --text-xl: 1.25rem; /* 18px */
-  --text-xl--line-height: 24px;
+  --text-xl--line-height: 20px;
   --text-xl--font-weight: var(--font-weight-medium);
   --text-2xl: 1.5rem; /* 24px */
-  --text-2xl--line-height: 30px;
+  --text-2xl--line-height: 24px;
   --text-2xl--font-weight: var(--font-weight-medium);
+  /* === Text Decoration === */
+}
+
+@utility text-base-underline {
+  @apply underline decoration-current/30 decoration-[1.5px] underline-offset-1;
+}
+
+@utility text-base-underline-dash {
+  @apply underline decoration-current/30 decoration-dashed decoration-1 underline-offset-2;
 }
