@@ -37,9 +37,6 @@ export default defineConfig({
           vue: 'Vue'
         },
         exports: 'named',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-        entryFileNames: '[name].js',
         assetFileNames: 'assets/[name][extname]'
       }
     }
