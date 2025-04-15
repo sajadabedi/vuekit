@@ -26,18 +26,21 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'FirstbaseUI',
-      formats: ['es'],
+      formats: ['es', 'umd'],
       fileName: (format) => `ui.${format}.js`
     },
+    cssCodeSplit: false,
     rollupOptions: {
       external: ['vue', /\.stories\.ts$/],
       output: {
         globals: {
           vue: 'Vue'
         },
+        exports: 'named',
         preserveModules: true,
         preserveModulesRoot: 'src',
-        entryFileNames: '[name].js'
+        entryFileNames: '[name].js',
+        assetFileNames: 'assets/[name][extname]'
       }
     }
   }
