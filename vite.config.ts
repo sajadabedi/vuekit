@@ -13,7 +13,12 @@ export default defineConfig({
       beforeWriteFile: (filePath, content) => ({
         filePath: filePath.replace('/dist/src/', '/dist/'),
         content
-      })
+      }),
+      tsconfigPath: './tsconfig.json',
+      compilerOptions: {
+        declaration: true,
+        declarationMap: true
+      }
     }),
     tailwindcss()
   ],
