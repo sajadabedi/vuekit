@@ -3,9 +3,19 @@
   "version": "0.4.7",
   "private": false,
   "type": "module",
-  "main": "dist/ui.umd.js",
-  "module": "dist/ui.es.js",
-  "types": "dist/types/index.d.ts",
+  "main": "./dist/ui.umd.js",
+  "module": "./dist/ui.es.js",
+  "types": "./dist/types/index.d.ts",
+  "style": "./src/main.css",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/ui.es.js",
+      "require": "./dist/ui.umd.js"
+    },
+    "./style.css": "./src/main.css",
+    "./styles/*": "./src/styles/*"
+  },
   "files": [
     "dist",
     "src/styles",
