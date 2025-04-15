@@ -1,3 +1,4 @@
+import { Spinner } from '@/components';
 import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Button } from '.';
@@ -45,7 +46,10 @@ export const Default: Story = {
 export const WithIcon: Story = {
   render: () => ({
     components: { Button, PhHouse },
-    template: '<Button><PhHouse weight="bold" /> With Icon</Button>'
+    template: `<div class="flex gap-4">
+      <Button><PhHouse weight="bold" /> With Icon</Button>
+      <Button>With Icon<PhHouse weight="bold" /></Button>
+      </div>`
   })
 };
 
@@ -56,14 +60,30 @@ export const IconOnly: Story = {
   })
 };
 
-export const States: Story = {
+export const Disabled: Story = {
   render: () => ({
     components: { Button },
     template: `
       <div class="flex gap-4">
-        <Button>Normal</Button>
-        <Button class="opacity-70 cursor-not-allowed">Disabled</Button>
+        <Button disabled>Default</Button>
+        <Button disabled variant="primary">Primary</Button>
+        <Button disabled variant="destructive">Destructive</Button>
+        <Button disabled variant="ghost">Ghost</Button>
       </div>
     `
+  })
+};
+
+export const Loading: Story = {
+  render: () => ({
+    components: { Button, Spinner },
+    template: '<Button variant="primary"><Spinner class="size-4"/> Submit</Button>'
+  })
+};
+
+export const FullWidth: Story = {
+  render: () => ({
+    components: { Button },
+    template: '<Button class="w-full" variant="primary">Full width</Button>'
   })
 };
