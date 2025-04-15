@@ -60,6 +60,13 @@ export const IconOnly: Story = {
   })
 };
 
+// export const Small: Story = {
+//   render: () => ({
+//     components: { Button },
+//     template: '<Button size="sm">Small button</Button>'
+//   })
+// };
+
 export const Disabled: Story = {
   render: () => ({
     components: { Button },

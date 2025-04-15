@@ -8,6 +8,7 @@
 @layer base {
   :root {
     /* text */
+    color-scheme: light dark;
     --ui-color-accent: var(--tw-orange-600);
     --ui-color-primary: var(--tw-stone-950);
     --ui-color-text-secondary: var(--tw-stone-700);

@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '.';
+import { Primitive, type PrimitiveProps } from 'reka-ui';
+import type { HTMLAttributes } from 'vue';
+import { type ButtonVariants, buttonVariants } from '.';
 
-interface Props {
-  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant'];
-  size?: NonNullable<Parameters<typeof buttonVariants>[0]>['size'];
-  as?: string;
+interface Props extends PrimitiveProps {
+  variant?: ButtonVariants['variant'];
+  size?: ButtonVariants['size'];
+  class?: HTMLAttributes['class'];
 }
 
-// eslint-disable-next-line vue/define-macros-order
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   as: 'button'
 });
 </script>
 
 <template>
-  <component :is="as" :class="cn(buttonVariants({ variant, size }), $attrs.class ?? '')">
+  <Primitive :as="as" :as-child="asChild" :class="cn(buttonVariants({ variant, size }), props.class)">
     <slot />
-  </component>
+  </Primitive>
 </template>
