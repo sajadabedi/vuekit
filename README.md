@@ -1,11 +1,38 @@
 # Firstbase Design system
 
-A modern UI component library for Vue 3 applications.
+Design system at it's core is a tool. it's not meant to be set in stone set of rules. it's provided with set of guideline, best practices, and tools to help you build coherence, accessible, well crafted interface in quick and iterative way.
 
-## Installation
+## Features
+
+- Composible by default.
+- Accessbile is built-in.
+- Extendable and customizable using classes.
+- Dark theme ready.
+
+## Principles
+
+This package is built with composability in mind. You can use the components as-is or extend them to create your own components.You can do light weight customizations using classes. or reach for the core API from `Reka-ui` to build your own components.
+
+## Stack
+
+- [x] Vue 3
+- [x] TypeScript
+- [x] Phosphor Icons
+- [x] Tailwind CSS v4
+- [x] Modern CSS features
+- [x] class-variance-authority
+- [x] reka-ui
+- [x] Framer Motion
+- [x] VeeValidate
+- [x] Zod
+
+## Install
+
+Install Firstbase, Icon set and tailwindcss
 
 ```bash
-pnpm install @firstbase/ui
+pnpm i @firstbase/ui@latest @phosphor-icons/vue@latest
+pnpm i tailwindcss @tailwindcss/vite
 ```
 
 ## Usage
@@ -31,13 +58,21 @@ provide('weight', 'bold');
 </script>
 ```
 
+Add the following to your `main.css` or `app.css`. This will be your Tailwindcss config.
+
+```css
+@import './node_modules/@firstbase/ui/dist/assets/style.css';
+@import './node_modules/@firstbase/ui/src/main.css';
+@import 'tailwindcss' source('./node_modules/@firstbase/ui/src/main.css');
+```
+
 Add Your first component styles to your app
 
 ```vue
 import { Button } from '@firstbase/ui'
 
 <template>
-  <Button>Click me</Button>
+  <Button variant="primary">Click me</Button>
 </template>
 ```
 
@@ -81,4 +116,5 @@ pnpm version patch  # for bug fixes
 pnpm version minor  # for new features
 pnpm version major  # for breaking changes
 git push origin main --tags
+git push
 ```
