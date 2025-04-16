@@ -28,7 +28,7 @@ This package is built with composability in mind. You can use the components as-
 
 ## Install
 
-Install Firstbase, Icon set and tailwindcss
+Install Firstbase, Icon set and tailwindcss (Follow tailwindcss docs for setup)
 
 ```bash
 pnpm i @firstbase/ui@latest @phosphor-icons/vue@latest
@@ -91,12 +91,7 @@ import { Button } from '@firstbase/ui'
    Add the following to your `settings.json` to make sure the Tailwind CSS extension can parse the class names when using `cva`:
 
 ```json
-"tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
-    "[\"'`]([^\"'`]*).*?[\"'`]",
-    "cx\\(((?:[^()]|\\([^()]*\\))*)\\)",
-    "(?:'|\"|`)([^']*)(?:'|\"|`)",
-  ],
+"tailwindCSS.classFunctions": ["clsx", "cva", "cn"],
 ```
 
 ## Contributing
