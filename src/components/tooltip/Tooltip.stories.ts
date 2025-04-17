@@ -6,17 +6,47 @@ const meta = {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'A tooltip component that provides additional information when hovering over an element. Supports different positions and custom delays.'
+      }
+    }
   },
   tags: ['autodocs'],
   argTypes: {
+    content: {
+      description: 'The text content to display in the tooltip',
+      control: 'text',
+      table: {
+        type: { summary: 'string' }
+      }
+    },
     side: {
+      description: '(Optional) The preferred side of the tooltip relative to its trigger',
       control: 'select',
-      options: ['top', 'right', 'bottom', 'left']
+      options: ['top', 'right', 'bottom', 'left'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'top' }
+      }
     },
     delay: {
-      control: 'number',
-      description: 'Delay in milliseconds before showing the tooltip'
+      description: '(Optional) Delay in milliseconds before showing the tooltip',
+      control: { type: 'number', min: 0 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0' }
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the tooltip',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
     }
   }
 } satisfies Meta<typeof Tooltip>

@@ -1,6 +1,6 @@
-import { PhStar } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Badge } from '.';
+import { PhStar } from '@phosphor-icons/vue';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
@@ -8,8 +8,35 @@ const meta: Meta<typeof Badge> = {
   tags: ['autodocs'],
   argTypes: {
     color: {
+      description: 'The color of the badge',
       control: 'select',
-      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime']
+      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'stone' }
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the badge',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    },
+    default: {
+      description: 'The content to display inside the badge',
+      table: {
+        type: { summary: 'Markup' },
+        category: 'slots'
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'A versatile badge component for displaying short status text, counts, or labels. Supports multiple colors and custom content through slots.'
+      }
     }
   }
 };

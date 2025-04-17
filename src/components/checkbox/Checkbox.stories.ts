@@ -1,13 +1,46 @@
-import { Label } from '@/components';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { computed, ref } from 'vue';
 import { Checkbox } from '.';
+import { Label } from '..';
+import { ref, computed } from 'vue';
 
-const meta: Meta<typeof Checkbox> = {
+const meta = {
   title: 'Components/Checkbox',
   component: Checkbox,
-  tags: ['autodocs']
-};
+  tags: ['autodocs'],
+  argTypes: {
+    modelValue: {
+      description: 'The current checked state of the checkbox',
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
+      }
+    },
+    'onUpdate:modelValue': {
+      description: 'Event emitted when the checkbox state changes',
+      table: {
+        type: { summary: '(value: boolean) => void' },
+        category: 'events'
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the checkbox',
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A checkbox component that follows WAI-ARIA guidelines. Supports checked, unchecked states, and can be disabled.'
+      }
+    }
+  }
+} satisfies Meta<typeof Checkbox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -4,30 +4,72 @@ import { Input } from '@/components/input';
 import { Checkbox } from '@/components/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/radio-group';
 
-const meta: Meta<typeof Label> = {
+const meta = {
   title: 'Components/Label',
   component: Label,
   tags: ['autodocs'],
   argTypes: {
+    for: {
+      description: 'The ID of the form control this label is bound to',
+      control: 'text',
+      table: {
+        type: { summary: 'string' }
+      }
+    },
     optional: {
+      description: '(Optional) Whether to show an optional indicator',
       control: 'boolean',
-      description: 'Show optional indicator',
-      defaultValue: false
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
+      }
     },
     tooltip: {
+      description: '(Optional) Tooltip text to show when hovering over the info icon',
       control: 'text',
-      description: 'Tooltip text to show when hovering over the info icon'
+      table: {
+        type: { summary: 'string' }
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the label',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A label component that can be associated with form controls. Supports optional indicators and tooltips.'
+      }
     }
   }
-};
+} satisfies Meta<typeof Label>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const labelContainerClass = 'max-w-sm space-y-4';
+
 export const Default: Story = {
-  render: () => ({
+  args: {
+    for: 'input-1'
+  },
+  render: (args) => ({
     components: { Label },
-    template: '<Label>Accept terms and conditions</Label>'
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="${labelContainerClass}">
+        <Label v-bind="args">Label</Label>
+        <input id="input-1" type="text" class="w-full rounded-md border p-2" />
+      </div>
+    `
   })
 };
 
@@ -86,22 +128,59 @@ export const Required: Story = {
 };
 
 export const Optional: Story = {
-  render: () => ({
+  args: {
+    for: 'input-2',
+    optional: true
+  },
+  render: (args) => ({
     components: { Label },
-    template: '<Label optional>Email</Label>'
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="${labelContainerClass}">
+        <Label v-bind="args">Label with optional indicator</Label>
+        <input id="input-2" type="text" class="w-full rounded-md border p-2" />
+      </div>
+    `
   })
 };
 
 export const WithTooltip: Story = {
-  render: () => ({
+  args: {
+    for: 'input-3',
+    tooltip: 'This is a helpful tooltip'
+  },
+  render: (args) => ({
     components: { Label },
-    template: '<Label tooltip="Will be used for notifications">Email</Label>'
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="${labelContainerClass}">
+        <Label v-bind="args">Label with tooltip</Label>
+        <input id="input-3" type="text" class="w-full rounded-md border p-2" />
+      </div>
+    `
   })
 };
 
 export const OptionalWithTooltip: Story = {
-  render: () => ({
+  args: {
+    for: 'input-4',
+    optional: true,
+    tooltip: 'This field is optional'
+  },
+  render: (args) => ({
     components: { Label },
-    template: '<Label optional tooltip="Will be used for notifications">Email</Label>'
+    setup() {
+      return { args };
+    },
+    template: `
+      <div class="${labelContainerClass}">
+        <Label v-bind="args">Label with optional and tooltip</Label>
+        <input id="input-4" type="text" class="w-full rounded-md border p-2" />
+      </div>
+    `
   })
 };

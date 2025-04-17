@@ -2,22 +2,65 @@ import { Spinner } from '@/components';
 import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Button } from '.';
+import { PhSpinner } from '@phosphor-icons/vue';
 
-const meta: Meta<typeof Button> = {
+const meta = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
     variant: {
+      description: 'The visual style variant of the button',
       control: 'select',
-      options: ['default', 'primary', 'destructive', 'ghost']
+      options: ['default', 'destructive', 'primary', 'ghost'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' }
+      }
     },
     size: {
+      description: 'The size of the button',
       control: 'select',
-      options: ['default', 'sm', 'icon']
+      options: ['default', 'sm', 'icon'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' }
+      }
+    },
+    as: {
+      description: 'The element to render the button as',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'button' }
+      }
+    },
+    asChild: {
+      description: 'Whether to render the button as a child component',
+      control: 'boolean',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the button',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A versatile button component that supports various styles, sizes, and states. Built with accessibility in mind and follows WAI-ARIA guidelines.'
+      }
     }
   }
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

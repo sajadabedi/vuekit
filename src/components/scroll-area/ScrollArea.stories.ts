@@ -4,13 +4,48 @@ import { ScrollArea } from '.';
 const meta: Meta<typeof ScrollArea> = {
   title: 'Components/ScrollArea',
   component: ScrollArea,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  argTypes: {
+    type: {
+      description: 'The type of scrollbar to render',
+      control: 'select',
+      options: ['auto', 'always', 'scroll', 'hover'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'auto' }
+      }
+    },
+    scrollHideDelay: {
+      description: '(Optional) Delay in milliseconds before hiding the scrollbar',
+      control: { type: 'number', min: 0 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '600' }
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the scroll area',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A custom scroll area component that provides a consistent scrolling experience across different browsers and platforms.'
+      }
+    }
+  }
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const tags = Array.from({ length: 50 }).map((_, i) => `v1.2.${i}`);
+const tags = Array.from({ length: 50 }, (_, i) => `v1.2.${i}`);
 
 export const Default: Story = {
   render: () => ({

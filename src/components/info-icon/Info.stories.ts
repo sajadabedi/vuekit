@@ -1,21 +1,32 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { InfoIcon } from './index'
 
-const meta = {
+const meta: Meta<typeof InfoIcon> = {
   title: 'Components/InfoIcon',
   component: InfoIcon,
   tags: ['autodocs'],
-  args: {
-    tooltip: 'This is an information tooltip'
-  },
   argTypes: {
     tooltip: {
+      description: 'Content to display in the tooltip',
       control: 'text',
-      description: 'Content to display in the tooltip'
+      table: {
+        type: { summary: 'string' }
+      }
     },
     class: {
+      description: 'Additional CSS classes to apply to the info icon',
       control: 'text',
-      description: 'Additional CSS classes to apply to the info icon'
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'A simple information icon with a tooltip that appears on hover. Useful for providing additional context or help text in a compact way.'
+      }
     }
   }
 } satisfies Meta<typeof InfoIcon>

@@ -1,41 +1,83 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '.';
 import { Button, Input, Label } from '@/components';
+import { ref } from 'vue';
 
-const meta: Meta<typeof Tabs> = {
+const meta = {
   title: 'Components/Tabs',
   component: Tabs,
-  tags: ['autodocs']
-};
+  tags: ['autodocs'],
+  argTypes: {
+    modelValue: {
+      description: 'The currently active tab value',
+      control: 'text',
+      table: {
+        type: { summary: 'string' }
+      }
+    },
+    'onUpdate:modelValue': {
+      description: 'Event emitted when the active tab changes',
+      table: {
+        type: { summary: '(value: string) => void' },
+        category: 'events'
+      }
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the tabs container',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A tabs component that follows WAI-ARIA guidelines. Provides keyboard navigation and smooth transitions between content.'
+      }
+    }
+  }
+} satisfies Meta<typeof Tabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const tabsContainerClass = 'w-[400px]';
+
 export const Default: Story = {
   render: () => ({
-    components: {
-      Tabs,
-      TabsList,
-      TabsTrigger,
-      TabsContent
+    components: { Tabs, TabsList, TabsTrigger, TabsContent },
+    setup() {
+      const activeTab = ref('account');
+      return { activeTab };
     },
     template: `
-      <Tabs default-value="account" class="w-[400px]">
-        <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">
-          <p class="text-sm text-gray-500">
-            Make changes to your account here. Click save when you're done.
-          </p>
-        </TabsContent>
-        <TabsContent value="password">
-          <p class="text-sm text-gray-500">
-            Change your password here. After saving, you'll be logged out.
-          </p>
-        </TabsContent>
-      </Tabs>
+      <div class="${tabsContainerClass}">
+        <Tabs v-model="activeTab">
+          <TabsList>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+          </TabsList>
+          <TabsContent value="account">
+            <div class="space-y-4">
+              <h4 class="text-sm font-medium">Account Settings</h4>
+              <p class="text-sm text-tertiary">
+                Update your account settings. Set your preferred language and timezone.
+              </p>
+            </div>
+          </TabsContent>
+          <TabsContent value="password">
+            <div class="space-y-4">
+              <h4 class="text-sm font-medium">Password Settings</h4>
+              <p class="text-sm text-tertiary">
+                Change your password here. After saving, you'll be logged out.
+              </p>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
     `
   })
 };
