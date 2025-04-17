@@ -1,28 +1,19 @@
 <script lang="ts" setup>
 import { cn } from '@/lib/utils';
-import { useField } from 'vee-validate';
-import { type HTMLAttributes, provide, computed } from 'vue';
+import { useId } from 'reka-ui';
+import { type HTMLAttributes, provide } from 'vue';
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys';
-
-// TODO: handling error and validation
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];
-  name?: string;
 }>();
 
-const { errorMessage } = useField(() => props.name ?? '');
-
-const id = computed(() => `${props.name}-form-item`);
-provide(FORM_ITEM_INJECTION_KEY, { id: id.value, error: errorMessage.value });
+const id = useId();
+provide(FORM_ITEM_INJECTION_KEY, id);
 </script>
 
 <template>
-  <div
-    data-slot="form-item"
-    :class="cn('data-[error=true]:[&_[data-slot=control]]:shadow-error isolate grid gap-1', props.class)"
-    :data-error="!!errorMessage"
-  >
+  <div :class="cn('data-[error=true]:[&_[data-slot=control]]:shadow-error isolate grid gap-1 space-y-2', props.class)">
     <slot />
   </div>
 </template>

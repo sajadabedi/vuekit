@@ -67,7 +67,7 @@ export const Default: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label</Label>
-        <input id="input-1" type="text" class="w-full rounded-md border p-2" />
+        <Input type="email" id="email" placeholder="Email" />
       </div>
     `
   })
@@ -140,7 +140,7 @@ export const Optional: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label with optional indicator</Label>
-        <input id="input-2" type="text" class="w-full rounded-md border p-2" />
+        <Input id="input-2" type="text" />
       </div>
     `
   })
@@ -159,7 +159,7 @@ export const WithTooltip: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label with tooltip</Label>
-        <input id="input-3" type="text" class="w-full rounded-md border p-2" />
+        <Input id="input-3" type="text" />
       </div>
     `
   })
@@ -179,7 +179,7 @@ export const OptionalWithTooltip: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label with optional and tooltip</Label>
-        <input id="input-4" type="text" class="w-full rounded-md border p-2" />
+        <Input id="input-4" type="text" />
       </div>
     `
   })

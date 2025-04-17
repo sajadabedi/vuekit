@@ -1,17 +1,11 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/utils';
-import { type HTMLAttributes } from 'vue';
+import { ErrorMessage } from 'vee-validate';
+import { toValue } from 'vue';
 import { useFormField } from './useFormField';
 
-const props = defineProps<{
-  class?: HTMLAttributes['class'];
-}>();
-
-const { formMessageId, error } = useFormField();
+const { name, formMessageId } = useFormField();
 </script>
 
 <template>
-  <p v-if="error" :id="formMessageId" data-slot="form-message" :class="cn('text-critical text-sm', props.class)">
-    {{ error }}
-  </p>
+  <ErrorMessage :id="formMessageId" as="p" :name="toValue(name)" class="text-critical text-sm" />
 </template>

@@ -1,9 +1,9 @@
 import { Button, Input } from '@/components';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Form } from 'vee-validate';
-import * as z from 'zod';
 import { toTypedSchema } from '@vee-validate/zod';
-import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '.';
+import { useForm } from 'vee-validate';
+import * as z from 'zod';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '.';
 
 const meta: Meta<typeof FormItem> = {
   title: 'Components/Form',
@@ -16,14 +16,15 @@ type Story = StoryObj<typeof meta>;
 
 const formSchema = toTypedSchema(
   z.object({
-    username: z.string().min(2, 'Username must be at least 2 characters')
+    username: z.string().min(2, 'Username must be at least 2 characters').max(50, 'Username must be less than 50 characters'),
+    email: z.string().email('Please enter a valid email address')
   })
 );
 
 export const Default: Story = {
   render: () => ({
     components: {
-      Form,
+      FormField,
       FormItem,
       FormLabel,
       FormControl,
@@ -33,65 +34,43 @@ export const Default: Story = {
       Button
     },
     setup() {
-      const onSubmit = (values: any) => {
-        console.log(values);
-      };
-      
-      return { onSubmit, formSchema };
+      const { handleSubmit } = useForm({
+        validationSchema: formSchema
+      });
+
+      const onSubmit = handleSubmit((values) => {
+        console.log('Form submitted:', values);
+      });
+
+      return { onSubmit };
     },
     template: `
-      <Form :validation-schema="formSchema" @submit="onSubmit" class="w-full max-w-sm space-y-6">
-        <FormItem name="username">
-          <FormLabel>Username</FormLabel>
-          <FormControl>
-            <Input name="username" placeholder="Enter username" />
-          </FormControl>
-          <FormDescription>
-            This is your public display name.
-          </FormDescription>
-          <FormMessage />
-        </FormItem>
-        <Button type="submit">Submit</Button>
-      </Form>
-    `
-  })
-};
+      <form @submit="onSubmit" class="w-full max-w-sm space-y-6">
+        <FormField v-slot="{ componentField }" name="username">
+          <FormItem>
+            <FormLabel>Username</FormLabel>
+            <FormControl>
+              <Input v-bind="componentField" placeholder="Enter username" />
+            </FormControl>
+            <FormDescription>
+              This is your public display name.
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
-const emailSchema = toTypedSchema(
-  z.object({
-    email: z.string().email('Please enter a valid email address')
-  })
-);
+        <FormField v-slot="{ componentField }" name="email">
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input v-bind="componentField" type="email" placeholder="Enter your email" />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
-export const WithValidation: Story = {
-  render: () => ({
-    components: {
-      Form,
-      FormItem,
-      FormLabel,
-      FormControl,
-      FormMessage,
-      Input,
-      Button
-    },
-    setup() {
-      const onSubmit = (values: any) => {
-        console.log(values);
-      };
-      
-      return { onSubmit, emailSchema };
-    },
-    template: `
-      <Form :validation-schema="emailSchema" @submit="onSubmit" class="w-full max-w-sm space-y-6">
-        <FormItem name="email">
-          <FormLabel>Email</FormLabel>
-          <FormControl>
-            <Input name="email" type="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormMessage />
-        </FormItem>
         <Button type="submit">Submit</Button>
-      </Form>
+      </form>
     `
   })
 };
