@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { Input } from '.';
 import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/components';
 import { PhMagnifyingGlass } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Input } from '.';
 
 const meta = {
   title: 'Components/Input',
@@ -12,46 +12,21 @@ const meta = {
       description: 'The current value of the input',
       control: { type: 'text' },
       table: {
-        type: { summary: 'string' }
+        type: { summary: 'string | number' }
+      }
+    },
+    defaultValue: {
+      description: 'The default value of the input',
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string | number' }
       }
     },
     'onUpdate:modelValue': {
       description: 'Event emitted when the input value changes',
       table: {
-        type: { summary: '(value: string) => void' },
+        type: { summary: '(value: string | number) => void' },
         category: 'events'
-      }
-    },
-    type: {
-      description: 'The type of the input field',
-      control: 'select',
-      options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'text' }
-      }
-    },
-    placeholder: {
-      description: '(Optional) Placeholder text to show when the input is empty',
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      }
-    },
-    disabled: {
-      description: '(Optional) Whether the input is disabled',
-      control: { type: 'boolean' },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
-      }
-    },
-    error: {
-      description: '(Optional) Whether the input is in an error state',
-      control: { type: 'boolean' },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false }
       }
     },
     class: {
@@ -66,7 +41,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'A versatile input component that supports various types, states, and validation. Built with accessibility and usability in mind.'
+        component:
+          'A versatile input component that supports various types, states, and validation. Built with accessibility and usability in mind.'
       }
     }
   }
@@ -81,13 +57,16 @@ export const Default: Story = {
   render: (args) => ({
     components: { Input, FormItem, FormControl },
     setup() {
-      return { args };
+      const inputClass = args.class;
+      const inputModelValue = args.modelValue;
+      const inputDefaultValue = args.defaultValue;
+      return { inputClass, inputModelValue, inputDefaultValue };
     },
     template: `
       <div class="${inputContainerClass}">
         <FormItem>
           <FormControl>
-            <Input v-bind="args" placeholder="Email" />
+            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
           </FormControl>
         </FormItem>
       </div>
@@ -99,14 +78,17 @@ export const WithLabel: Story = {
   render: (args) => ({
     components: { Input, FormItem, FormLabel, FormControl },
     setup() {
-      return { args };
+      const inputClass = args.class;
+      const inputModelValue = args.modelValue;
+      const inputDefaultValue = args.defaultValue;
+      return { inputClass, inputModelValue, inputDefaultValue };
     },
     template: `
       <div class="${inputContainerClass}">
         <FormItem>
           <FormLabel tooltip="test" optional>Email</FormLabel>
           <FormControl>
-            <Input v-bind="args" placeholder="Enter your email" />
+            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
           </FormControl>
         </FormItem>
       </div>
@@ -118,14 +100,17 @@ export const WithDescription: Story = {
   render: (args) => ({
     components: { Input, FormItem, FormLabel, FormControl, FormDescription },
     setup() {
-      return { args };
+      const inputClass = args.class;
+      const inputModelValue = args.modelValue;
+      const inputDefaultValue = args.defaultValue;
+      return { inputClass, inputModelValue, inputDefaultValue };
     },
     template: `
       <div class="${inputContainerClass}">
         <FormItem>
           <FormLabel>Email</FormLabel>
           <FormControl>
-            <Input v-bind="args" placeholder="Enter your email" />
+            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
           </FormControl>
           <FormDescription>
             This is the email we'll use for important notifications.
@@ -138,19 +123,22 @@ export const WithDescription: Story = {
 
 export const WithError: Story = {
   args: {
-    error: true
+    class: 'aria-invalid:border-critical aria-invalid:focus-within:ring-[var(--ui-color-border-critical)]'
   },
   render: (args) => ({
     components: { Input, FormItem, FormLabel, FormControl, FormMessage },
     setup() {
-      return { args };
+      const inputClass = args.class;
+      const inputModelValue = args.modelValue;
+      const inputDefaultValue = args.defaultValue;
+      return { inputClass, inputModelValue, inputDefaultValue };
     },
     template: `
       <div class="${inputContainerClass}">
         <FormItem>
           <FormLabel>Email</FormLabel>
           <FormControl>
-            <Input v-bind="args" placeholder="Enter your email" />
+            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" aria-invalid="true" />
           </FormControl>
           <FormMessage>Please enter a valid email address</FormMessage>
         </FormItem>
@@ -163,14 +151,17 @@ export const WithIcon: Story = {
   render: (args) => ({
     components: { Input, FormItem, FormControl, PhMagnifyingGlass },
     setup() {
-      return { args };
+      const inputClass = args.class;
+      const inputModelValue = args.modelValue;
+      const inputDefaultValue = args.defaultValue;
+      return { inputClass, inputModelValue, inputDefaultValue };
     },
     template: `
       <div class="${inputContainerClass}">
         <FormItem>
           <FormControl>
             <PhMagnifyingGlass weight="bold" />
-            <Input v-bind="args" placeholder="Search" />
+            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
           </FormControl>
         </FormItem>
       </div>
@@ -180,18 +171,21 @@ export const WithIcon: Story = {
 
 export const Disabled: Story = {
   args: {
-    disabled: true
+    class: 'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70'
   },
   render: (args) => ({
     components: { Input, FormItem, FormControl },
     setup() {
-      return { args };
+      const inputClass = args.class;
+      const inputModelValue = args.modelValue;
+      const inputDefaultValue = args.defaultValue;
+      return { inputClass, inputModelValue, inputDefaultValue };
     },
     template: `
       <div class="${inputContainerClass}">
         <FormItem>
           <FormControl>
-            <Input v-bind="args" placeholder="Email" />
+            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" disabled />
           </FormControl>
         </FormItem>
       </div>

@@ -3,7 +3,9 @@ import Sonner from './Sonner.vue';
 import { Button } from '@/components/button';
 import { toast } from 'vue-sonner';
 
-const meta = {
+type Position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
+
+const meta: Meta<typeof Sonner> = {
   title: 'Components/Sonner',
   component: Sonner,
   tags: ['autodocs'],
@@ -18,7 +20,7 @@ const meta = {
         'bottom-right',
         'top-center',
         'bottom-center'
-      ],
+      ] as Position[],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'bottom-right' }
@@ -73,7 +75,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Sonner>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -13,7 +13,6 @@ export { Label } from './label';
 export { RadioGroup, RadioGroupItem } from './radio-group';
 export { ScrollArea } from './scroll-area';
 export { Select, SelectContent, SelectItem, SelectTrigger } from './select';
-export { Separator } from './separator';
 export { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './sheet';
 export { Sidebar } from './sidebar';
 export { Skeleton } from './skeleton';
