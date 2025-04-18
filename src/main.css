@@ -1,79 +1,80 @@
 @import 'tailwindcss';
+
 @import './styles/tailwind-colors.css';
-@import './styles/decorative.css';
+
 @import './styles/typography.css';
 @import './styles/animate.css';
-
+/* @import './styles/decorative.css'; */
 /* Base styles */
 @layer base {
   :root {
     /* text */
     color-scheme: light dark;
-    --ui-color-accent: var(--tw-orange-600);
-    --ui-color-primary: var(--tw-stone-950);
-    --ui-color-text-secondary: var(--tw-stone-700);
-    --ui-color-text-tertiary: var(--tw-stone-500);
-    --ui-color-text-placeholder: var(--tw-stone-400);
-    --ui-color-text-disabled: var(--tw-stone-400);
-    --ui-color-text-success: var(--tw-green-700);
-    --ui-color-text-critical: var(--tw-red-600);
-    --ui-color-text-warning: var(--tw-yellow-700);
+    --ui-color-accent: var(--color-orange-600);
+    --ui-color-primary: var(--color-stone-950);
+    --ui-color-text-secondary: var(--color-stone-700);
+    --ui-color-text-tertiary: var(--color-stone-500);
+    --ui-color-text-placeholder: var(--color-stone-400);
+    --ui-color-text-disabled: var(--color-stone-400);
+    --ui-color-text-success: var(--color-green-700);
+    --ui-color-text-critical: var(--color-red-600);
+    --ui-color-text-warning: var(--color-yellow-700);
     /* bg */
-    --ui-color-bg-body: var(--tw-white);
+    --ui-color-bg-body: var(--color-white);
     --ui-color-bg-accent: var(--ui-color-accent);
-    --ui-color-bg-secondary: var(--tw-stone-50);
-    --ui-color-bg-tertiary: var(--tw-stone-100);
-    --ui-color-bg-interactive: var(--tw-white);
-    --ui-color-bg-success-muted: var(--tw-emerald-100);
-    --ui-color-bg-critical-muted: var(--tw-red-100);
-    --ui-color-bg-warning-muted: var(--tw-yellow-100);
-    --ui-color-bg-elevated-on-dark: var(--tw-white);
-    --ui-color-bg-contrast: var(--tw-stone-900);
-    --ui-color-bg-critical: var(--tw-red-700);
-    --ui-color-bg-disabled: var(--tw-stone-200);
-    --ui-color-bg-muted: var(--tw-stone-200);
-    --ui-color-bg-backdrop: color-mix(in oklab, var(--tw-black) 15%, transparent);
+    --ui-color-bg-secondary: var(--color-stone-50);
+    --ui-color-bg-tertiary: var(--color-stone-100);
+    --ui-color-bg-interactive: var(--color-white);
+    --ui-color-bg-success-muted: var(--color-emerald-100);
+    --ui-color-bg-critical-muted: var(--color-red-100);
+    --ui-color-bg-warning-muted: var(--color-yellow-100);
+    --ui-color-bg-elevated-on-dark: var(--color-white);
+    --ui-color-bg-contrast: var(--color-stone-900);
+    --ui-color-bg-critical: var(--color-red-700);
+    --ui-color-bg-disabled: var(--color-stone-200);
+    --ui-color-bg-muted: var(--color-stone-200);
+    --ui-color-bg-backdrop: color-mix(in oklab, var(--color-black) 15%, transparent);
     /* border */
-    --ui-color-border-default: var(--tw-stone-200);
+    --ui-color-border-default: var(--color-stone-200);
     --ui-color-border-accent: var(--ui-color-accent);
-    --ui-color-border-secondary: var(--tw-stone-100);
-    --ui-color-border-contrast: var(--tw-stone-400);
-    --ui-color-border-critical: var(--tw-red-500);
+    --ui-color-border-secondary: var(--color-stone-100);
+    --ui-color-border-contrast: var(--color-stone-400);
+    --ui-color-border-critical: var(--color-red-500);
     /* Shadow colors */
     --ui-shadow-ring: rgba(0, 0, 0, 0.11);
     --ui-shadow-ring-hover: rgba(0, 0, 0, 0.2);
     --ui-shadow-ring-light: rgba(255, 255, 255, 0.37);
-    --ui-shadow-ring-accent: color-mix(in oklab, var(--tw-orange-700) 70%, transparent);
-    --ui-shadow-ring-critical: var(--tw-red-800);
+    --ui-shadow-ring-accent: color-mix(in oklab, var(--color-orange-700) 70%, transparent);
+    --ui-shadow-ring-critical: var(--color-red-800);
     --ui-color-focus-ring-accent: color-mix(in oklab, var(--ui-color-accent) 30%, transparent);
     @media (prefers-color-scheme: dark) {
-      --ui-color-primary: var(--tw-stone-50);
-      --ui-color-text-secondary: var(--tw-stone-400);
-      --ui-color-text-tertiary: var(--tw-stone-600);
-      --ui-color-text-placeholder: var(--tw-stone-500);
-      --ui-color-text-success: var(--tw-green-400);
-      --ui-color-text-critical: var(--tw-red-400);
-      --ui-color-text-warning: var(--tw-yellow-400);
+      --ui-color-primary: var(--color-stone-50);
+      --ui-color-text-secondary: var(--color-stone-400);
+      --ui-color-text-tertiary: var(--color-stone-600);
+      --ui-color-text-placeholder: var(--color-stone-500);
+      --ui-color-text-success: var(--color-green-400);
+      --ui-color-text-critical: var(--color-red-400);
+      --ui-color-text-warning: var(--color-yellow-400);
 
-      --ui-color-bg-body: var(--tw-stone-950);
-      --ui-color-bg-secondary: var(--tw-stone-900);
-      --ui-color-bg-tertiary: var(--tw-stone-800);
-      --ui-color-bg-interactive: var(--tw-stone-900);
-      --ui-color-bg-muted: var(--tw-stone-700);
-      --ui-color-bg-disabled: var(--tw-stone-800);
-      --ui-color-bg-critical: var(--tw-red-800);
-      --ui-color-bg-elevated-on-dark: var(--tw-stone-900);
-      --ui-color-bg-contrast: var(--tw-stone-800);
-      --ui-color-bg-backdrop: color-mix(in oklab, var(--tw-white) 10%, transparent);
-      --ui-color-bg-success-muted: color-mix(in oklab, var(--tw-emerald-900) 60%, transparent);
-      --ui-color-bg-critical-muted: color-mix(in oklab, var(--tw-red-900) 40%, transparent);
-      --ui-color-bg-warning-muted: color-mix(in oklab, var(--tw-yellow-900) 20%, transparent);
+      --ui-color-bg-body: var(--color-stone-950);
+      --ui-color-bg-secondary: var(--color-stone-900);
+      --ui-color-bg-tertiary: var(--color-stone-800);
+      --ui-color-bg-interactive: var(--color-stone-900);
+      --ui-color-bg-muted: var(--color-stone-700);
+      --ui-color-bg-disabled: var(--color-stone-800);
+      --ui-color-bg-critical: var(--color-red-800);
+      --ui-color-bg-elevated-on-dark: var(--color-stone-900);
+      --ui-color-bg-contrast: var(--color-stone-800);
+      --ui-color-bg-backdrop: color-mix(in oklab, var(--color-white) 10%, transparent);
+      --ui-color-bg-success-muted: color-mix(in oklab, var(--color-emerald-900) 60%, transparent);
+      --ui-color-bg-critical-muted: color-mix(in oklab, var(--color-red-900) 40%, transparent);
+      --ui-color-bg-warning-muted: color-mix(in oklab, var(--color-yellow-900) 20%, transparent);
 
       /* border */
-      --ui-color-border-default: var(--tw-stone-800);
-      --ui-color-border-secondary: var(--tw-stone-900);
-      --ui-color-border-contrast: var(--tw-stone-700);
-      --ui-color-border-critical: var(--tw-red-500);
+      --ui-color-border-default: var(--color-stone-800);
+      --ui-color-border-secondary: var(--color-stone-900);
+      --ui-color-border-contrast: var(--color-stone-700);
+      --ui-color-border-critical: var(--color-red-500);
       /* Shadow colors */
       --ui-shadow-ring: rgba(255, 255, 255, 0.1);
       --ui-shadow-ring-hover: rgba(255, 255, 255, 0.2);
@@ -95,16 +96,6 @@
 
 @theme {
   /* === Core Tokens === */
-
-  /* Remove Tailwind defaults */
-  /* --color-*: initial; */
-  /* --font-*: initial; */
-  /* --font-weight-*: initial; */
-  /* --text-*: initial; */
-  /* --shadow-*: initial; */
-  /* --gradient-*: initial; */
-  /* --leading-*: initial; */
-  /* --radius-*: initial; */
 
   /* === Border Radius Tokens === */
   --radius-none: 0;
@@ -132,8 +123,7 @@
     0px 0px 0px 1px var(--ui-color-border-critical) inset, 0px 0px 0px 3px var(--ui-color-bg-red-muted),
     0px 8px 16px 0px rgba(0, 0, 0, 0.08);
 
-  --color-white: var(--tw-white);
-  --color-black: var(--tw-stone-950);
+  --color-black: var(--color-stone-950);
   --color-accent: var(--ui-color-accent);
   /* Text */
   --text-color-default: var(--ui-color-primary);

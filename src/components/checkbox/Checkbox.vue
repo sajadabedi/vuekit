@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion-v';
 import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
-import { computed, onMounted, onUnmounted, ref, type HTMLAttributes } from 'vue';
+import { computed, type HTMLAttributes } from 'vue';
 
 const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<CheckboxRootEmits>();
@@ -19,20 +19,29 @@ const delegatedProps = computed(() => {
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
-const isFirstRender = ref(true);
-const timeoutId = ref<number>();
-
-onMounted(() => {
-  // Wait a tick to prevent initial animation
-  timeoutId.value = setTimeout(() => {
-    isFirstRender.value = false;
-  }, 0);
-});
-
-onUnmounted(() => {
-  if (timeoutId.value) {
-    clearTimeout(timeoutId.value);
+const tickVariants = {
+  checked: {
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      delay: 0.1
+    }
+  },
+  unchecked: {
+    pathLength: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.2
+    }
   }
+};
+
+const pathAnimation = computed(() => {
+  if (props.modelValue) {
+    return tickVariants.checked;
+  }
+  return tickVariants.unchecked;
 });
 </script>
 
@@ -42,18 +51,16 @@ onUnmounted(() => {
     v-bind="forwarded"
     :class="
       cn(
-        'group bg-interactive shadow-input data-[state=checked]:bg-accent focus-ring hover:bg-muted/40 data-[state=checked]:disabled:bg-disabled disabled:text-tertiary size-4.5 shrink-0 rounded-sm text-white transition-all duration-300 outline-none disabled:cursor-not-allowed disabled:opacity-70',
+        'group bg-interactive shadow-input data-[state=checked]:bg-accent focus-ring hover:bg-muted/40 data-[state=checked]:disabled:bg-disabled disabled:text-tertiary disabled:bg-disabled size-4.5 shrink-0 rounded-sm text-white transition-all duration-300 outline-none disabled:cursor-not-allowed',
         props.class
       )
     "
   >
-    <CheckboxIndicator data-slot="checkbox-indicator" class="flex items-center justify-center text-current">
+    <CheckboxIndicator data-slot="checkbox-indicator" class="flex items-center justify-center text-white">
       <slot>
         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
           <motion.path
-            :initial="{ pathLength: 0, opacity: 0 }"
-            :animate="{ pathLength: props.modelValue ? 1 : 0, opacity: props.modelValue ? 1 : 0 }"
-            :transition="{ duration: isFirstRender ? 0 : 0.2, ease: 'easeOut' }"
+            :animate="pathAnimation"
             d="M1.00013 3.98401L3.08316 6.06707C3.41134 6.39526 3.94343 6.39526 4.27161 6.06708L9 1.3387"
             stroke="currentColor"
             stroke-width="2"

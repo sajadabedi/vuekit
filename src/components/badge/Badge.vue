@@ -7,7 +7,7 @@ import { type BadgeVariants, badgeVariants } from '.';
 
 const props = defineProps<
   PrimitiveProps & {
-    color?: BadgeVariants['color'];
+    variant?: BadgeVariants['variant'];
     class?: HTMLAttributes['class'];
   }
 >();
@@ -20,7 +20,11 @@ const delegatedProps = computed(() => {
 </script>
 
 <template>
-  <Primitive data-slot="badge" :class="cn(badgeVariants({ color: props.color }), props.class)" v-bind="delegatedProps">
+  <Primitive
+    data-slot="badge"
+    :class="cn(badgeVariants({ variant: props.variant }), props.class)"
+    v-bind="delegatedProps"
+  >
     <slot />
   </Primitive>
 </template>

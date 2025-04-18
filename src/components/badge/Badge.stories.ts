@@ -7,8 +7,8 @@ const meta: Meta<typeof Badge> = {
   component: Badge,
   tags: ['autodocs'],
   argTypes: {
-    color: {
-      description: 'The color of the badge',
+    variant: {
+      description: 'The variant of the badge',
       control: 'select',
       options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime'],
       table: {
@@ -35,7 +35,8 @@ const meta: Meta<typeof Badge> = {
   parameters: {
     docs: {
       description: {
-        component: 'A versatile badge component for displaying short status text, counts, or labels. Supports multiple colors and custom content through slots.'
+        component:
+          'A versatile badge component for displaying short status text, counts, or labels. Supports multiple colors and custom content through slots.'
       }
     }
   }
@@ -44,20 +45,20 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const AllColors: Story = {
+export const AllVariants: Story = {
   render: () => ({
     components: { Badge },
     template: `
       <div class="flex gap-4">
-        <Badge color="red">Red</Badge>
-        <Badge color="green">Green</Badge>
-        <Badge color="yellow">Yellow</Badge>
-        <Badge color="blue">Blue</Badge>
-        <Badge color="indigo">Indigo</Badge>
-        <Badge color="purple">Purple</Badge>
-        <Badge color="stone">Stone</Badge>
-        <Badge color="pink">Pink</Badge>
-        <Badge color="lime">Lime</Badge>
+        <Badge variant="red">Red</Badge>
+        <Badge variant="green">Green</Badge>
+        <Badge variant="yellow">Yellow</Badge>
+        <Badge variant="blue">Blue</Badge>
+        <Badge variant="indigo">Indigo</Badge>
+        <Badge variant="purple">Purple</Badge>
+        <Badge variant="stone">Stone</Badge>
+        <Badge variant="pink">Pink</Badge>
+        <Badge variant="lime">Lime</Badge>
       </div>
     `
   })
@@ -68,15 +69,15 @@ export const WithIcon: Story = {
     components: { Badge, PhStar },
     template: `
       <div class="flex flex-wrap gap-4">
-        <Badge color="blue">
+        <Badge variant="blue">
           <PhStar weight="bold" />
           With Icon
         </Badge>
-        <Badge color="green">
+        <Badge variant="green">
           <PhStar weight="bold" />
           Success
         </Badge>
-        <Badge color="red">
+        <Badge variant="red">
           <PhStar weight="bold" />
           Error
         </Badge>
@@ -89,7 +90,7 @@ export const Default: Story = {
   render: () => ({
     components: { Badge },
     template: `
-      <Badge color="stone">Default</Badge>
+      <Badge variant="stone">Default</Badge>
     `
   })
 };
@@ -99,7 +100,7 @@ export const Truncated: Story = {
     components: { Badge },
     template: `
       <div class="w-32 ">
-        <Badge color="blue" class="truncate">
+        <Badge variant="blue" class="truncate">
           This is a very long text that will be truncated
         </Badge>
       </div>
