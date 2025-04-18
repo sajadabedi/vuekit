@@ -85,7 +85,8 @@ export const Disabled: Story = {
     components: { Switch, Label },
     setup() {
       const checked = ref(false);
-      return { checked };
+      const checked2 = ref(true);
+      return { checked, checked2 };
     },
     template: `
       <div class="flex flex-col gap-4">
@@ -94,7 +95,7 @@ export const Disabled: Story = {
           <Label for="disabled-unchecked">Disabled (Unchecked)</Label>
         </div>
         <div class="flex items-center gap-2">
-          <Switch v-model="checked" disabled id="disabled-checked" />
+          <Switch v-model="checked2" disabled id="disabled-checked" />
           <Label for="disabled-checked">Disabled (Checked)</Label>
         </div>
       </div>
