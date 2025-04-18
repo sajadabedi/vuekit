@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { Switch } from '.';
 import { Label } from '@/components/label';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
+import { Switch } from '.';
 
 const meta = {
   title: 'Components/Switch',
@@ -68,7 +68,7 @@ export const WithLabel: Story = {
   render: () => ({
     components: { Switch, Label },
     setup() {
-      const checked = ref(false);
+      const checked = ref(true);
       return { checked };
     },
     template: `
@@ -94,7 +94,7 @@ export const Disabled: Story = {
           <Label for="disabled-unchecked">Disabled (Unchecked)</Label>
         </div>
         <div class="flex items-center gap-2">
-          <Switch :model-value="true" disabled id="disabled-checked" />
+          <Switch v-model="checked" disabled id="disabled-checked" />
           <Label for="disabled-checked">Disabled (Checked)</Label>
         </div>
       </div>
