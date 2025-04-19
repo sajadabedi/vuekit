@@ -17,10 +17,10 @@ const delegatedProps = computed(() => {
     :class="cn('text-secondary flex min-h-14 flex-col items-center justify-center p-8 text-center', props.class)"
     v-bind="delegatedProps"
   >
-    <div class="mx-auto flex max-w-[420px] flex-col items-center text-center">
+    <div class="mx-auto flex max-w-[420px] flex-col items-center gap-1.5 text-center">
       <component :is="props.icon" weight="duotone" v-if="props.icon" class="mx-auto size-7" />
-      <h3 class="text-base-bold mt-2" v-if="props.heading">{{ props.heading }}</h3>
-      <div class="mt-2 text-sm">
+      <div class="flex flex-col gap-0.5 text-sm">
+        <h3 class="text-base-bold" v-if="props.heading">{{ props.heading }}</h3>
         <slot />
       </div>
     </div>

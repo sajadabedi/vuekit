@@ -8,41 +8,12 @@ import { computed, type HTMLAttributes } from 'vue';
 const props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<CheckboxRootEmits>();
 
-// TODO: Add indeterminate support.
-// TODO: Add disabled support when it's selected.
-
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
-
   return delegated;
 });
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
-
-const tickVariants = {
-  checked: {
-    pathLength: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-      delay: 0.1
-    }
-  },
-  unchecked: {
-    pathLength: 0,
-    opacity: 0,
-    transition: {
-      duration: 0.2
-    }
-  }
-};
-
-const pathAnimation = computed(() => {
-  if (props.modelValue) {
-    return tickVariants.checked;
-  }
-  return tickVariants.unchecked;
-});
 </script>
 
 <template>
@@ -60,7 +31,11 @@ const pathAnimation = computed(() => {
       <slot>
         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
           <motion.path
-            :animate="pathAnimation"
+            :initial="false"
+            :animate="{
+              pathLength: props.modelValue ? 1 : 0,
+              opacity: props.modelValue ? 1 : 0
+            }"
             d="M1.00013 3.98401L3.08316 6.06707C3.41134 6.39526 3.94343 6.39526 4.27161 6.06708L9 1.3387"
             stroke="currentColor"
             stroke-width="2"

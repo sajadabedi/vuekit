@@ -1,7 +1,8 @@
 import { Button, Input } from '@/components';
+import { PhMailbox, PhUser } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { toTypedSchema } from '@vee-validate/zod';
-import { useForm, configure } from 'vee-validate';
+import { configure, useForm } from 'vee-validate';
 import * as z from 'zod';
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '.';
 
@@ -61,6 +62,7 @@ export const Default: Story = {
           <FormItem>
             <FormLabel>Username</FormLabel>
             <FormControl>
+            <PhUser weight="bold" data-slot="prefix" />
               <Input v-bind="componentField" placeholder="Enter username" />
             </FormControl>
             <FormDescription>
@@ -74,7 +76,9 @@ export const Default: Story = {
           <FormItem>
             <FormLabel>Email</FormLabel>
             <FormControl>
+
               <Input v-bind="componentField" type="email" placeholder="Enter your email" />
+               <PhMailbox weight="bold" />
             </FormControl>
             <FormMessage />
           </FormItem>

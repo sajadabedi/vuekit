@@ -13,12 +13,12 @@ import {
 
 const meta = {
   title: 'Components/Command',
-  component: CommandDialog, // Use CommandDialog as the main component for the story context
+  component: CommandDialog,
   parameters: {
     layout: 'centered'
   },
   tags: ['autodocs'],
-  argTypes: {} // No args needed for this specific example
+  argTypes: {}
 } satisfies Meta<typeof CommandDialog>;
 
 export default meta;
@@ -91,19 +91,19 @@ export const DialogExample: Story = {
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup heading="Suggestions">
               <CommandItem value="calendar">
-                Calendar
+                Action center
               </CommandItem>
               <CommandItem value="search-emoji">
-                Search Emoji
+                Pulse
               </CommandItem>
               <CommandItem value="calculator">
-                Calculator
+                invoices
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
             <CommandGroup heading="Settings">
               <CommandItem value="profile">
-                Profile
+                Customers
               </CommandItem>
               <CommandItem value="billing">
                 Billing
@@ -164,7 +164,7 @@ watchDebounced(
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup>
           <CommandItem value="calendar">
-            Calendar
+            Dashboard
           </CommandItem>
         </CommandGroup>
       </CommandList>

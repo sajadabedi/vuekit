@@ -38,7 +38,7 @@
     --ui-color-border-contrast: var(--color-stone-400);
     --ui-color-border-critical: var(--color-red-500);
     /* Shadow colors */
-    --ui-shadow-ring: rgba(0, 0, 0, 0.11);
+    --ui-shadow-ring: color-mix(in oklab, var(--color-black) 11%, transparent);
     --ui-shadow-ring-hover: rgba(0, 0, 0, 0.2);
     --ui-shadow-ring-light: rgba(255, 255, 255, 0.37);
     --ui-shadow-ring-accent: color-mix(in oklab, var(--color-orange-700) 70%, transparent);
@@ -79,7 +79,7 @@
     }
   }
   body {
-    @apply font-regular text-default caret-accent font-sans text-base antialiased dark:selection:bg-white/30;
+    @apply font-regular text-default caret-accent font-sans text-base antialiased;
   }
   h1,
   h2,
@@ -99,10 +99,8 @@
   --radius-sm: 0.312rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
-  --radius-circular: 9999px;
 
   /* === Shadow Tokens === */
-  --shadow-none: none;
   --shadow-interactive:
     0px 1px 0px 0px rgba(255, 255, 255, 0.11) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.04) inset,
     0px 1px 0px 0px rgba(0, 0, 0, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);

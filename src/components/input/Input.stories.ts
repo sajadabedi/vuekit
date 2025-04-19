@@ -1,6 +1,7 @@
 import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '@/components';
 import { PhMagnifyingGlass } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 import { Input } from '.';
 
 const meta = {
@@ -53,141 +54,63 @@ type Story = StoryObj<typeof meta>;
 
 const inputContainerClass = 'max-w-sm space-y-4';
 
-export const Default: Story = {
-  render: (args) => ({
-    components: { Input, FormItem, FormControl },
-    setup() {
-      const inputClass = args.class;
-      const inputModelValue = args.modelValue;
-      const inputDefaultValue = args.defaultValue;
-      return { inputClass, inputModelValue, inputDefaultValue };
-    },
+export const Basic: Story = {
+  render: () => ({
+    components: { Input },
     template: `
-      <div class="${inputContainerClass}">
-        <FormItem>
-          <FormControl>
-            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
-          </FormControl>
-        </FormItem>
+      <div class="w-full max-w-sm">
+        <Input placeholder="Type something..." />
       </div>
     `
   })
 };
 
-export const WithLabel: Story = {
-  render: (args) => ({
-    components: { Input, FormItem, FormLabel, FormControl },
-    setup() {
-      const inputClass = args.class;
-      const inputModelValue = args.modelValue;
-      const inputDefaultValue = args.defaultValue;
-      return { inputClass, inputModelValue, inputDefaultValue };
-    },
+export const File: Story = {
+  render: () => ({
+    components: { Input },
     template: `
-      <div class="${inputContainerClass}">
-        <FormItem>
-          <FormLabel tooltip="test" optional>Email</FormLabel>
-          <FormControl>
-            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
-          </FormControl>
-        </FormItem>
+      <div class="w-full max-w-sm">
+        <Input type="file" />
       </div>
     `
   })
 };
 
-export const WithDescription: Story = {
-  render: (args) => ({
-    components: { Input, FormItem, FormLabel, FormControl, FormDescription },
-    setup() {
-      const inputClass = args.class;
-      const inputModelValue = args.modelValue;
-      const inputDefaultValue = args.defaultValue;
-      return { inputClass, inputModelValue, inputDefaultValue };
-    },
+export const WithButton: Story = {
+  render: () => ({
+    components: { Input },
     template: `
-      <div class="${inputContainerClass}">
-        <FormItem>
-          <FormLabel>Email</FormLabel>
-          <FormControl>
-            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
-          </FormControl>
-          <FormDescription>
-            This is the email we'll use for important notifications.
-          </FormDescription>
-        </FormItem>
-      </div>
-    `
-  })
-};
-
-export const WithError: Story = {
-  args: {
-    class: 'aria-invalid:border-critical aria-invalid:focus-within:ring-[var(--ui-color-border-critical)]'
-  },
-  render: (args) => ({
-    components: { Input, FormItem, FormLabel, FormControl, FormMessage },
-    setup() {
-      const inputClass = args.class;
-      const inputModelValue = args.modelValue;
-      const inputDefaultValue = args.defaultValue;
-      return { inputClass, inputModelValue, inputDefaultValue };
-    },
-    template: `
-      <div class="${inputContainerClass}">
-        <FormItem>
-          <FormLabel>Email</FormLabel>
-          <FormControl>
-            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" aria-invalid="true" />
-          </FormControl>
-          <FormMessage>Please enter a valid email address</FormMessage>
-        </FormItem>
+      <div class="flex w-full max-w-sm items-center space-x-2">
+        <Input placeholder="Email" type="email" />
+        <button class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+          Subscribe
+        </button>
       </div>
     `
   })
 };
 
 export const WithIcon: Story = {
-  render: (args) => ({
+  render: () => ({
     components: { Input, FormItem, FormControl, PhMagnifyingGlass },
-    setup() {
-      const inputClass = args.class;
-      const inputModelValue = args.modelValue;
-      const inputDefaultValue = args.defaultValue;
-      return { inputClass, inputModelValue, inputDefaultValue };
-    },
-    template: `
-      <div class="${inputContainerClass}">
-        <FormItem>
-          <FormControl>
-            <PhMagnifyingGlass weight="bold" />
-            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" />
-          </FormControl>
-        </FormItem>
-      </div>
+    template: /* html */ `
+      <Form>
+      <FormItem>
+        <FormControl>
+          <Input placeholder="Search..." />
+        </FormControl>
+      </FormItem>
+      </Form>
     `
   })
 };
 
 export const Disabled: Story = {
-  args: {
-    class: 'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70'
-  },
-  render: (args) => ({
-    components: { Input, FormItem, FormControl },
-    setup() {
-      const inputClass = args.class;
-      const inputModelValue = args.modelValue;
-      const inputDefaultValue = args.defaultValue;
-      return { inputClass, inputModelValue, inputDefaultValue };
-    },
-    template: `
-      <div class="${inputContainerClass}">
-        <FormItem>
-          <FormControl>
-            <Input :class="inputClass" :model-value="inputModelValue" :default-value="inputDefaultValue" disabled />
-          </FormControl>
-        </FormItem>
+  render: () => ({
+    components: { Input },
+    template: /* html */ `
+      <div class="w-full max-w-sm">
+        <Input disabled placeholder="This input is disabled" />
       </div>
     `
   })

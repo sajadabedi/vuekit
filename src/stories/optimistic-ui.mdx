@@ -1,0 +1,11 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="optimistic UI" />
+
+## Optimistic UI
+
+The way you handle updates to data in your frontend application significantly impacts its responsiveness and overall user experience. Optimistic and pessimistic updates are two fundamental strategies for managing these interactions, each with its strengths and situations it suits best.
+
+### Pessimistic vs Optimistic Updates
+
+This conservative approach prioritizes data consistency. The UI update occurs only after the backend server confirms a successful operation. On the other hand, the Optimistic approach places a premium on user experience. The UI updates immediately following a user action, assuming the operation will succeed on the server. Only if the update fails does the UI potentially need to be rolled back, providing feedback to the user. This is common in applications where a snappy, fluid feel is desired.

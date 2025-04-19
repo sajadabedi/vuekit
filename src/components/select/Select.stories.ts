@@ -1,5 +1,6 @@
 import { FormControl, FormItem, FormMessage } from '@/components/form';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 import {
   Select,
   SelectContent,
@@ -13,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue
 } from '.';
-import { ref } from 'vue';
 
 const meta = {
   title: 'Components/Select',
@@ -94,42 +94,6 @@ export const Default: Story = {
           </SelectContent>
         </Select>
       </div>
-    `
-  })
-};
-
-export const WithError: Story = {
-  render: () => ({
-    components: {
-      Select,
-      SelectTrigger,
-      SelectValue,
-      SelectContent,
-      SelectItem,
-      FormControl,
-      FormItem,
-      FormMessage
-    },
-    setup() {
-      const value = ref('');
-      return { value };
-    },
-    template: `
-      <FormItem name="select" error="Please select an option">
-        <FormControl>
-          <Select v-model="value">
-            <SelectTrigger class="w-[180px]">
-              <SelectValue placeholder="Select an option" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="1">Option 1</SelectItem>
-              <SelectItem value="2">Option 2</SelectItem>
-              <SelectItem value="3">Option 3</SelectItem>
-            </SelectContent>
-          </Select>
-        </FormControl>
-        <FormMessage />
-      </FormItem>
     `
   })
 };
