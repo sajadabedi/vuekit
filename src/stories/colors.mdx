@@ -1,0 +1,151 @@
+import { ColorPalette, ColorItem, Meta } from '@storybook/blocks';
+
+<Meta title="Colors" />
+
+# Colors
+
+We are using the tailwindcss color palette to have semantic colors to ensure consistency and accessibility.
+
+### Text Colors
+
+<ColorPalette>
+  {/* Text Colors */}
+  <ColorItem
+    title="text-default"
+    subtitle="Primary text color"
+    colors={{ 'text-default': 'var(--ui-color-primary)' }}
+  />
+  <ColorItem
+    title="text-secondary"
+    subtitle="Secondary text color"
+    colors={{ 'text-secondary': 'var(--ui-color-text-secondary)' }}
+  />
+  <ColorItem
+    title="text-tertiary"
+    subtitle="Tertiary text color"
+    colors={{ 'text-tertiary': 'var(--ui-color-text-tertiary)' }}
+  />
+  <ColorItem
+    title="text-placeholder"
+    subtitle="Placeholder text color"
+    colors={{ 'text-placeholder': 'var(--ui-color-text-placeholder)' }}
+  />
+  <ColorItem
+    title="text-success"
+    subtitle="Success text color"
+    colors={{ 'text-success': 'var(--ui-color-text-success)' }}
+  />
+  <ColorItem
+    title="text-critical"
+    subtitle="Critical text color"
+    colors={{ 'text-critical': 'var(--ui-color-text-critical)' }}
+  />
+  <ColorItem
+    title="text-warning"
+    subtitle="Warning text color"
+    colors={{ 'text-warning': 'var(--ui-color-text-warning)' }}
+  />
+  <ColorItem
+    title="text-disabled"
+    subtitle="Disabled text color"
+    colors={{ 'text-disabled': 'var(--ui-color-text-disabled)' }}
+  />
+</ColorPalette>
+
+### Background Colors
+
+<ColorPalette>
+  <ColorItem title="bg-body" subtitle="Body background color" colors={{ 'bg-body': 'var(--ui-color-bg-body)' }} />
+  <ColorItem
+    title="bg-elevated-on-dark"
+    subtitle="Elevated surface on dark background. it's the regular body color on light theme"
+    colors={{ 'bg-elevated-on-dark': 'var(--ui-color-bg-elevated-on-dark)' }}
+  />
+  <ColorItem
+    title="bg-secondary"
+    subtitle="Secondary background color"
+    colors={{ 'bg-secondary': 'var(--ui-color-bg-secondary)' }}
+  />
+  <ColorItem
+    title="bg-tertiary"
+    subtitle="Tertiary background color"
+    colors={{ 'bg-tertiary': 'var(--ui-color-bg-tertiary)' }}
+  />
+  <ColorItem title="bg-muted" subtitle="Muted background color" colors={{ 'bg-muted': 'var(--ui-color-bg-muted)' }} />
+  <ColorItem
+    title="bg-contrast"
+    subtitle="Contrast background color"
+    colors={{ 'bg-contrast': 'var(--ui-color-bg-contrast)' }}
+  />
+  <ColorItem
+    title="bg-interactive"
+    subtitle="Interactive element background"
+    colors={{ 'bg-interactive': 'var(--ui-color-bg-interactive)' }}
+  />
+  <ColorItem
+    title="bg-success-muted"
+    subtitle="Success state muted background"
+    colors={{ 'bg-success-muted': 'var(--ui-color-bg-success-muted)' }}
+  />
+  <ColorItem
+    title="bg-critical-muted"
+    subtitle="Critical state muted background"
+    colors={{ 'bg-critical-muted': 'var(--ui-color-bg-critical-muted)' }}
+  />
+  <ColorItem
+    title="bg-warning-muted"
+    subtitle="Warning state muted background"
+    colors={{ 'bg-warning-muted': 'var(--ui-color-bg-warning-muted)' }}
+  />
+  <ColorItem
+    title="bg-critical"
+    subtitle="Critical state background"
+    colors={{ 'bg-critical': 'var(--ui-color-bg-critical)' }}
+  />
+  <ColorItem
+    title="bg-backdrop"
+    subtitle="Backdrop background color"
+    colors={{ 'bg-backdrop': 'var(--ui-color-bg-backdrop)' }}
+  />
+  <ColorItem
+    title="bg-disabled"
+    subtitle="Disabled state background"
+    colors={{ 'bg-disabled': 'var(--ui-color-bg-disabled)' }}
+  />
+</ColorPalette>
+
+### Border Colors
+
+<ColorPalette>
+  <ColorItem
+    title="border-default"
+    subtitle="Default border color"
+    colors={{ 'border-default': 'var(--ui-color-border-default)' }}
+  />
+  <ColorItem
+    title="border-accent"
+    subtitle="Accent border color"
+    colors={{ 'border-accent': 'var(--ui-color-border-accent)' }}
+  />
+  <ColorItem
+    title="border-secondary"
+    subtitle="Secondary border color"
+    colors={{ 'border-secondary': 'var(--ui-color-border-secondary)' }}
+  />
+  <ColorItem
+    title="border-contrast"
+    subtitle="Contrast border color"
+    colors={{ 'border-contrast': 'var(--ui-color-border-contrast)' }}
+  />
+  <ColorItem
+    title="border-critical"
+    subtitle="Critical state border color"
+    colors={{ 'border-critical': 'var(--ui-color-border-critical)' }}
+  />
+</ColorPalette>
+
+### Misc
+
+<ColorPalette>
+  <ColorItem title="Backdrop" subtitle="Backdrop color" colors={{ 'bg-backdrop': 'var(--ui-color-bg-backdrop)' }} />
+</ColorPalette>
