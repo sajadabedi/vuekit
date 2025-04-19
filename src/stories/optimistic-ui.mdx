@@ -4,8 +4,145 @@ import { Meta } from '@storybook/blocks';
 
 ## Optimistic UI
 
-The way you handle updates to data in your frontend application significantly impacts its responsiveness and overall user experience. Optimistic and pessimistic updates are two fundamental strategies for managing these interactions, each with its strengths and situations it suits best.
+The way you handle updates in your frontend application significantly impacts its responsiveness and overall user experience. Optimistic and pessimistic updates are two fundamental strategies for managing these interactions, each with its strengths and situations it suits best.
 
 ### Pessimistic vs Optimistic Updates
 
 This conservative approach prioritizes data consistency. The UI update occurs only after the backend server confirms a successful operation. On the other hand, the Optimistic approach places a premium on user experience. The UI updates immediately following a user action, assuming the operation will succeed on the server. Only if the update fails does the UI potentially need to be rolled back, providing feedback to the user. This is common in applications where a snappy, fluid feel is desired.
+
+### Best Practices with TanStack Query
+
+TanStack Query (formerly Vue Query) provides excellent support for optimistic updates. Here's a concise guide on implementing them:
+
+1. **Setup the Query Client**
+
+```ts
+// src/lib/query.ts
+import { QueryClient } from '@tanstack/vue-query';
+
+export const queryClient = new QueryClient();
+```
+
+2. **Basic Optimistic Update Pattern**
+
+```ts
+<script setup lang="ts">
+import { useMutation, useQueryClient } from '@tanstack/vue-query';
+
+const queryClient = useQueryClient();
+
+// Example with a Switch component
+const toggleFeature = useMutation({
+  mutationFn: (enabled: boolean) => axios.post('/api/features/toggle', { enabled }),
+  onMutate: async (newValue) => {
+    // Cancel outgoing refetches
+    await queryClient.cancelQueries({ queryKey: ['feature'] });
+
+    // Snapshot previous value
+    const previousValue = queryClient.getQueryData(['feature']);
+
+    // Optimistically update
+    queryClient.setQueryData(['feature'], { enabled: newValue });
+
+    return { previousValue };
+  },
+  onError: (err, newValue, context) => {
+    // Rollback on error
+    queryClient.setQueryData(['feature'], context.previousValue);
+  },
+  onSettled: () => {
+    // Refetch to ensure sync
+    queryClient.invalidateQueries({ queryKey: ['feature'] });
+  }
+});
+</script>
+
+<template>
+  <Switch
+    :checked="feature.enabled"
+    @update:checked="(value) => toggleFeature.mutate(value)"
+    :disabled="toggleFeature.isPending"
+  />
+  <p v-if="toggleFeature.isError" class="text-critical">
+    Failed to update. <button @click="toggleFeature.mutate(feature.enabled)">Retry</button>
+  </p>
+</template>
+```
+
+### Real-World Example with Form Submission
+
+Here's a practical example using a form submission:
+
+```ts
+<script setup lang="ts">
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
+import { Form, FormField } from '@/components/form'
+import { Input } from '@/components/input'
+
+interface User {
+  id: string
+  name: string
+  email: string
+}
+
+const queryClient = useQueryClient()
+
+const updateUser = useMutation({
+  mutationFn: (data: Partial<User>) =>
+    axios.patch(`/api/users/${data.id}`, data),
+  onMutate: async (newData) => {
+    await queryClient.cancelQueries({ queryKey: ['user', newData.id] })
+    const previousUser = queryClient.getQueryData(['user', newData.id])
+
+    queryClient.setQueryData(['user', newData.id], (old: User) => ({
+      ...old,
+      ...newData
+    }))
+
+    return { previousUser }
+  },
+  onError: (err, newData, context) => {
+    queryClient.setQueryData(
+      ['user', newData.id],
+      context.previousUser
+    )
+  }
+})
+
+const onSubmit = (data) => {
+  updateUser.mutate(data)
+}
+</script>
+
+<template>
+  <Form @submit="onSubmit">
+    <FormField name="name">
+      <Input
+        :disabled="updateUser.isPending"
+        placeholder="Enter name"
+      />
+    </FormField>
+    <Button
+      type="submit"
+      :loading="updateUser.isPending"
+    >
+      Save Changes
+    </Button>
+  </Form>
+</template>
+```
+
+### Key Principles
+
+1. **Always snapshot before updating**: Store the previous state before making optimistic changes
+2. **Handle errors gracefully**: Provide clear error feedback and retry options
+3. **Prevent race conditions**: Cancel outgoing queries before optimistic updates
+4. **Maintain data consistency**: Use `onSettled` to ensure server-client sync
+5. **Show loading states**: Indicate when operations are in progress
+
+### Some example use cases
+
+- Toggle actions (switches, checkbox etc)
+- Form submissions
+- User preference/setting changes
+- Deleting, updating, creating resources
