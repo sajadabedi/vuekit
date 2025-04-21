@@ -4,7 +4,7 @@ Design system at it's core is a tool. it's not meant to be set in stone set of r
 
 ## Features
 
-- Composible by default.
+- Composible at it's core.
 - Accessbile is built-in.
 - Extendable and customizable using classes.
 - Dark theme ready.
@@ -12,19 +12,20 @@ Design system at it's core is a tool. it's not meant to be set in stone set of r
 ## Principles
 
 This package is built with composability in mind. You can use the components as-is or extend them to create your own components.You can do light weight customizations using classes. or reach for the core API from `Reka-ui` to build your own components.
+For e.g. Dialog component has been used to create dialog (modal) as well as Command components.
 
 ## Stack
 
-- [x] Vue 3
-- [x] TypeScript
-- [x] Phosphor Icons
-- [x] Tailwind CSS v4
-- [x] Modern CSS features
-- [x] class-variance-authority
-- [x] reka-ui
-- [x] Framer Motion
-- [x] VeeValidate
-- [x] Zod
+- Vue 3
+- TypeScript
+- Phosphor Icons
+- Tailwind CSS v4
+- Modern CSS features
+- class-variance-authority
+- reka-ui
+- Framer Motion
+- VeeValidate
+- Zod
 
 ## Install
 
@@ -32,7 +33,7 @@ Install Firstbase, Icon set and tailwindcss (Follow tailwindcss docs for setup)
 
 ```bash
 pnpm i @firstbase/ui@latest @phosphor-icons/vue@latest
-pnpm i tailwindcss @tailwindcss/vite
+pnpm i tailwindcss @tailwindcss/vite prettier-plugin-tailwindcss
 ```
 
 ## Usage
@@ -58,7 +59,7 @@ provide('weight', 'bold');
 </script>
 ```
 
-Add the following to your `main.css` or `app.css`. This will be your Tailwindcss config.
+Add the following to your `main.css` or `app.css`. to make sure you get all the tokens and variable defined in `@firstbase/ui`.
 
 ```css
 @import './node_modules/@firstbase/ui/dist/assets/style.css';
@@ -66,7 +67,15 @@ Add the following to your `main.css` or `app.css`. This will be your Tailwindcss
 @import 'tailwindcss' source('./node_modules/@firstbase/ui/src/main.css');
 ```
 
-Add Your first component styles to your app
+Add TailwindCSS prettier plugin in your `.prettierrc`. This will sort your tailwind classes.
+
+```json
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+Add Your first component
 
 ```vue
 import { Button } from '@firstbase/ui'
@@ -78,17 +87,15 @@ import { Button } from '@firstbase/ui'
 
 ## Development
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-3. Start development server:
-   ```bash
-   pnpm storybook
-   ```
-4. Setup your editor:
-   Add the following to your `settings.json` to make sure the Tailwind CSS extension can parse the class names when using `cva`:
+Clone the repository and install dependancy:
+
+```bash
+pnpm install
+pnpm run dev
+```
+
+Setup your editor:
+Add the following to your `settings.json` to make sure the Tailwind CSS extension can parse the class names when using `cva`:
 
 ```json
 "tailwindCSS.classFunctions": ["clsx", "cva", "cn"],
