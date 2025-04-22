@@ -120,6 +120,7 @@
 
   --color-black: var(--color-stone-950);
   --color-accent: var(--ui-color-accent);
+  --color-critical: var(--ui-color-text-critical);
   /* Text */
   --text-color-default: var(--ui-color-primary);
   --text-color-secondary: var(--ui-color-text-secondary);
@@ -161,4 +162,8 @@
   @apply outline-none focus-visible:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
   @apply focus-visible:hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
   @apply dark:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)] dark:hover:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)];
+}
+
+@utility input-invalid {
+  @apply shadow-[0px_0px_0px_1px_var(--ui-color-border-critical)_inset] ring-[3px] ring-red-400/20;
 }

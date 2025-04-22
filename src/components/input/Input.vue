@@ -34,11 +34,14 @@ const modelValue = useVModel(props, 'modelValue', emits, {
       :class="
         cn(
           'placeholder:text-placeholder bg-elevated-on-dark shadow-input disabled:bg-disabled flex h-8.5 w-full min-w-0 rounded-md px-2 text-base transition-[color,background-color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70 disabled:shadow-none',
-          'aria-invalid:border-critical aria-invalid:focus-within:ring-[var(--ui-color-border-critical)]',
           'hover:shadow-input-hover',
           'focus-ring-input',
           'col-span-full row-start-1 row-end-1',
+          // Validation
+          'aria-invalid:input-invalid aria-invalid:focus-within:input-invalid',
+          // File Input
           'file:inline-flex file:h-7 file:bg-transparent file:font-medium',
+          // Padding if icons are present
           { 'pl-7': prefix },
           { 'pr-7': suffix },
           props.class
