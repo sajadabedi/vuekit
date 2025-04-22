@@ -26,6 +26,7 @@ const modelValue = useVModel(props, 'modelValue', emits, {
     <component
       :is="prefix"
       v-if="prefix"
+      weight="bold"
       class="pointer-events-none z-10 col-start-1 row-start-1 row-end-1 place-self-center"
     />
     <input
@@ -51,6 +52,7 @@ const modelValue = useVModel(props, 'modelValue', emits, {
     <component
       :is="suffix"
       v-if="suffix"
+      weight="bold"
       class="pointer-events-none z-10 col-start-3 row-start-1 row-end-1 place-self-center"
     />
   </div>
