@@ -1,22 +1,15 @@
 <script setup lang="ts">
 import type { TabsRootEmits, TabsRootProps } from 'reka-ui';
-import type { HTMLAttributes } from 'vue';
-import { cn } from '@/lib/utils';
-import { reactiveOmit } from '@vueuse/core';
 import { TabsRoot, useForwardPropsEmits } from 'reka-ui';
 
-// TODO:  Animating tabs
-
-const props = defineProps<TabsRootProps & { class?: HTMLAttributes['class'] }>();
+const props = defineProps<TabsRootProps>();
 const emits = defineEmits<TabsRootEmits>();
 
-const delegatedProps = reactiveOmit(props, 'class');
-
-const forwarded = useForwardPropsEmits(delegatedProps, emits) as { [K in keyof TabsRootProps]: TabsRootProps[K] };
+const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <TabsRoot data-slot="tabs" v-bind="forwarded" :class="cn('flex flex-col gap-2', props.class)">
+  <TabsRoot v-bind="forwarded" class="flex flex-col gap-2">
     <slot />
   </TabsRoot>
 </template>

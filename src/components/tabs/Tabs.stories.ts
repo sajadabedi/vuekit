@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '.';
 import { Button, Input, Label } from '@/components';
 import { ref } from 'vue';
+import { PhUserCircle, PhLock } from '@phosphor-icons/vue';
 
 const meta = {
   title: 'Components/Tabs',
@@ -57,8 +58,13 @@ export const Default: Story = {
       <div class="${tabsContainerClass}">
         <Tabs v-model="activeTab">
           <TabsList>
-            <TabsTrigger value="account">Account</TabsTrigger>
-            <TabsTrigger value="password">Password</TabsTrigger>
+            <TabsTrigger value="account">
+              Account
+            </TabsTrigger>
+            <TabsTrigger value="password">
+              <PhLock weight="bold" />
+              Password
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="account">
             <div class="space-y-4">
@@ -153,6 +159,49 @@ export const Disabled: Story = {
         </TabsContent>
         <TabsContent value="pending">
           <p class="text-sm text-gray-500">This is the pending tab panel.</p>
+        </TabsContent>
+      </Tabs>
+    `
+  })
+};
+
+export const WithIcon: Story = {
+  render: () => ({
+    components: {
+      Tabs,
+      TabsList,
+      TabsTrigger,
+      TabsContent,
+      PhUserCircle,
+      PhLock
+    },
+    template: `
+      <Tabs default-value="account" class="w-[400px]">
+        <TabsList>
+          <TabsTrigger value="account">
+            <PhUserCircle weight="bold" />
+            Account
+          </TabsTrigger>
+          <TabsTrigger value="password">
+            <PhLock weight="bold" />
+            Password
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="account">
+          <div class="space-y-4">
+            <h4 class="text-sm font-medium">Account Settings</h4>
+            <p class="text-sm text-tertiary">
+              Update your account settings. Set your preferred language and timezone.
+            </p>
+          </div>
+        </TabsContent>
+        <TabsContent value="password">
+          <div class="space-y-4">
+            <h4 class="text-sm font-medium">Password Settings</h4>
+            <p class="text-sm text-tertiary">
+              Change your password here. After saving, you'll be logged out.
+            </p>
+          </div>
         </TabsContent>
       </Tabs>
     `
