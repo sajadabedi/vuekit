@@ -43,7 +43,8 @@ export const Default: Story = {
       FormMessage,
       FormDescription,
       Input,
-      Button
+      Button,
+      PhUser
     },
     setup() {
       const { handleSubmit } = useForm({
@@ -62,7 +63,6 @@ export const Default: Story = {
           <FormItem>
             <FormLabel>Username</FormLabel>
             <FormControl>
-            <PhUser weight="bold" data-slot="prefix" />
               <Input v-bind="componentField" placeholder="Enter username" />
             </FormControl>
             <FormDescription>
