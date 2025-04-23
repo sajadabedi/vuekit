@@ -9,7 +9,7 @@ export const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: 'shadow-input',
+        default: 'shadow-input text-secondary',
         destructive:
           'text-critical [&>svg]:text-critical *:data-[slot=alert-description]:text-critical/90 bg-linear-to-r from-critical/15 from-1% to-20% dark:to-critical/3 shadow-input dark:shadow-[0_0_0_1px] dark:shadow-red-400/30'
       }

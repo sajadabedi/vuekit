@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
 import { cn } from '@/lib/utils';
+import type { HTMLAttributes } from 'vue';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];
@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="cn('text-secondary col-start-2 grid justify-items-start gap-1 text-base', props.class)">
+  <div :class="cn('col-start-2 grid justify-items-start gap-1 text-base', props.class)">
     <slot />
   </div>
 </template>
