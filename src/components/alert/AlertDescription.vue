@@ -8,10 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    data-slot="alert-description"
-    :class="cn('text-secondary col-start-2 grid justify-items-start gap-1 text-base', props.class)"
-  >
+  <div :class="cn('text-secondary col-start-2 grid justify-items-start gap-1 text-base', props.class)">
     <slot />
   </div>
 </template>

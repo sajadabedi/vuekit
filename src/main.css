@@ -165,5 +165,5 @@
 }
 
 @utility input-invalid {
-  @apply shadow-[0px_0px_0px_1px_var(--ui-color-border-critical)_inset] ring-[3px] ring-red-400/20;
+  @apply ring-critical shadow-[0px_0px_0px_3px] ring shadow-red-400/20 ring-inset;
 }

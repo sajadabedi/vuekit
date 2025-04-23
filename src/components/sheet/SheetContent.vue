@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import { reactiveOmit } from '@vueuse/core';
 import { PhX } from '@phosphor-icons/vue';
+import { reactiveOmit } from '@vueuse/core';
 import {
   DialogClose,
   DialogContent,
@@ -34,9 +34,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 <template>
   <DialogPortal>
-    <SheetOverlay />
+    <SheetOverlay
+      class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80"
+    />
     <DialogContent
-      data-slot="sheet-content"
       :class="
         cn(
           'bg-body data-[state=open]:animate-in data-[state=closed]:animate-out shadow-floating fixed z-50 flex flex-col gap-4 rounded-l-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-300',

@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { InfoIcon } from '@/components/info-icon';
 import { cn } from '@/lib/utils';
 import { Label, type LabelProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
-import { InfoIcon } from '@/components/info-icon';
 
 interface ExtendedLabelProps extends LabelProps {
   class?: HTMLAttributes['class'];

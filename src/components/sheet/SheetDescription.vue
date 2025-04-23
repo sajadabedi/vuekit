@@ -13,7 +13,7 @@ const delegatedProps = computed(() => {
 </script>
 
 <template>
-  <DialogDescription data-slot="sheet-description" :class="cn('text-secondary', props.class)" v-bind="delegatedProps">
+  <DialogDescription :class="cn('text-secondary', props.class)" v-bind="delegatedProps">
     <slot />
   </DialogDescription>
 </template>
