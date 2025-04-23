@@ -3,11 +3,11 @@ import { DropdownMenuTrigger, type DropdownMenuTriggerProps, useForwardProps } f
 
 const props = defineProps<DropdownMenuTriggerProps>();
 
-const forwardedProps = useForwardProps(props) as { [K in keyof DropdownMenuTriggerProps]: DropdownMenuTriggerProps[K] };
+const forwardedProps = useForwardProps(props);
 </script>
 
 <template>
-  <DropdownMenuTrigger data-slot="dropdown-menu-trigger" v-bind="forwardedProps">
+  <DropdownMenuTrigger class="outline-none" v-bind="forwardedProps">
     <slot />
   </DropdownMenuTrigger>
 </template>

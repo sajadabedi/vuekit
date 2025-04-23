@@ -19,7 +19,6 @@ const forwardedProps = useForwardProps(delegatedProps);
 <template>
   <HoverCardPortal>
     <HoverCardContent
-      data-slot="hover-card-content"
       v-bind="forwardedProps"
       :class="
         cn(

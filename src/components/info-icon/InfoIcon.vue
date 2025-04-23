@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { Tooltip } from '@/components/tooltip';
+import { cn } from '@/lib/utils';
+import { infoIconVariants, type InfoProps } from '.';
+
+defineProps<InfoProps>();
+</script>
+
 <template>
   <Tooltip :content="tooltip">
     <button type="button" :class="cn(infoIconVariants(), $attrs.class ?? '')" v-bind="$attrs">
@@ -17,11 +25,3 @@
     </button>
   </Tooltip>
 </template>
-
-<script setup lang="ts">
-import { Tooltip } from '@/components/tooltip'
-import { cn } from '@/lib/utils'
-import { infoIconVariants, type InfoProps } from '.'
-
-defineProps<InfoProps>()
-</script>

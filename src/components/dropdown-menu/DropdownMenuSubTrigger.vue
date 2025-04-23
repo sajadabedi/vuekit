@@ -1,23 +1,22 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import { reactiveOmit } from '@vueuse/core';
-import { ChevronRight } from 'lucide-vue-next';
+import { PhCaretRight } from '@phosphor-icons/vue';
 import { DropdownMenuSubTrigger, type DropdownMenuSubTriggerProps, useForwardProps } from 'reka-ui';
-import type { HTMLAttributes } from 'vue';
+import { computed, type HTMLAttributes } from 'vue';
 
-const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class']; inset?: boolean }>();
+const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'] }>();
 
-type DelegatedProps = Omit<
-  DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class']; inset?: boolean },
-  'class' | 'inset'
->;
-const delegatedProps = reactiveOmit(props, 'class', 'inset') as DelegatedProps;
-const forwardedProps = useForwardProps(delegatedProps) as DelegatedProps;
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
+const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
   <DropdownMenuSubTrigger
-    data-slot="dropdown-menu-sub-trigger"
     v-bind="forwardedProps"
     :class="
       cn(
@@ -27,6 +26,6 @@ const forwardedProps = useForwardProps(delegatedProps) as DelegatedProps;
     "
   >
     <slot />
-    <ChevronRight class="ml-auto size-4" />
+    <PhCaretRight weight="bold" size="14" />
   </DropdownMenuSubTrigger>
 </template>

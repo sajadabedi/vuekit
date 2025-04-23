@@ -44,28 +44,20 @@ export const Default: Story = {
     template: `
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Button variant="outline">Open Menu</Button>
+          <Button>Open Menu</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <PhUser weight="bold" />
-            <span>Profile</span>
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+            Profile
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <PhCreditCard weight="bold" />
-            <span>Billing</span>
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+            Billing
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <PhGear weight="bold" />
-            <span>Settings</span>
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            Settings
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <PhCloud weight="bold" />
-            <span>New Team</span>
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+            New Team
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -204,7 +196,7 @@ export const WithRadioGroups: Story = {
     template: `
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Button variant="outline">Open Menu</Button>
+          <Button>Open Menu</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Display Density</DropdownMenuLabel>
@@ -243,10 +235,9 @@ export const WithCheckboxItems: Story = {
     template: `
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Button variant="outline">Open Menu</Button>
+          <Button>Open Menu</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>Appearance</DropdownMenuLabel>
           <DropdownMenuCheckboxItem v-model="showStatusBar">
             <span>Status Bar</span>
           </DropdownMenuCheckboxItem>

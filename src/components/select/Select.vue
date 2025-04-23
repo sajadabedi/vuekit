@@ -5,7 +5,7 @@ import { SelectRoot, useForwardPropsEmits } from 'reka-ui';
 const props = defineProps<SelectRootProps>();
 const emits = defineEmits<SelectRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits) as { [K in keyof SelectRootProps]: SelectRootProps[K] };
+const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>

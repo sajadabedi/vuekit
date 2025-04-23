@@ -29,7 +29,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   >
     <CheckboxIndicator data-slot="checkbox-indicator" class="flex items-center justify-center text-white">
       <slot>
-        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+        <svg
+          width="10"
+          height="8"
+          viewBox="0 0 10 8"
+          fill="none"
+          class="group-disabled:text-black/30 dark:group-disabled:text-white/30"
+        >
           <motion.path
             :initial="false"
             :animate="{

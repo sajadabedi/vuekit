@@ -36,7 +36,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   >
     <span class="pointer-events-none absolute left-1 flex size-3.5 items-center justify-center">
       <DropdownMenuItemIndicator>
-        <PhCircle class="size-2 fill-current" weight="fill" />
+        <PhCircle class="fill-accent size-2" weight="fill" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />

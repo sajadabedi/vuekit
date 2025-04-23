@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui'
+import { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui';
 
 const props = defineProps<HoverCardRootProps>();
 const emits = defineEmits<HoverCardRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits) as { [K in keyof HoverCardRootProps]: HoverCardRootProps[K] };
+const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <HoverCardRoot
-    data-slot="hover-card"
-    v-bind="forwarded"
-  >
+  <HoverCardRoot v-bind="forwarded">
     <slot />
   </HoverCardRoot>
 </template>

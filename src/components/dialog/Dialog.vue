@@ -4,11 +4,11 @@ import { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardProps
 const props = defineProps<DialogRootProps>();
 const emits = defineEmits<DialogRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits) as { [K in keyof DialogRootProps]: DialogRootProps[K] };
+const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <DialogRoot data-slot="dialog" v-bind="forwarded">
+  <DialogRoot v-bind="forwarded">
     <slot />
   </DialogRoot>
 </template>

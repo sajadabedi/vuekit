@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { ColorPalette, ColorItem, Meta } from '@storybook/blocks';
 
 <Meta title="optimistic UI" />
 
@@ -6,13 +6,13 @@ import { Meta } from '@storybook/blocks';
 
 The way you handle updates in your frontend application significantly impacts its responsiveness and overall user experience. Optimistic and pessimistic updates are two fundamental strategies for managing these interactions, each with its strengths and situations it suits best.
 
-### Pessimistic vs Optimistic Updates
+### Pessimistic vs Optimistic updates
 
 This conservative approach prioritizes data consistency. The UI update occurs only after the backend server confirms a successful operation. On the other hand, the Optimistic approach places a premium on user experience. The UI updates immediately following a user action, assuming the operation will succeed on the server. Only if the update fails does the UI potentially need to be rolled back, providing feedback to the user. This is common in applications where a snappy, fluid feel is desired.
 
-### Best Practices with TanStack Query
+### Recommendation
 
-TanStack Query (formerly Vue Query) provides excellent support for optimistic updates. Here's a concise guide on implementing them:
+TanStack Query (aka Vue Query) provides excellent support for optimistic updates. Here's a concise guide on implementing them:
 
 1. **Setup the Query Client**
 
@@ -69,7 +69,7 @@ const toggleFeature = useMutation({
 </template>
 ```
 
-### Real-World Example with Form Submission
+### Real world example with form submission
 
 Here's a practical example using a form submission:
 
@@ -132,7 +132,7 @@ const onSubmit = (data) => {
 </template>
 ```
 
-### Key Principles
+### Key principles
 
 1. **Always snapshot before updating**: Store the previous state before making optimistic changes
 2. **Handle errors gracefully**: Provide clear error feedback and retry options

@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
 import { cn } from '@/lib/utils';
-import { reactiveOmit } from '@vueuse/core';
 import { PhCaretDown } from '@phosphor-icons/vue';
 import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
+import { computed, type HTMLAttributes } from 'vue';
 
-const props = withDefaults(
-  defineProps<SelectTriggerProps & { class?: HTMLAttributes['class']; size?: 'sm' | 'default' }>(),
-  { size: 'default' }
-);
+const props = defineProps<SelectTriggerProps & { class?: HTMLAttributes['class'] }>();
 
-const delegatedProps = reactiveOmit(props, 'class', 'size');
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props;
+
+  return delegated;
+});
+
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
   <SelectTrigger
     data-slot="select-trigger"
-    :data-size="size"
     v-bind="forwardedProps"
     :class="
       cn(
