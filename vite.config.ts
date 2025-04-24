@@ -40,7 +40,7 @@ export default defineConfig({
     },
     cssCodeSplit: false,
     rollupOptions: {
-      external: ['vue', /\.stories\.ts$/, '@vue/shared', 'rekaUi'],
+      external: ['vue', /\.stories\.ts$/, '@vue/shared', 'reka-ui'],
       output: {
         globals: {
           vue: 'Vue'
