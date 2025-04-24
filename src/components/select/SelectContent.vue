@@ -32,7 +32,6 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <template>
   <SelectPortal>
     <SelectContent
-      data-slot="select-content"
       v-bind="{ ...forwarded, ...$attrs }"
       :class="
         cn(

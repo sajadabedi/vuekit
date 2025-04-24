@@ -20,11 +20,7 @@ const delegatedProps = computed(() => {
 </script>
 
 <template>
-  <Primitive
-    data-slot="badge"
-    :class="cn(badgeVariants({ variant: props.variant }), props.class)"
-    v-bind="delegatedProps"
-  >
+  <Primitive :class="cn(badgeVariants({ variant: props.variant }), props.class)" v-bind="delegatedProps">
     <slot />
   </Primitive>
 </template>

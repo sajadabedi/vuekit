@@ -15,10 +15,7 @@ const delegatedProps = computed(() => {
 
 <template>
   <ScrollAreaRoot data-slot="scroll-area" v-bind="delegatedProps" :class="cn('relative', props.class)">
-    <ScrollAreaViewport
-      data-slot="scroll-area-viewport"
-      class="focus-ring size-full rounded-[inherit] transition-[color,box-shadow]"
-    >
+    <ScrollAreaViewport class="focus-ring size-full rounded-[inherit] transition-[color,box-shadow]">
       <slot />
     </ScrollAreaViewport>
     <ScrollBar />
