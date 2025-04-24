@@ -17,8 +17,11 @@ export default defineConfig({
       tsconfigPath: './tsconfig.json',
       compilerOptions: {
         declaration: true,
+        emitDeclarationOnly: true,
         declarationMap: true
-      }
+      },
+      clearPureImport: true,
+      copyDtsFiles: true
     }),
     tailwindcss()
   ],
@@ -36,7 +39,7 @@ export default defineConfig({
     },
     cssCodeSplit: false,
     rollupOptions: {
-      external: ['vue', /\.stories\.ts$/],
+      external: ['vue', /\.stories\.ts$/, '@vue/shared', 'rekaUi'],
       output: {
         globals: {
           vue: 'Vue'

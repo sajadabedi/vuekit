@@ -10,8 +10,10 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
     "noEmit": true,
+    "skipLibCheck": true,
+    // "declaration": true,
+    // "declarationDir": "./dist/types",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
@@ -21,5 +23,6 @@
     "jsxImportSource": "vue"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
