@@ -17,10 +17,10 @@
         v-if="isOpen"
         ref="floatingRef"
         :style="floatingStyles"
-        :class="cn(tooltipVariants({ side }), className)"
+        :class="cn(tooltipVariants({ side: props.side }), props.class)"
         role="tooltip"
       >
-        {{ content }}
+        {{ props.content }}
       </motion.div>
     </AnimatePresence>
   </div>
@@ -33,14 +33,14 @@ import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui
 import { AnimatePresence, motion } from 'motion-v'
 import { onBeforeUnmount, ref } from 'vue'
 
-const { content, side = 'top', className, delay = 200 } = defineProps<TooltipProps>()
+const props = defineProps<TooltipProps>()
 
 const isOpen = ref(false)
 const referenceRef = ref<HTMLElement | undefined>()
 const floatingRef = ref<HTMLElement | undefined>()
 
 const { floatingStyles } = useFloating(referenceRef, floatingRef, {
-  placement: side,
+  placement: props.side ?? 'top',
   whileElementsMounted: (...args) => autoUpdate(...args, { animationFrame: true }),
   middleware: [
     offset(4),
@@ -69,13 +69,13 @@ function clearTimer() {
 
 function show() {
   clearTimer()
-  if (delay === 0) {
+  if (props.delay === 0) {
     isOpen.value = true
     return
   }
   timer = setTimeout(() => {
     isOpen.value = true
-  }, delay)
+  }, props.delay ?? 200)
 }
 
 function hide() {

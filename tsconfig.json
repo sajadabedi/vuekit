@@ -12,8 +12,8 @@
     "lib": ["ESNext", "DOM"],
     "noEmit": true,
     "skipLibCheck": true,
-    // "declaration": true,
-    // "declarationDir": "./dist/types",
+    "declaration": true,
+    "declarationDir": "./dist/types",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
@@ -23,6 +23,6 @@
     "jsxImportSource": "vue"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist", "**/*.stories.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

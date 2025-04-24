@@ -10,6 +10,7 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
       include: ['src/**/*.ts', 'src/**/*.vue'],
+      exclude: ['src/**/*.stories.ts'],
       beforeWriteFile: (filePath, content) => ({
         filePath: filePath.replace('/dist/src/', '/dist/'),
         content
