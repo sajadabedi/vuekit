@@ -5,11 +5,12 @@ import {
   type DropdownMenuRadioGroupProps,
   useForwardPropsEmits
 } from 'reka-ui';
+import type { ComputedRef } from 'vue';
 
 const props = defineProps<DropdownMenuRadioGroupProps>();
 const emits = defineEmits<DropdownMenuRadioGroupEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded: ComputedRef<any> = useForwardPropsEmits(props, emits);
 </script>
 
 <template>

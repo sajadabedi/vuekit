@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import type { SelectRootEmits, SelectRootProps } from 'reka-ui';
-import { SelectRoot, useForwardPropsEmits } from 'reka-ui';
+import {
+  SelectRoot,
+  useForwardPropsEmits,
+  type SelectRootProps,
+  type SelectRootEmits
+} from 'reka-ui';
+import type { ComputedRef } from 'vue';
 
 const props = defineProps<SelectRootProps>();
 const emits = defineEmits<SelectRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded: ComputedRef<any> = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <SelectRoot data-slot="control" v-bind="forwarded">
+  <SelectRoot v-bind="forwarded">
     <slot />
   </SelectRoot>
 </template>

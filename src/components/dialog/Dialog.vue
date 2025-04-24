@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardPropsEmits } from 'reka-ui';
+import {
+  DialogRoot,
+  useForwardPropsEmits,
+  type DialogRootProps,
+  type DialogRootEmits
+} from 'reka-ui';
+import type { ComputedRef } from 'vue';
 
 const props = defineProps<DialogRootProps>();
 const emits = defineEmits<DialogRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded: ComputedRef<any> = useForwardPropsEmits(props, emits);
 </script>
 
 <template>

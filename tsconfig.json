@@ -10,7 +10,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "noEmit": true,
+    // "noEmit": true,
     "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "./dist/types",

@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui';
+import {
+  HoverCardRoot,
+  useForwardPropsEmits,
+  type HoverCardRootProps,
+  type HoverCardRootEmits
+} from 'reka-ui';
+import type { ComputedRef } from 'vue';
 
 const props = defineProps<HoverCardRootProps>();
 const emits = defineEmits<HoverCardRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded: ComputedRef<any> = useForwardPropsEmits(props, emits);
 </script>
 
 <template>

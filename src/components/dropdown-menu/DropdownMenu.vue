@@ -5,11 +5,12 @@ import {
   type DropdownMenuRootProps,
   useForwardPropsEmits
 } from 'reka-ui';
+import type { ComputedRef } from 'vue';
 
 const props = defineProps<DropdownMenuRootProps>();
 const emits = defineEmits<DropdownMenuRootEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded: ComputedRef<any> = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
