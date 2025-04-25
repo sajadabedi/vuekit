@@ -20,12 +20,12 @@ const forwardedProps = useForwardProps(delegatedProps);
     v-bind="forwardedProps"
     :class="
       cn(
-        'focus:bg-tertiary data-[state=open]:bg-tertiary flex cursor-default items-center rounded-sm px-2 py-1.5 outline-hidden select-none data-[inset]:pl-8',
+        'focus:bg-tertiary data-[state=open]:bg-tertiary flex cursor-default items-center rounded-sm px-2 py-1.5 outline-hidden select-none',
         props.class
       )
     "
   >
     <slot />
-    <PhCaretRight weight="bold" size="14" />
+    <PhCaretRight weight="bold" size="14" class="ml-6" />
   </DropdownMenuSubTrigger>
 </template>
