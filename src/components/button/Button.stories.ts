@@ -11,7 +11,7 @@ const meta = {
     variant: {
       description: 'The visual style variant of the button',
       control: 'select',
-      options: ['default', 'destructive', 'primary', 'ghost'],
+      options: ['default', 'critical', 'primary', 'ghost'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' }
@@ -71,7 +71,7 @@ export const AllVariants: Story = {
       <div class="flex flex-row gap-4">
         <Button variant="default">Default</Button>
         <Button variant="primary">Primary</Button>
-        <Button variant="destructive">Destructive</Button>
+        <Button variant="critical">critical</Button>
         <Button variant="ghost">Ghost</Button>
       </div>
     `
@@ -116,7 +116,7 @@ export const Disabled: Story = {
       <div class="flex gap-4">
         <Button disabled>Default</Button>
         <Button disabled variant="primary">Primary</Button>
-        <Button disabled variant="destructive">Destructive</Button>
+        <Button disabled variant="critical">critical</Button>
         <Button disabled variant="ghost">Ghost</Button>
       </div>
     `

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { Alert, AlertTitle, AlertDescription } from '.';
 import { PhInfo, PhWarningOctagon } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Alert, AlertDescription, AlertTitle } from '.';
 
 const meta: Meta<typeof Alert> = {
   title: 'Components/Alert',
@@ -9,7 +9,7 @@ const meta: Meta<typeof Alert> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'destructive']
+      options: ['default', 'critical']
     }
   }
 };
@@ -32,11 +32,11 @@ export const Default: Story = {
   })
 };
 
-export const Destructive: Story = {
+export const critical: Story = {
   render: () => ({
     components: { Alert, AlertTitle, AlertDescription, PhWarningOctagon },
     template: `
-      <Alert variant="destructive">
+      <Alert variant="critical">
         <PhWarningOctagon weight="fill" />
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>

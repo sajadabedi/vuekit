@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { cn } from '@/lib/utils';
+
+interface SpinnerProps {
+  class?: string;
+}
+
+defineProps<SpinnerProps>();
+</script>
+
 <template>
   <svg width="24" height="24" viewBox="0 0 24 24" :class="cn('size-5 text-current', $props.class)">
     <path
@@ -12,13 +22,3 @@
     />
   </svg>
 </template>
-
-<script setup lang="ts">
-import { cn } from '@/lib/utils';
-
-interface SpinnerProps {
-  class?: string;
-}
-
-defineProps<SpinnerProps>();
-</script>

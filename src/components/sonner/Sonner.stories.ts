@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import Sonner from './Sonner.vue';
 import { Button } from '@/components/button';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { toast } from 'vue-sonner';
+import Sonner from './Sonner.vue';
 
 type Position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
 
@@ -13,14 +13,7 @@ const meta: Meta<typeof Sonner> = {
     position: {
       description: 'The position of the toast notifications',
       control: 'select',
-      options: [
-        'top-left',
-        'top-right',
-        'bottom-left',
-        'bottom-right',
-        'top-center',
-        'bottom-center'
-      ] as Position[],
+      options: ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'top-center', 'bottom-center'] as Position[],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'bottom-right' }
@@ -146,14 +139,11 @@ export const WithPromise: Story = {
     components: { Sonner, Button },
     setup() {
       const showToast = () => {
-        toast.promise(
-          () => new Promise((resolve) => setTimeout(resolve, 2000)),
-          {
-            loading: 'Loading...',
-            success: 'Operation completed successfully!',
-            error: 'Something went wrong.'
-          }
-        );
+        toast.promise(() => new Promise((resolve) => setTimeout(resolve, 2000)), {
+          loading: 'Loading...',
+          success: 'Operation completed successfully!',
+          error: 'Something went wrong.'
+        });
       };
       return { args, showToast };
     },
@@ -179,7 +169,7 @@ export const Variants: Story = {
       <div class="flex flex-col items-start gap-4">
         <div class="flex gap-2">
           <Button @click="showSuccess">Success</Button>
-          <Button @click="showError" variant="destructive">Error</Button>
+          <Button @click="showError" variant="critical">Error</Button>
           <Button @click="showWarning" variant="ghost">Warning</Button>
         </div>
         <Sonner v-bind="args" />

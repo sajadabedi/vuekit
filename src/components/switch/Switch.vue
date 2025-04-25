@@ -28,7 +28,7 @@ const thumbVariants = {
 
 <template>
   <SwitchRoot
-    data-slot="switch"
+    data-slot="control"
     v-bind="forwarded"
     :class="
       cn(
