@@ -93,17 +93,14 @@ export const WithGroups: Story = {
             <DropdownMenuItem>
               <PhUser weight="bold" />
               <span>Profile</span>
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <PhCreditCard weight="bold" />
               <span>Billing</span>
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <PhGear weight="bold" />
               <span>Settings</span>
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
@@ -146,7 +143,6 @@ export const WithSubmenus: Story = {
           <DropdownMenuItem>
             <PhUser weight="bold" />
             <span>Profile</span>
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
@@ -168,7 +164,6 @@ export const WithSubmenus: Story = {
           <DropdownMenuItem>
             <PhGear weight="bold" />
             <span>Settings</span>
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
