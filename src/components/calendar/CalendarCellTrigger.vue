@@ -21,15 +21,15 @@ const forwardedProps = useForwardProps(delegatedProps);
       cn(
         buttonVariants({ variant: 'ghost' }),
         'hover:bg-muted h-8 w-8 cursor-default p-0 font-normal',
-        '[&[data-today]:not([data-selected])]:bg-tertiary [&[data-today]:not([data-selected])]:text-blue-500',
+        '[&[data-today]:not([data-selected])]:bg-accent/10 dark:[&[data-today]:not([data-selected])]:bg-accent/20 [&[data-today]:not([data-selected])]:text-accent dark:[&[data-today]:not([data-selected])]:text-orange-400',
         // Selected
         'data-[selected]:bg-accent data-[selected]:hover:bg-accent data-[selected]:focus:bg-accent data-[selected]:text-white data-[selected]:opacity-100 data-[selected]:hover:text-white data-[selected]:focus:text-white',
         // Disabled
         'data-[disabled]:text-disabled data-[disabled]:opacity-50',
         // Unavailable
-        'data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through',
+        'data-[unavailable]:text-critical data-[unavailable]:line-through',
         // Outside months
-        'data-[outside-view]:text-muted-foreground [&[data-outside-view][data-selected]]:bg-accent/50 [&[data-outside-view][data-selected]]:text-muted-foreground data-[outside-view]:opacity-50 [&[data-outside-view][data-selected]]:opacity-30',
+        'data-[outside-view]:text-disabled [&[data-outside-view][data-selected]]:bg-accent/50 data-[outside-view]:opacity-50 [&[data-outside-view][data-selected]]:text-white [&[data-outside-view][data-selected]]:opacity-30',
         props.class
       )
     "

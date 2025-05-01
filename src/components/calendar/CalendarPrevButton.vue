@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { buttonVariants } from '@/components/button';
 import { cn } from '@/lib/utils';
-import { ChevronLeft } from 'lucide-vue-next';
+import { PhCaretLeft } from '@phosphor-icons/vue';
 import { CalendarPrev, type CalendarPrevProps, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
@@ -24,7 +24,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     v-bind="forwardedProps"
   >
     <slot>
-      <ChevronLeft class="h-4 w-4" />
+      <PhCaretLeft class="size-3.5" weight="bold" />
     </slot>
   </CalendarPrev>
 </template>
