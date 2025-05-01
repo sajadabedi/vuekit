@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Button } from '@/components/button';
 import { cn } from '@/lib/utils';
 
 import { Calendar } from '@/components/calendar';
@@ -18,10 +17,12 @@ const value = ref<DateValue>();
 <template>
   <Popover data-slot="control">
     <PopoverTrigger as-child>
-      <Button variant="default" :class="cn('w-[250px] justify-start text-left', !value && 'text-tertiary')">
-        <PhCalendar class="mr-2 h-4 w-4" weight="bold" />
+      <button
+        :class="cn('control-base flex h-8.5 w-[250px] items-center justify-start text-left', !value && 'text-tertiary')"
+      >
+        <PhCalendar class="mr-2" weight="bold" />
         {{ value ? df.format(value.toDate(getLocalTimeZone())) : 'Pick a date' }}
-      </Button>
+      </button>
     </PopoverTrigger>
     <PopoverContent class="w-auto p-0">
       <Calendar v-model="value" initial-focus />

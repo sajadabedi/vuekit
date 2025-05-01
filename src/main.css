@@ -158,12 +158,22 @@
 }
 
 /* Focus state for inputs,textarea, select */
-@utility focus-ring-input {
+@utility focus-ring-control {
   @apply outline-none focus-visible:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
   @apply focus-visible:hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
   @apply dark:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)] dark:hover:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)];
 }
 
-@utility input-invalid {
+@utility control-invalid {
   @apply ring-critical shadow-[0px_0px_0px_3px] ring shadow-red-400/20 ring-inset;
+}
+
+@utility control-base {
+  @apply placeholder:text-placeholder bg-elevated-on-dark shadow-input focus-ring-control min-w-0 rounded-md px-2 text-base transition-[color,background-color,box-shadow];
+
+  @apply disabled:bg-disabled disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70 disabled:shadow-none;
+
+  @apply aria-invalid:ring-critical aria-invalid:focus-within:focus-ring-control;
+
+  @apply hover:shadow-input-hover outline-none;
 }

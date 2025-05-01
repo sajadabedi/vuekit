@@ -20,12 +20,12 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="
       cn(
         buttonVariants({ variant: 'ghost' }),
-        'h-8 w-8 p-0 font-normal',
-        '[&[data-today]:not([data-selected])]:bg-accent [&[data-today]:not([data-selected])]:text-accent-foreground',
+        'hover:bg-muted h-8 w-8 cursor-default p-0 font-normal',
+        '[&[data-today]:not([data-selected])]:bg-tertiary [&[data-today]:not([data-selected])]:text-blue-500',
         // Selected
-        'data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground data-[selected]:opacity-100',
+        'data-[selected]:bg-accent data-[selected]:hover:bg-accent data-[selected]:focus:bg-accent data-[selected]:text-white data-[selected]:opacity-100 data-[selected]:hover:text-white data-[selected]:focus:text-white',
         // Disabled
-        'data-[disabled]:text-muted-foreground data-[disabled]:opacity-50',
+        'data-[disabled]:text-disabled data-[disabled]:opacity-50',
         // Unavailable
         'data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through',
         // Outside months

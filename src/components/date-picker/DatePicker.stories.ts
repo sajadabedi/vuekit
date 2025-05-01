@@ -24,7 +24,7 @@ export const Default: Story = {
       };
     },
     template: `
-      <div class="flex flex-col space-y-4">
+      <div class="flex flex-col space-y-4 h-screen items-center justify-center w-screen">
         <DatePicker v-model="date" />
       </div>
     `

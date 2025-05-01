@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps);
         // validation
         'aria-invalid:border-critical aria-invalid:ring-(--ui-color-bg-red-muted)',
         // focus
-        'focus-ring-input',
+        'focus-ring-control',
         // disabled
         'disabled:bg-disabled disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none',
         // state-opened
