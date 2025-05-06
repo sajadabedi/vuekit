@@ -69,7 +69,7 @@ export const AllVariants: Story = {
     components: { Button, PhHouse, PhPlus, PhTrash },
     template: `
       <div class="flex flex-row gap-4">
-        <Button variant="default">Default</Button>
+        <Button variant="default" as="a">Default</Button>
         <Button variant="primary">Primary</Button>
         <Button variant="critical">critical</Button>
         <Button variant="ghost">Ghost</Button>
