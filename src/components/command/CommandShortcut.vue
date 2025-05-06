@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <span data-slot="command-shortcut" :class="cn('ml-auto text-xs tracking-widest', props.class)">
+  <span :class="cn('ml-auto text-xs tracking-widest', props.class)">
     <slot />
   </span>
 </template>

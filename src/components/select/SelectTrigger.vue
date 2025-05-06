@@ -17,11 +17,11 @@ const forwardedProps = useForwardProps(delegatedProps);
 
 <template>
   <SelectTrigger
-    data-slot="select-trigger"
+    data-slot="control"
     v-bind="forwardedProps"
     :class="
       cn(
-        `bg-elevated-on-dark shadow-input data-[placeholder]:text-placeholder [&_svg:not([class*='text-'])]:text-muted-foreground hover:bg-secondary/70 flex w-fit items-center justify-between gap-2 rounded-md px-3 py-2 whitespace-nowrap transition-[color,box-shadow,background] data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2`,
+        `bg-elevated-on-dark shadow-input data-[placeholder]:text-placeholder hover:bg-secondary/70 flex w-full items-center justify-between gap-2 rounded-md px-3 py-2 whitespace-nowrap transition-[color,box-shadow,background] data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2`,
         // validation
         'aria-invalid:border-critical aria-invalid:ring-(--ui-color-bg-red-muted)',
         // focus

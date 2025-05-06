@@ -27,19 +27,15 @@ const { filterState } = useCommand();
 </script>
 
 <template>
-  <div
-    data-slot="command-input-wrapper"
-    class="border-secondary dark:border-contrast/30 flex h-12 items-center gap-2 border-b bg-white/5 px-3"
-  >
-    <PhMagnifyingGlass weight="bold" class="size-4 shrink-0 opacity-50" />
+  <div class="border-secondary flex items-center border-b px-3" cmdk-input-wrapper>
+    <PhMagnifyingGlass weight="bold" size="12" class="text-tertiary mr-1 h-3.5" />
     <ListboxFilter
       v-bind="{ ...forwardedProps, ...$attrs }"
       v-model="filterState.search"
-      data-slot="command-input"
       auto-focus
       :class="
         cn(
-          'placeholder:text-placeholder flex h-12 w-full rounded-md bg-transparent py-3 outline-hidden disabled:cursor-not-allowed disabled:opacity-70',
+          'placeholder:text-placeholder flex h-10 w-full rounded-md bg-transparent py-3 outline-none disabled:cursor-not-allowed disabled:opacity-50',
           props.class
         )
       "

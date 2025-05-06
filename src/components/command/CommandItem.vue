@@ -65,7 +65,6 @@ onUnmounted(() => {
     v-bind="forwarded"
     :id="id"
     ref="itemRef"
-    data-slot="command-item"
     :class="
       cn(
         `data-[highlighted]:bg-tertiary [&_svg:not([class*='text-'])]:text-tertiary relative flex cursor-default items-center gap-2 rounded-sm px-2 py-3 outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,
@@ -81,5 +80,3 @@ onUnmounted(() => {
     <slot />
   </ListboxItem>
 </template>
-
-<!-- data-[highlighted]:font-medium -->

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils';
 import type { ListboxGroupProps } from 'reka-ui';
+import { cn } from '@/lib/utils';
 import { ListboxGroup, ListboxGroupLabel, useId } from 'reka-ui';
 import { computed, type HTMLAttributes, onMounted, onUnmounted } from 'vue';
 import { provideCommandGroupContext, useCommand } from '.';
@@ -36,8 +36,12 @@ onUnmounted(() => {
   <ListboxGroup
     v-bind="delegatedProps"
     :id="id"
-    data-slot="command-group"
-    :class="cn('overflow-hidden p-1', props.class)"
+    :class="
+      cn(
+        '[&_[cmdk-group-heading]]:text-tertiary overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5',
+        props.class
+      )
+    "
     :hidden="isRender ? undefined : true"
   >
     <ListboxGroupLabel v-if="heading" class="text-tertiary px-2 py-1.5 text-xs">

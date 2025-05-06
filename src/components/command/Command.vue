@@ -86,7 +86,6 @@ provideCommandContext({
 
 <template>
   <ListboxRoot
-    data-slot="command"
     v-bind="forwarded"
     :class="cn('bg-elevated-on-dark flex h-full w-full flex-col overflow-hidden rounded-md [&+*]:hidden', props.class)"
   >

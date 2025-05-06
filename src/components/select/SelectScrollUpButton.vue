@@ -16,11 +16,7 @@ const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
-  <SelectScrollUpButton
-    data-slot="select-scroll-up-button"
-    v-bind="forwardedProps"
-    :class="cn('flex items-center justify-center py-1', props.class)"
-  >
+  <SelectScrollUpButton v-bind="forwardedProps" :class="cn('flex items-center justify-center py-1', props.class)">
     <slot>
       <PhCaretDown class="size-4" weight="bold" />
     </slot>
