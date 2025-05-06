@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@plugin "tailwindcss-motion";
 @import './styles/typography.css';
 @import './styles/animate.css';
 /* Base styles */

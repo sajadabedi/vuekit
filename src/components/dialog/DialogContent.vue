@@ -27,17 +27,19 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="bg-contrast/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50"
+      class="bg-contrast/80 data-[state=open]:motion-opacity-in-0 data-[state=open]:motion-duration-100 data-[state=closed]:motion-opacity-out-0 data-[state=closed]:motion-duration-75 fixed inset-0 z-50"
     />
     <DialogContent
       v-bind="forwarded"
       :class="
         cn(
-          'bg-body shadow-floating fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-2.5 rounded-lg duration-200 sm:max-w-lg',
+          'bg-body shadow-floating fixed z-50 grid w-full max-w-[70vh] gap-2.5 rounded-lg duration-200 sm:max-w-lg',
+          // Center
+          'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
           // Animation in
-          'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+          'motion-duration-300 data-[state=open]:motion-opacity-in-0 data-[state=open]:motion-scale-in-95 data-[state=open]:motion-blur-in-sm',
           // Animation out
-          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+          'data-[state=closed]:motion-opacity-out-0 data-[state=closed]:motion-duration-100',
           props.class
         )
       "
