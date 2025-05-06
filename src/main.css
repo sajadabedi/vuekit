@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @plugin "tailwindcss-motion";
 @import './styles/typography.css';
-@import './styles/animate.css';
 @import './styles/shadow.css';
 /* Base styles */
 @layer base {

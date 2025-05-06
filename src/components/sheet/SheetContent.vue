@@ -5,13 +5,13 @@ import { reactiveOmit } from '@vueuse/core';
 import {
   DialogClose,
   DialogContent,
+  DialogOverlay,
   type DialogContentEmits,
   type DialogContentProps,
   DialogPortal,
   useForwardPropsEmits
 } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
-import SheetOverlay from './SheetOverlay.vue';
 
 interface SheetContentProps extends DialogContentProps {
   class?: HTMLAttributes['class'];
@@ -34,7 +34,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 <template>
   <DialogPortal>
-    <SheetOverlay
+    <DialogOverlay
       class="data-[state=open]:motion-opacity-in-0 data-[state=closed]:motion-opacity-out-0 motion-duration-100 fixed inset-0 z-50 bg-black/80"
     />
     <DialogContent
