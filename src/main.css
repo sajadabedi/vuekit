@@ -2,6 +2,7 @@
 @plugin "tailwindcss-motion";
 @import './styles/typography.css';
 @import './styles/animate.css';
+@import './styles/shadow.css';
 /* Base styles */
 @layer base {
   :root {
@@ -37,13 +38,7 @@
     --ui-color-border-secondary: var(--color-stone-100);
     --ui-color-border-contrast: var(--color-stone-400);
     --ui-color-border-critical: var(--color-red-500);
-    /* Shadow colors */
-    --ui-shadow-ring: color-mix(in oklab, var(--color-black) 11%, transparent);
-    --ui-shadow-ring-hover: rgba(0, 0, 0, 0.2);
-    --ui-shadow-ring-light: rgba(255, 255, 255, 0.37);
-    --ui-shadow-ring-accent: color-mix(in oklab, var(--color-orange-700) 70%, transparent);
-    --ui-shadow-ring-critical: var(--color-red-800);
-    --ui-color-focus-ring-accent: color-mix(in oklab, var(--ui-color-accent) 30%, transparent);
+
     @media (prefers-color-scheme: dark) {
       --ui-color-primary: var(--color-stone-50);
       --ui-color-text-secondary: var(--color-stone-400);
@@ -72,10 +67,6 @@
       --ui-color-border-secondary: var(--color-stone-900);
       --ui-color-border-contrast: var(--color-stone-700);
       --ui-color-border-critical: var(--color-red-500);
-      /* Shadow colors */
-      --ui-shadow-ring: rgba(255, 255, 255, 0.1);
-      --ui-shadow-ring-hover: rgba(255, 255, 255, 0.2);
-      --ui-shadow-ring-light: rgba(255, 255, 255, 0.22);
     }
   }
   body {
@@ -92,32 +83,13 @@
 }
 
 @theme {
-  /* === Core Tokens === */
-
-  /* === Border Radius Tokens === */
   --radius-none: 0;
   --radius-sm: 0.312rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
-
-  /* === Shadow Tokens === */
-  --shadow-interactive:
-    0px 1px 0px 0px rgba(255, 255, 255, 0.11) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.04) inset,
-    0px 1px 0px 0px rgba(0, 0, 0, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(0, 0, 0, 0.07);
-  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-overlay: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 @theme inline {
-  --shadow-input: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--ui-shadow-ring) inset;
-  --shadow-input-hover: 0px 2px 2px -1px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px var(--ui-shadow-ring-hover) inset;
-  --shadow-floating:
-    0px 0px 0px 1px var(--ui-shadow-ring) inset, 0px 4px 8px 0px rgba(0, 0, 0, 0.08),
-    0px 8px 16px 0px rgba(0, 0, 0, 0.08);
-  --shadow-error:
-    0px 0px 0px 1px var(--ui-color-border-critical) inset, 0px 0px 0px 3px var(--ui-color-bg-red-muted),
-    0px 8px 16px 0px rgba(0, 0, 0, 0.08);
-
   --color-black: var(--color-stone-950);
   --color-accent: var(--ui-color-accent);
   --color-critical: var(--ui-color-text-critical);
