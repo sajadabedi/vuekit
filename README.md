@@ -20,11 +20,11 @@ For e.g. Dialog component has been used to create dialog (modal) as well as Comm
 - TypeScript
 - Phosphor Icons
 - Tailwind CSS v4
-- Modern CSS features
 - class-variance-authority
-- reka-ui
+- reka-ui (aka Radix-vue)
 - Framer Motion
 - VeeValidate
+- vueuse
 - Zod
 
 ## Install
