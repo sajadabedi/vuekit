@@ -15,7 +15,7 @@ import SheetOverlay from './SheetOverlay.vue';
 
 interface SheetContentProps extends DialogContentProps {
   class?: HTMLAttributes['class'];
-  side?: 'top' | 'right' | 'bottom' | 'left';
+  side?: 'right' | 'left';
 }
 
 defineOptions({
@@ -35,20 +35,16 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <template>
   <DialogPortal>
     <SheetOverlay
-      class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80"
+      class="data-[state=open]:motion-opacity-in-0 data-[state=closed]:motion-opacity-out-0 motion-duration-100 fixed inset-0 z-50 bg-black/80"
     />
     <DialogContent
       :class="
         cn(
-          'bg-body data-[state=open]:animate-in data-[state=closed]:animate-out shadow-floating fixed z-50 flex flex-col gap-4 rounded-l-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-300',
+          'bg-body data-[state=open]:motion-opacity-in-0 data-[state=closed]:motion-opacity-out-0 shadow-floating data-[state=closed]:motion-duration-100 data-[state=open]:motion-duration-300 fixed z-50 flex flex-col gap-4',
           side === 'right' &&
-            'data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 sm:max-w-sm',
+            'data-[state=closed]:motion-translate-x-out-[10%] data-[state=open]:motion-translate-x-in-[10%] inset-y-0 right-0 h-full w-3/4 rounded-l-lg sm:max-w-sm',
           side === 'left' &&
-            'data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 sm:max-w-sm',
-          side === 'top' &&
-            'data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto',
-          side === 'bottom' &&
-            'data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto',
+            'data-[state=closed]:motion-translate-x-out-[-10%] data-[state=open]:motion-translate-x-in-[-10%] inset-y-0 left-0 h-full w-3/4 rounded-r-lg sm:max-w-sm',
           props.class
         )
       "
@@ -57,7 +53,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       <slot />
 
       <DialogClose
-        class="focus:ring-ring data-[state=open]:bg-secondary hover:bg-tertiary focus-ring absolute top-3.5 right-3.5 flex size-5.5 cursor-pointer items-center justify-center rounded-md opacity-70 transition-all hover:opacity-100 focus-visible:opacity-100"
+        class="data-[state=open]:bg-secondary hover:bg-tertiary focus-ring absolute top-3.5 right-3.5 flex size-5.5 cursor-pointer items-center justify-center rounded-md opacity-70 transition-all hover:opacity-100 focus-visible:opacity-100"
       >
         <PhX weight="bold" />
         <span class="sr-only">Close</span>
