@@ -15,5 +15,3 @@ const { error, formItemId } = useFormField();
     <slot />
   </Label>
 </template>
-
-<!-- data-[error=true]:text-critical -->

@@ -5,7 +5,7 @@ export { Checkbox } from './checkbox';
 export { Dialog, DialogContent, DialogTrigger } from './dialog';
 export { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu';
 export { EmptyState } from './empty-state';
-export { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from './form';
+export { FormControl, FormDescription, FormItem, FormLabel, FormMessage, FormField } from './form';
 export { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card';
 export { InfoIcon } from './info-icon';
 export { Input } from './input';
