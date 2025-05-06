@@ -14,7 +14,7 @@ const forwarded: ComputedRef<any> = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <DropdownMenuRoot data-slot="dropdown-menu" v-bind="forwarded">
+  <DropdownMenuRoot v-bind="forwarded">
     <slot />
   </DropdownMenuRoot>
 </template>

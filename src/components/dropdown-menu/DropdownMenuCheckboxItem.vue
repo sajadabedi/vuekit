@@ -25,7 +25,6 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 <template>
   <DropdownMenuCheckboxItem
-    data-slot="dropdown-menu-checkbox-item"
     v-bind="forwarded"
     :class="
       cn(
