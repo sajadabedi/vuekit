@@ -29,7 +29,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       v-bind="forwarded"
       :class="
         cn(
-          'bg-elevated-on-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 shadow-floating z-50 max-h-[400px] min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md p-1',
+          'bg-elevated-on-dark shadow-floating z-50 max-h-[400px] min-w-32 overflow-x-hidden overflow-y-auto rounded-md p-1',
+          // Animate in
+          'data-[state=open]:motion-opacity-in-0 motion-duration-150',
+          // Animate out
+          'data-[state=closed]:motion-opacity-out-0 data-[state=closed]:motion-duration-100 data-[state=closed]:motion-translate-y-out-[-2%]',
           props.class
         )
       "
@@ -38,7 +42,3 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     </DropdownMenuContent>
   </DropdownMenuPortal>
 </template>
-
-<!--
-z-50 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2
--->
