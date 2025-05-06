@@ -76,9 +76,7 @@ export const Default: Story = {
           <FormItem>
             <FormLabel>Email</FormLabel>
             <FormControl>
-
               <Input v-bind="componentField" type="email" placeholder="Enter your email" />
-               <PhMailbox weight="bold" />
             </FormControl>
             <FormMessage />
           </FormItem>
