@@ -22,7 +22,11 @@ const forwardedProps = useForwardProps(delegatedProps);
       v-bind="forwardedProps"
       :class="
         cn(
-          'bg-elevated-on-dark shadow-floating data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-64 rounded-md p-4 outline-hidden',
+          'bg-elevated-on-dark shadow-floating z-50 w-64 rounded-md p-4 outline-hidden',
+          // Animation in
+          'motion-duration-300 data-[state=open]:motion-translate-y-in-[3%] data-[state=open]:motion-opacity-in-0',
+          // Animation out
+          'data-[state=closed]:motion-opacity-out-0 data-[state=closed]:motion-translate-y-out-[3%] data-[state=closed]:motion-duration-[50ms]',
           props.class
         )
       "
