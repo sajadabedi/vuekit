@@ -2,11 +2,11 @@
 @plugin "tailwindcss-motion";
 @import './styles/typography.css';
 @import './styles/shadow.css';
-/* Base styles */
+
 @layer base {
   :root {
-    /* text */
     color-scheme: light dark;
+
     --ui-color-accent: var(--color-orange-600);
     --ui-color-primary: var(--color-stone-950);
     --ui-color-text-secondary: var(--color-stone-700);
@@ -16,7 +16,7 @@
     --ui-color-text-success: var(--color-green-700);
     --ui-color-text-critical: var(--color-red-600);
     --ui-color-text-warning: var(--color-yellow-700);
-    /* bg */
+
     --ui-color-bg-body: var(--color-white);
     --ui-color-bg-accent: var(--ui-color-accent);
     --ui-color-bg-secondary: var(--color-stone-50);
@@ -31,7 +31,7 @@
     --ui-color-bg-disabled: var(--color-stone-200);
     --ui-color-bg-muted: var(--color-stone-200);
     --ui-color-bg-backdrop: color-mix(in oklab, var(--color-black) 15%, transparent);
-    /* border */
+
     --ui-color-border-default: var(--color-stone-200);
     --ui-color-border-accent: var(--ui-color-accent);
     --ui-color-border-secondary: var(--color-stone-100);
@@ -61,7 +61,6 @@
       --ui-color-bg-critical-muted: color-mix(in oklab, var(--color-red-900) 40%, transparent);
       --ui-color-bg-warning-muted: color-mix(in oklab, var(--color-yellow-900) 20%, transparent);
 
-      /* border */
       --ui-color-border-default: var(--color-stone-800);
       --ui-color-border-secondary: var(--color-stone-900);
       --ui-color-border-contrast: var(--color-stone-700);
@@ -92,7 +91,7 @@
   --color-black: var(--color-stone-950);
   --color-accent: var(--ui-color-accent);
   --color-critical: var(--ui-color-text-critical);
-  /* Text */
+
   --text-color-default: var(--ui-color-primary);
   --text-color-secondary: var(--ui-color-text-secondary);
   --text-color-tertiary: var(--ui-color-text-tertiary);
@@ -101,7 +100,7 @@
   --text-color-critical: var(--ui-color-text-critical);
   --text-color-warning: var(--ui-color-text-warning);
   --text-color-disabled: var(--ui-color-text-disabled);
-  /* bg */
+
   --background-color-body: var(--ui-color-bg-body);
   --background-color-elevated-on-dark: var(--ui-color-bg-elevated-on-dark);
   --background-color-secondary: var(--ui-color-bg-secondary);
@@ -115,7 +114,7 @@
   --background-color-critical: var(--ui-color-bg-critical);
   --background-color-backdrop: var(--ui-color-bg-backdrop);
   --background-color-disabled: var(--ui-color-bg-disabled);
-  /* border */
+
   --border-color-default: var(--ui-color-border-default);
   --border-color-accent: var(--ui-color-border-accent);
   --border-color-secondary: var(--ui-color-border-secondary);
@@ -123,28 +122,32 @@
   --border-color-critical: var(--ui-color-border-critical);
 }
 
-/* Focus state for the buttons and other actions */
+/* Focus state used for buttons and actions */
 @utility focus-ring {
   @apply focus-visible:ring-accent/60 dark:focus-visible:ring-accent ring-offset-[var(--ui-color-bg-body)] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-1;
 }
 
-/* Focus state for inputs,textarea, select */
+/* Focus state for form inputs */
 @utility focus-ring-control {
   @apply outline-none focus-visible:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
+
   @apply focus-visible:hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
+
   @apply dark:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)] dark:hover:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)];
 }
 
+/* Validation */
 @utility control-invalid {
   @apply ring-critical shadow-[0px_0px_0px_3px] ring shadow-red-400/20 ring-inset;
 }
 
+/* form default style */
 @utility control-base {
-  @apply placeholder:text-placeholder bg-elevated-on-dark shadow-input focus-ring-control min-w-0 rounded-md px-2 text-base transition-[color,background-color,box-shadow];
+  @apply placeholder:text-placeholder bg-elevated-on-dark shadow-input focus-ring-control min-w-0 rounded-md px-2 text-base transition-[color,background-color,box-shadow] outline-none;
 
   @apply disabled:bg-disabled disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70 disabled:shadow-none;
 
   @apply aria-invalid:ring-critical aria-invalid:focus-within:focus-ring-control;
 
-  @apply hover:shadow-input-hover outline-none;
+  @apply hover:shadow-input-hover;
 }
