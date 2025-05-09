@@ -3,7 +3,7 @@ import { Textarea } from '.';
 import { Label } from '@/components/label';
 import { ref } from 'vue';
 
-const meta = {
+const meta: Meta<typeof Textarea> = {
   title: 'Components/Textarea',
   component: Textarea,
   tags: ['autodocs'],
@@ -48,7 +48,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Textarea>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

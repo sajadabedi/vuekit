@@ -4,7 +4,7 @@ import { Input } from '@/components/input';
 import { Checkbox } from '@/components/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/radio-group';
 
-const meta = {
+const meta: Meta<typeof Label> = {
   title: 'Components/Label',
   component: Label,
   tags: ['autodocs'],
@@ -48,7 +48,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Label>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

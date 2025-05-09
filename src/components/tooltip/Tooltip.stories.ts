@@ -1,8 +1,8 @@
-import { Button } from '@/components'
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { Tooltip } from './index'
+import { Button } from '@/components';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { Tooltip } from './index';
 
-const meta = {
+const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
@@ -49,16 +49,16 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Tooltip>
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => ({
     components: { Tooltip, Button },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -71,13 +71,13 @@ export const Default: Story = {
     side: 'top',
     delay: 200
   }
-}
+};
 
 export const Placements: Story = {
   render: (args) => ({
     components: { Tooltip, Button },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <div class="flex flex-col items-center gap-8">
@@ -103,13 +103,13 @@ export const Placements: Story = {
     side: 'top',
     delay: 200
   }
-}
+};
 
 export const NoDelay: Story = {
   render: (args) => ({
     components: { Tooltip, Button },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -122,13 +122,13 @@ export const NoDelay: Story = {
     side: 'top',
     delay: 0
   }
-}
+};
 
 export const WithLongContent: Story = {
   render: (args) => ({
     components: { Tooltip, Button },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -141,4 +141,4 @@ export const WithLongContent: Story = {
     side: 'top',
     delay: 200
   }
-}
+};

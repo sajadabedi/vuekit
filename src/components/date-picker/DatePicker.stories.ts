@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import DatePicker from './DatePicker.vue';
 
-const meta = {
+const meta: Meta<typeof DatePicker> = {
   title: 'Components/DatePicker',
   component: DatePicker,
   tags: ['autodocs'],
@@ -33,7 +33,7 @@ const meta = {
       description: 'Additional classes to apply to the date picker'
     }
   }
-} satisfies Meta<typeof DatePicker>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

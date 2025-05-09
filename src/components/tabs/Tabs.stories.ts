@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '.';
 
-const meta = {
+const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
   tags: ['autodocs'],
@@ -40,7 +40,7 @@ const meta = {
       }
     }
   }
-} satisfies Meta<typeof Tabs>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

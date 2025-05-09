@@ -1,9 +1,9 @@
-import Spinner from '@/components';
+import { Spinner } from '@/components';
 import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Button } from '.';
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
