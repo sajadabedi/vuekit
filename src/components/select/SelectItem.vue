@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
-import { Check } from 'lucide-vue-next';
+import { PhCheck } from '@phosphor-icons/vue';
 import { SelectItem, SelectItemIndicator, type SelectItemProps, SelectItemText, useForwardProps } from 'reka-ui';
 import { computed, type HTMLAttributes } from 'vue';
 
@@ -31,7 +31,7 @@ const forwardedProps = useForwardProps(delegatedProps);
   >
     <span class="absolute right-2 flex size-3.5 items-center justify-center">
       <SelectItemIndicator>
-        <Check class="size-4" />
+        <PhCheck weight="bold" />
       </SelectItemIndicator>
     </span>
 

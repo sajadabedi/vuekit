@@ -6,7 +6,7 @@ import AppSidebar from '@/stories/sidebar-example/AppSidebar.vue';
 import SearchForm from '@/stories/sidebar-example/SearchForm.vue';
 import VersionSwitcher from '@/stories/sidebar-example/VersionSwitcher.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Check, ChevronsUpDown, GalleryVerticalEnd, Home, Search, Settings, User } from 'lucide-vue-next';
+import { PhCheck, PhCaretDown, PhSquaresFour, PhHouse, PhMagnifyingGlass, PhSlidersHorizontal, PhUser } from '@phosphor-icons/vue';
 import {
   Sidebar,
   SidebarContent,
@@ -45,26 +45,26 @@ export const Default: Story = {
       SidebarMenuButton,
       SidebarTrigger,
       Button,
-      Home,
-      Settings,
-      User
+      PhHouse,
+      PhSlidersHorizontal,
+      PhUser
     },
     setup() {
       const items = [
         {
           title: 'Home',
           url: '#',
-          icon: Home
+          icon: PhHouse
         },
         {
           title: 'Profile',
           url: '#',
-          icon: User
+          icon: PhUser
         },
         {
           title: 'Settings',
           url: '#',
-          icon: Settings
+          icon: PhSlidersHorizontal
         }
       ];
       return { items };
@@ -125,10 +125,13 @@ export const Documentation: Story = {
       DropdownMenuContent,
       DropdownMenuItem,
       DropdownMenuTrigger,
-      Check,
-      ChevronsUpDown,
-      GalleryVerticalEnd,
-      Search
+      PhCheck,
+      PhCaretDown,
+      PhSquaresFour,
+      PhHouse,
+      PhMagnifyingGlass,
+      PhSlidersHorizontal,
+      PhUser
     },
     setup() {
       const versions = ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'];

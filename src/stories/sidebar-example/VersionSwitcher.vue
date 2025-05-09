@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/dropdown-menu';
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/sidebar';
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from 'lucide-vue-next';
+import { PhCheck, PhCaretDown, PhSquaresFour } from '@phosphor-icons/vue';
 import { ref } from 'vue';
 const props = defineProps<{
   versions: string[];
@@ -21,19 +21,19 @@ const selectedVersion = ref(props.defaultVersion);
             <div
               class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
             >
-              <GalleryVerticalEnd class="size-4" />
+              <PhSquaresFour class="size-4" />
             </div>
             <div class="flex flex-col gap-0.5 leading-none">
               <span class="font-semibold">Documentation</span>
               <span class="">v{{ selectedVersion }}</span>
             </div>
-            <ChevronsUpDown class="ml-auto" />
+            <PhCaretDown class="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent class="w-[--reka-dropdown-menu-trigger-width]" align="start">
           <DropdownMenuItem v-for="version in versions" :key="version" @select="selectedVersion = version">
             v{{ version }}
-            <Check v-if="version === selectedVersion" class="ml-auto" />
+            <PhCheck v-if="version === selectedVersion" class="ml-auto" />
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
