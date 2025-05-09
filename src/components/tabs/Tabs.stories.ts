@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '.';
 import { Button, Input, Label } from '@/components';
+import { PhLock, PhUserCircle } from '@phosphor-icons/vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { PhUserCircle, PhLock } from '@phosphor-icons/vue';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '.';
 
 const meta = {
   title: 'Components/Tabs',
@@ -68,7 +68,6 @@ export const Default: Story = {
           </TabsList>
           <TabsContent value="account">
             <div class="space-y-4">
-              <h4 class="text-sm font-medium">Account Settings</h4>
               <p class="text-sm text-tertiary">
                 Update your account settings. Set your preferred language and timezone.
               </p>
@@ -76,7 +75,6 @@ export const Default: Story = {
           </TabsContent>
           <TabsContent value="password">
             <div class="space-y-4">
-              <h4 class="text-sm font-medium">Password Settings</h4>
               <p class="text-sm text-tertiary">
                 Change your password here. After saving, you'll be logged out.
               </p>
@@ -189,7 +187,6 @@ export const WithIcon: Story = {
         </TabsList>
         <TabsContent value="account">
           <div class="space-y-4">
-            <h4 class="text-sm font-medium">Account Settings</h4>
             <p class="text-sm text-tertiary">
               Update your account settings. Set your preferred language and timezone.
             </p>
@@ -197,7 +194,6 @@ export const WithIcon: Story = {
         </TabsContent>
         <TabsContent value="password">
           <div class="space-y-4">
-            <h4 class="text-sm font-medium">Password Settings</h4>
             <p class="text-sm text-tertiary">
               Change your password here. After saving, you'll be logged out.
             </p>

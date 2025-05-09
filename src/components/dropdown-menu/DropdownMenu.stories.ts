@@ -85,7 +85,7 @@ export const WithGroups: Story = {
     template: `
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Button variant="outline">Open Menu</Button>
+          <Button>Open Menu</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -137,33 +137,30 @@ export const WithSubmenus: Story = {
     template: `
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Button variant="outline">Open Menu</Button>
+          <Button>Open Menu</Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <PhUser weight="bold" />
-            <span>Profile</span>
+           Profile
           </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <PhBell weight="bold" />
-              <span>Notifications</span>
+              Notifications
             </DropdownMenuSubTrigger>
             <DropdownMenuSubContent>
               <DropdownMenuItem>
-                <span>Email Digest</span>
+                Email Digest
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Push Notifications</span>
+                Push Notifications
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Text Messages</span>
+                Text Messages
               </DropdownMenuItem>
             </DropdownMenuSubContent>
           </DropdownMenuSub>
           <DropdownMenuItem>
-            <PhGear weight="bold" />
-            <span>Settings</span>
+            Settings
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -197,10 +194,10 @@ export const WithRadioGroups: Story = {
           <DropdownMenuLabel>Display Density</DropdownMenuLabel>
           <DropdownMenuRadioGroup v-model="selected">
             <DropdownMenuRadioItem value="compact">
-              <span>Compact</span>
+              Compact
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="comfortable">
-              <span>Comfortable</span>
+              Comfortable
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
@@ -234,10 +231,10 @@ export const WithCheckboxItems: Story = {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuCheckboxItem v-model="showStatusBar">
-            <span>Status Bar</span>
+            Status Bar
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem v-model="showActivityBar">
-            <span>Activity Bar</span>
+            Activity Bar
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem v-model="showPanel">
             Panel

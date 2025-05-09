@@ -67,7 +67,6 @@ export const Default: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label</Label>
-        <Input type="email" id="email" placeholder="Email" />
       </div>
     `
   })

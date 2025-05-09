@@ -1,6 +1,6 @@
+import { PhStar } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Badge } from '.';
-import { PhStar } from '@phosphor-icons/vue';
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
@@ -80,28 +80,6 @@ export const WithIcon: Story = {
         <Badge variant="red">
           <PhStar weight="bold" />
           Error
-        </Badge>
-      </div>
-    `
-  })
-};
-
-export const Default: Story = {
-  render: () => ({
-    components: { Badge },
-    template: `
-      <Badge variant="stone">Default</Badge>
-    `
-  })
-};
-
-export const Truncated: Story = {
-  render: () => ({
-    components: { Badge },
-    template: `
-      <div class="w-32 ">
-        <Badge variant="blue" class="truncate">
-          This is a very long text that will be truncated
         </Badge>
       </div>
     `

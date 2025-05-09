@@ -1,4 +1,4 @@
-import { Spinner } from '@/components';
+import Spinner from '@/components';
 import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Button } from '.';

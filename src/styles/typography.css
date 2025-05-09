@@ -1,6 +1,4 @@
 @theme {
-  --text-*: initial; /* Removing tailwind default font size */
-
   --font-sans: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
   --font-sans--font-feature-settings: 'cv08', 'cv10', 'cv02';
   --font-sans--fontvariant-numeric: lining-nums tabular-nums;
