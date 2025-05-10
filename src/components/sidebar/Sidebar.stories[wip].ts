@@ -2,11 +2,11 @@ import { Button } from '@/components/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/dropdown-menu';
 import { Label } from '@/components/label';
 import { SidebarInput } from '@/components/sidebar';
-import AppSidebar from '@/stories/sidebar-example/AppSidebar.vue';
-import SearchForm from '@/stories/sidebar-example/SearchForm.vue';
-import VersionSwitcher from '@/stories/sidebar-example/VersionSwitcher.vue';
+import AppSidebar from '@/stories/sidebar-story/AppSidebar.vue';
+import SearchForm from '@/stories/sidebar-story/SearchForm.vue';
+import VersionSwitcher from '@/stories/sidebar-story/VersionSwitcher.vue';
+import { PhCaretDown, PhCheck, PhHouse, PhMagnifyingGlass, PhSlidersHorizontal, PhSquaresFour, PhUser } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { PhCheck, PhCaretDown, PhSquaresFour, PhHouse, PhMagnifyingGlass, PhSlidersHorizontal, PhUser } from '@phosphor-icons/vue';
 import {
   Sidebar,
   SidebarContent,
