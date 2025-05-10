@@ -5,8 +5,8 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   --font-weight-regular: 440;
-  --font-weight-medium: 530;
-  --font-weight-semibold: 660;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 580;
 
   --line-height-tight: 16px;
   --line-height-base: 18px;
@@ -25,6 +25,9 @@
   --text-action: var(--text-base);
   --text-action--line-height: var(--line-height-base);
   --text-action--font-weight: var(--font-weight-medium);
+  --text-mono: var(--text-xs);
+  --text-mono--font-family: var(--font-mono);
+  --text-mono--line-height: var(--line-height-tight);
 
   --text-base-bold: var(--text-base);
   --text-base-bold--font-weight: var(--font-weight-semibold);
@@ -33,15 +36,15 @@
   --text-heading-lg--line-height: 20px;
   --text-heading-lg--font-weight: var(--font-weight-medium);
   --text-heading-xl: 1.25rem; /* 18px */
-  --text-heading-xl--line-height: 20px;
+  --text-heading-xl--line-height: var(--line-height-loose);
   --text-heading-xl--font-weight: var(--font-weight-medium);
   --text-heading-2xl: 1.5rem; /* 24px */
-  --text-heading-2xl--line-height: 24px;
+  --text-heading-2xl--line-height: 28px;
   --text-heading-2xl--font-weight: var(--font-weight-medium);
 }
 
 @utility text-base-underline {
-  @apply underline decoration-current/30 decoration-[1.5px] underline-offset-1;
+  @apply underline decoration-current/30 decoration-1 underline-offset-1;
 }
 
 @utility text-base-underline-dash {
