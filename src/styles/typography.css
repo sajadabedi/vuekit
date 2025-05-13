@@ -50,3 +50,11 @@
 @utility text-underline-dash {
   @apply underline decoration-current/30 decoration-dashed decoration-1 underline-offset-2;
 }
+
+@utility text-upercase {
+  @apply uppercase text-xs/3 tracking-wider;
+}
+
+@utility text-mono-sm {
+  @apply font-mono text-xs/4;
+}

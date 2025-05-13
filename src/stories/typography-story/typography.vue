@@ -42,8 +42,8 @@ defineOptions({
         <p class="text-sm">The quick brown fox jumps over the lazy dog.</p>
         <code class="font-mono text-xs opacity-50">text-sm-bold</code>
         <p class="text-sm-bold">The quick brown fox jumps over the lazy dog.</p>
-        <code class="font-mono text-xs opacity-50">text-mono</code>
-        <p class="text-mono font-mono">The quick brown fox jumps over the lazy dog.</p>
+        <code class="font-mono text-xs opacity-50">text-mono-sm</code>
+        <p class="text-mono-sm">The quick brown fox jumps over the lazy dog.</p>
       </div>
     </section>
 
@@ -54,8 +54,8 @@ defineOptions({
         <p class="text-underline">Regular (440) - The quick brown fox jumps over the lazy dog.</p>
         <code class="font-mono text-xs opacity-50">text-base-underline-dash</code>
         <p class="text-underline-dash">Medium (530) - The quick brown fox jumps over the lazy dog.</p>
-        <code class="text-uppercase">text-base-underline-dash</code>
-        <p class="uppercase text-xs tracking-wider">Semibold (660) - The quick brown fox jumps over the lazy dog.</p>
+        <code class="font-mono text-xs opacity-50">text-upercase</code>
+        <p class="text-upercase">Semibold (660) - The quick brown fox jumps over the lazy dog.</p>
       </div>
     </section>
   </div>

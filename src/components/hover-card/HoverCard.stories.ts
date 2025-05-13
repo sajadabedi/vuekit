@@ -1,4 +1,5 @@
 import { Button } from '@/components';
+import { PhGlobeHemisphereEast } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '.';
 
@@ -59,29 +60,25 @@ export const Default: Story = {
       HoverCard,
       HoverCardTrigger,
       HoverCardContent,
-      Button
+      Button,
+      PhGlobeHemisphereEast
     },
     template: `
       <HoverCard>
         <HoverCardTrigger>
-          <Button variant="primary">Button</Button>
+          <Button variant="primary">Hover me</Button>
         </HoverCardTrigger>
-        <HoverCardContent class="w-80">
-          <div class="flex justify-between">
-            <div class="flex gap-4">
-              <div>
-                <h4 class="text-sm font-semibold">NuxtJS</h4>
-                <p class="text-sm">The Vue.js framework for building server-side rendered applications.</p>
-              </div>
-            </div>
-          </div>
+        <HoverCardContent class="gap-4">
+          <PhGlobeHemisphereEast size="24" weight="fill" class="text-accent mb-2" />
+          <h4 class="text-heading-sm font-semibold">Sales Tax</h4>
+          <p class="text-sm">Manage all aspects of your sales taxes in one place. From monitoring nexus to handling filings and remittance. Get started by connecting to Stripe.</p>
         </HoverCardContent>
       </HoverCard>
     `
   })
 };
 
-export const WithLink: Story = {
+export const CustomSize: Story = {
   render: () => ({
     components: {
       HoverCard,
@@ -91,17 +88,11 @@ export const WithLink: Story = {
     template: `
       <HoverCard>
         <HoverCardTrigger>
-          <a href="#" class="text-sm font-medium underline">@radix-vue</a>
+          <a href="#" class="text-sm font-medium underline">Hover me</a>
         </HoverCardTrigger>
         <HoverCardContent class="w-80">
-          <div class="flex justify-between">
-            <div class="flex gap-4">
-              <div>
-                <h4 class="text-sm font-semibold">@radix-vue</h4>
-                <p class="text-sm">Vue port of Radix UI primitives. An open-source UI component library.</p>
-              </div>
-            </div>
-          </div>
+          <h4 class="text-heading-sm font-semibold">Sales Tax</h4>
+          <p class="text-sm">Manage all aspects of your sales taxes in one place. From monitoring nexus to handling filings and remittance. Get started by connecting to Stripe.</p>
         </HoverCardContent>
       </HoverCard>
     `
