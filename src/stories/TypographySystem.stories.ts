@@ -7,7 +7,7 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
 } satisfies Meta<typeof TypographySystem>
 
 export default meta

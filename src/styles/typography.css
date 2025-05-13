@@ -43,10 +43,10 @@
   --text-heading-2xl--font-weight: var(--font-weight-medium);
 }
 
-@utility text-base-underline {
+@utility text-underline {
   @apply underline decoration-current/30 decoration-1 underline-offset-1;
 }
 
-@utility text-base-underline-dash {
+@utility text-underline-dash {
   @apply underline decoration-current/30 decoration-dashed decoration-1 underline-offset-2;
 }

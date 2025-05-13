@@ -10,6 +10,14 @@ const meta: Meta<typeof Alert> = {
     variant: {
       control: 'select',
       options: ['default', 'critical']
+    },
+    class: {
+      description: '(Optional) Additional CSS classes to apply to the alert',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
     }
   }
 };

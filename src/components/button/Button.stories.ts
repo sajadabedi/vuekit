@@ -27,7 +27,7 @@ const meta: Meta<typeof Button> = {
       }
     },
     as: {
-      description: 'The element to render the button as',
+      description: 'The element to render as (e.g. a, button)',
       control: 'text',
       table: {
         type: { summary: 'string' },
@@ -71,7 +71,7 @@ export const AllVariants: Story = {
       <div class="flex flex-row gap-4">
         <Button variant="default" as="a">Default</Button>
         <Button variant="primary">Primary</Button>
-        <Button variant="critical">critical</Button>
+        <Button variant="critical">Critical</Button>
         <Button variant="ghost">Ghost</Button>
       </div>
     `
@@ -102,13 +102,6 @@ export const IconOnly: Story = {
   })
 };
 
-// export const Small: Story = {
-//   render: () => ({
-//     components: { Button },
-//     template: '<Button size="sm">Small button</Button>'
-//   })
-// };
-
 export const Disabled: Story = {
   render: () => ({
     components: { Button },
@@ -116,7 +109,7 @@ export const Disabled: Story = {
       <div class="flex gap-4">
         <Button disabled>Default</Button>
         <Button disabled variant="primary">Primary</Button>
-        <Button disabled variant="critical">critical</Button>
+        <Button disabled variant="critical">Critical</Button>
         <Button disabled variant="ghost">Ghost</Button>
       </div>
     `

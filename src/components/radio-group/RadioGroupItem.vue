@@ -23,12 +23,12 @@ const forwardedProps = useForwardProps(delegatedProps);
     v-bind="forwardedProps"
     :class="
       cn(
-        'bg-interactive shadow-input focus-ring hover:bg-tertiary aspect-square size-4 shrink-0 rounded-full transition-colors disabled:cursor-not-allowed disabled:opacity-70',
+        'group bg-interactive shadow-input focus-ring hover:bg-tertiary aspect-square size-4 shrink-0 rounded-full transition-colors disabled:cursor-not-allowed disabled:bg-disabled',
         props.class
       )
     "
   >
-    <RadioGroupIndicator class="relative flex items-center justify-center">
+    <RadioGroupIndicator class="relative group-disabled:opacity-70 flex items-center justify-center">
       <span class="bg-accent absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full" />
     </RadioGroupIndicator>
   </RadioGroupItem>

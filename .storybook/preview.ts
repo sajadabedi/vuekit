@@ -20,7 +20,7 @@ const preview: Preview = {
     docs: {
       inlineStories: true
     }
-  }
+  },
 };
 
 export default preview;

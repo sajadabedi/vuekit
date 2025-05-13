@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { RadioGroup, RadioGroupItem } from '.';
 import { Label } from '@/components/label';
+import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
+import { RadioGroup, RadioGroupItem } from '.';
 
 const meta = {
   title: 'Components/RadioGroup',
@@ -122,11 +122,11 @@ export const Disabled: Story = {
         <RadioGroup v-model="option" disabled>
           <div class="flex gap-2">
             <RadioGroupItem value="option-1" id="option-1" />
-            <Label for="option-1">Option 1</Label>
+            <Label for="option-1">Selected</Label>
           </div>
           <div class="flex gap-2">
             <RadioGroupItem value="option-2" id="option-2" />
-            <Label for="option-2">Option 2</Label>
+            <Label for="option-2">Not Selected</Label>
           </div>
         </RadioGroup>
       </div>

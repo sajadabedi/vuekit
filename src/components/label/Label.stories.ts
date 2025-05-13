@@ -1,8 +1,8 @@
+import { Checkbox } from '@/components/checkbox';
+import { Input } from '@/components/input';
+import { RadioGroup, RadioGroupItem } from '@/components/radio-group';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Label } from '.';
-import { Input } from '@/components/input';
-import { Checkbox } from '@/components/checkbox';
-import { RadioGroup, RadioGroupItem } from '@/components/radio-group';
 
 const meta: Meta<typeof Label> = {
   title: 'Components/Label',
@@ -78,7 +78,6 @@ export const WithInput: Story = {
     template: `
       <div class="grid gap-2">
         <Label for="email">Your email address</Label>
-        <Input type="email" id="email" placeholder="Email" />
       </div>
     `
   })
@@ -114,18 +113,6 @@ export const WithRadioGroup: Story = {
   })
 };
 
-export const Required: Story = {
-  render: () => ({
-    components: { Label, Input },
-    template: `
-      <div class="grid gap-2">
-        <Label for="email" required>Email address</Label>
-        <Input type="email" id="email" placeholder="Email" required />
-      </div>
-    `
-  })
-};
-
 export const Optional: Story = {
   args: {
     for: 'input-2',
@@ -139,7 +126,6 @@ export const Optional: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label with optional indicator</Label>
-        <Input id="input-2" type="text" />
       </div>
     `
   })
@@ -158,27 +144,6 @@ export const WithTooltip: Story = {
     template: `
       <div class="${labelContainerClass}">
         <Label v-bind="args">Label with tooltip</Label>
-        <Input id="input-3" type="text" />
-      </div>
-    `
-  })
-};
-
-export const OptionalWithTooltip: Story = {
-  args: {
-    for: 'input-4',
-    optional: true,
-    tooltip: 'This field is optional'
-  },
-  render: (args) => ({
-    components: { Label },
-    setup() {
-      return { args };
-    },
-    template: `
-      <div class="${labelContainerClass}">
-        <Label v-bind="args">Label with optional and tooltip</Label>
-        <Input id="input-4" type="text" />
       </div>
     `
   })

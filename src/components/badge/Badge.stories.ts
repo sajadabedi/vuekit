@@ -6,6 +6,14 @@ const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A versatile badge component for displaying short status text, counts, or labels. Supports multiple colors and custom content through slots.'
+      }
+    }
+  },
   argTypes: {
     variant: {
       description: 'The variant of the badge',
@@ -22,21 +30,6 @@ const meta: Meta<typeof Badge> = {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
-      }
-    },
-    default: {
-      description: 'The content to display inside the badge',
-      table: {
-        type: { summary: 'Markup' },
-        category: 'slots'
-      }
-    }
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A versatile badge component for displaying short status text, counts, or labels. Supports multiple colors and custom content through slots.'
       }
     }
   }

@@ -50,10 +50,12 @@ defineOptions({
     <section>
       <h2 class="text-sm text-accent font-semibold mb-4"><PhHighlighter class="inline" size="16" weight="bold" /> Text Styles</h2>
       <div class="space-y-4">
-        <p class="text-base-underline">Regular (440) - The quick brown fox jumps over the lazy dog.</p>
-        <code class="font-mono text-xs opacity-50">text-base-underline: used for hinting info</code>
-        <p class="text-base-underline-dash">Medium (530) - The quick brown fox jumps over the lazy dog.</p>
-        <p class="uppercase">Semibold (660) - The quick brown fox jumps over the lazy dog.</p>
+        <code class="font-mono text-xs opacity-50">text-base-underline</code>
+        <p class="text-underline">Regular (440) - The quick brown fox jumps over the lazy dog.</p>
+        <code class="font-mono text-xs opacity-50">text-base-underline-dash</code>
+        <p class="text-underline-dash">Medium (530) - The quick brown fox jumps over the lazy dog.</p>
+        <code class="text-uppercase">text-base-underline-dash</code>
+        <p class="uppercase text-xs tracking-wider">Semibold (660) - The quick brown fox jumps over the lazy dog.</p>
       </div>
     </section>
   </div>
