@@ -1,4 +1,4 @@
-export { Alert } from './alert';
+export { Alert, AlertTitle, AlertDescription } from './alert';
 export { Badge } from './badge';
 export { Button } from './button';
 export { Checkbox } from './checkbox';
