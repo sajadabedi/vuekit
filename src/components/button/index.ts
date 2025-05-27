@@ -9,7 +9,7 @@ export const buttonVariants = cva(
         default:
           'bg-interactive dark:bg-linear-to-t dark:from-white/10 dark:to-white/8 text-default bg-clip-padding shadow-interactive hover:bg-secondary/90',
         critical:
-          'bg-critical text-white bg-linear-to-t from-critical to-white/5 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-critical)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] hover:bg-critical/85 dark:shadow-[0px_1px_0px_0px_var(--ui-shadow-ring-light)_inset] disabled:shadow-none',
+          'bg-critical text-white bg-linear-to-t from-critical to-white/5 ease-linear  hover:bg-critical/85 disabled:shadow-none ring ring-[var(--ui-shadow-ring-critical)] shadow-[0px_1px_0px_0px_var(--ui-shadow-ring-light)_inset] dark:ring-0',
         primary:
           'bg-accent bg-linear-to-t from-accent to-white/5 ease-linear shadow-[0px_0px_0px_1px_var(--ui-shadow-ring-accent)_inset,0px_2px_0px_0px_var(--ui-shadow-ring-light)_inset] dark:shadow-[0px_1px_0px_0px_var(--ui-shadow-ring-light)_inset] text-white hover:bg-accent/90 disabled:shadow-none',
         ghost: 'text-default bg-transparent hover:bg-muted/75 '

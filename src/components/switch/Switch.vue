@@ -33,7 +33,7 @@ const thumbVariants = {
     :class="
       cn(
         'peer group data-[state=checked]:bg-accent focus-ring data-[state=unchecked]:bg-muted/60 inline-flex h-4.5 w-7.5 shrink-0 items-center rounded-full transition-colors outline-none',
-        'shadow-[0_0_0_1px_inset_var(--ui-shadow-ring)]',
+        'ring ring-inset ring-[var(--ui-shadow-ring)]',
         'disabled:data-[state=checked]:bg-accent/60 disabled:text-disabled disabled:cursor-not-allowed',
         props.class
       )
