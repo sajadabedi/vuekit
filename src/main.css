@@ -62,7 +62,7 @@
       --ui-color-bg-warning-muted: color-mix(in oklab, var(--color-yellow-900) 20%, transparent);
 
       --ui-color-border-default: var(--color-stone-800);
-      --ui-color-border-secondary: var(--color-stone-900);
+      --ui-color-border-secondary: color-mix(in oklab, var(--color-stone-800) 70%, transparent);
       --ui-color-border-contrast: var(--color-stone-700);
       --ui-color-border-critical: var(--color-red-500);
     }
