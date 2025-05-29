@@ -94,29 +94,6 @@ pnpm install
 pnpm run dev
 ```
 
-Setup your editor:
-Add the following to your `settings.json` to make sure the Tailwind CSS extension can parse the class names when using `cva`:
+# How to Contribute
 
-```json
-"tailwindCSS.classFunctions": ["clsx", "cva", "cn"],
-```
 
-## Contributing
-
-1. Create a new branch
-2. Make your changes
-3. Submit a merge request
-
-## Publishing
-
-The package is automatically published to pnpm when a new tag is pushed to the repository.
-
-To release a new version:
-
-```bash
-pnpm version patch  # for bug fixes
-pnpm version minor  # for new features
-pnpm version major  # for breaking changes
-git push origin main --tags
-git push
-```
