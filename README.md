@@ -95,5 +95,5 @@ pnpm run dev
 ```
 
 # How to Contribute
-[Learn how to contirbute](wikis/Contributing)
+[Learn how to contirbute](https://gitlab.com/firstbase.io/apps/ui/-/wikis/Contributing)
 
