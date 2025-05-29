@@ -18,7 +18,7 @@ const meta: Meta<typeof Badge> = {
     variant: {
       description: 'The variant of the badge',
       control: 'select',
-      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime'],
+      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime', 'blueDashed'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'stone' }
@@ -52,6 +52,7 @@ export const AllVariants: Story = {
         <Badge variant="stone">Stone</Badge>
         <Badge variant="pink">Pink</Badge>
         <Badge variant="lime">Lime</Badge>
+        <Badge variant="blueDashed">Beta</Badge>
       </div>
     `
   })

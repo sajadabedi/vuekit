@@ -15,7 +15,8 @@ export const badgeVariants = cva(
         purple: 'bg-purple-500/15 text-purple-700 dark:text-purple-400 dark:bg-purple-500/20',
         stone: 'bg-stone-500/15 text-stone-700 dark:text-stone-400 dark:bg-stone-500/20',
         pink: 'bg-pink-500/15 text-pink-700 dark:text-pink-400 dark:bg-pink-500/20',
-        lime: 'bg-lime-500/15 text-lime-700 dark:text-lime-400 dark:bg-lime-500/20'
+        lime: 'bg-lime-500/15 text-lime-700 dark:text-lime-400 dark:bg-lime-500/20',
+        blueDashed: 'border-dashed border-1 border-blue-400 text-blue-600 bg-blue-300/5 dark:text-blue-400 dark:border-blue-400/70'
       }
     },
     defaultVariants: {
