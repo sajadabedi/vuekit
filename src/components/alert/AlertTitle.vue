@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
 import { cn } from '@/lib/utils';
+import type { HTMLAttributes } from 'vue';
 
 const props = defineProps<{
   class?: HTMLAttributes['class'];
@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="cn('col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight', props.class)">
+  <div :class="cn('col-start-2 line-clamp-1 min-h-4 text-base-bold tracking-tight z-10', props.class)">
     <slot />
   </div>
 </template>

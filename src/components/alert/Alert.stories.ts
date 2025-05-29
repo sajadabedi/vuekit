@@ -1,4 +1,4 @@
-import { PhInfo, PhWarningOctagon } from '@phosphor-icons/vue';
+import { PhInfo, PhWarning, PhWarningOctagon } from '@phosphor-icons/vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { Alert, AlertDescription, AlertTitle } from '.';
 
@@ -9,7 +9,7 @@ const meta: Meta<typeof Alert> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'critical']
+      options: ['default', 'critical', 'warning']
     },
     class: {
       description: '(Optional) Additional CSS classes to apply to the alert',
@@ -47,6 +47,21 @@ export const critical: Story = {
       <Alert variant="critical">
         <PhWarningOctagon weight="fill" />
         <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          Your session has expired. Please log in again.
+        </AlertDescription>
+      </Alert>
+    `
+  })
+};
+
+export const warning: Story = {
+  render: () => ({
+    components: { Alert, AlertTitle, AlertDescription, PhWarning },
+    template: `
+      <Alert variant="warning">
+        <PhWarning weight="fill" />
+        <AlertTitle>Warning</AlertTitle>
         <AlertDescription>
           Your session has expired. Please log in again.
         </AlertDescription>
