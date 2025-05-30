@@ -39,7 +39,7 @@ const meta: Meta<typeof Tooltip> = {
       control: { type: 'number', min: 0 },
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: '700' }
+        defaultValue: { summary: '500' }
       }
     },
     disableHoverableContent: {
@@ -74,7 +74,7 @@ export const Default: Story = {
     `
   }),
   args: {
-    delayDuration: 700
+    delayDuration: 500
   }
 };
 
@@ -90,7 +90,7 @@ export const WithIcon: Story = {
     template: `
       <Tooltip>
         <TooltipTrigger as-child>
-          <Button variant="ghost" class="h-8 w-8 p-0">
+          <Button size="icon">
             <PhGlobe weight="bold" />
             <span class="sr-only">Information</span>
           </Button>

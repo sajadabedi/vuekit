@@ -21,10 +21,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <TooltipPortal>
-    <TooltipContent v-bind="{ ...forwarded, ...$attrs }" :class="cn('z-50 overflow-hidden rounded-md bg-contrast px-2 py-1 text-sm text-white shadow-floating motion-preset-fade data-[state=closed]:motion-preset-fade-out data-[state=closed]:motion-duration-75 data-[side=bottom]:motion-slide-in-from-top-2 data-[side=left]:motion-slide-in-from-right-2 data-[side=right]:motion-slide-in-from-left-2 data-[side=top]:motion-slide-in-from-bottom-2 max-w-3xs', props.class)">
+    <TooltipContent v-bind="{ ...forwarded, ...$attrs }" :class="cn('z-50 overflow-hidden rounded-md bg-contrast px-2 py-1 text-sm text-white shadow-floating motion-preset-fade-sm max-w-3xs', props.class)">
       <slot />
     </TooltipContent>
   </TooltipPortal>
 </template>
-
-<!-- motion-preset-fade z-50 overflow-hidden rounded-md bg-contrast px-2 py-1 text-sm text-white shadow-floating -->

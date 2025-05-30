@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tooltip } from '@/components/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip';
 import { cn } from '@/lib/utils';
 import { infoIconVariants, type InfoProps } from '.';
 
@@ -7,13 +7,14 @@ defineProps<InfoProps>();
 </script>
 
 <template>
-  <Tooltip :content="tooltip">
-    <button type="button" :class="cn(infoIconVariants(), $attrs.class ?? '')" v-bind="$attrs">
-      <svg width="16" height="16" viewBox="0 0 16 16" class="currentColor">
-        <path
-          opacity="0.15"
-          d="M14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8Z"
-          fill="currentColor"
+  <Tooltip>
+    <TooltipTrigger as-child>
+      <button type="button" :class="cn(infoIconVariants(), $attrs.class ?? '')" v-bind="$attrs">
+        <svg width="16" height="16" viewBox="0 0 16 16" class="currentColor">
+          <path
+            opacity="0.15"
+            d="M14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8Z"
+            fill="currentColor"
         />
         <path
           fill-rule="evenodd"
@@ -23,5 +24,9 @@ defineProps<InfoProps>();
         />
       </svg>
     </button>
+    </TooltipTrigger>
+    <TooltipContent>
+      {{ tooltip }}
+    </TooltipContent>
   </Tooltip>
 </template>
