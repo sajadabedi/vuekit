@@ -15,7 +15,7 @@
     --ui-color-text-disabled: var(--color-stone-400);
     --ui-color-text-success: var(--color-green-700);
     --ui-color-text-critical: var(--color-red-600);
-    --ui-color-text-warning: var(--color-yellow-700);
+    --ui-color-text-warning: var(--color-amber-800);
 
     --ui-color-bg-body: var(--color-white);
     --ui-color-bg-accent: var(--ui-color-accent);
@@ -45,7 +45,7 @@
       --ui-color-text-placeholder: var(--color-stone-500);
       --ui-color-text-success: var(--color-green-400);
       --ui-color-text-critical: var(--color-red-400);
-      --ui-color-text-warning: var(--color-yellow-400);
+      --ui-color-text-warning: var(--color-amber-400);
 
       --ui-color-bg-body: var(--color-stone-950);
       --ui-color-bg-secondary: var(--color-stone-900);

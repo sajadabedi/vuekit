@@ -8,39 +8,32 @@
     @blur="hide"
   >
     <slot />
-    <AnimatePresence>
-      <motion.div
-        :animate="{ opacity: isOpen ? 1 : 0 }"
-        :initial="{ opacity: 0 }"
-        :exit="{ opacity: 0 }"
-        :transition="{ duration: 0.2, ease: 'easeInOut' }"
+      <div
         v-if="isOpen"
         ref="floatingRef"
         :style="floatingStyles"
-        :class="cn(tooltipVariants({ side: props.side }), props.class)"
+        :class="cn('motion-preset-fade z-50 overflow-hidden rounded-md bg-contrast px-2 py-1 text-sm text-white shadow-floating', props.class)"
         role="tooltip"
       >
-        {{ props.content }}
-      </motion.div>
-    </AnimatePresence>
+        {{content}}
+      </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { tooltipVariants, type TooltipProps } from '@/components/tooltip'
-import { cn } from '@/lib/utils'
-import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui/vue'
-import { AnimatePresence, motion } from 'motion-v'
-import { onBeforeUnmount, ref } from 'vue'
+import type { TooltipProps } from '@/components/tooltip';
+import { cn } from '@/lib/utils';
+import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui/vue';
+import { onBeforeUnmount, ref } from 'vue';
 
-const props = defineProps<TooltipProps>()
+const {content, ...props} = defineProps<TooltipProps>()
 
 const isOpen = ref(false)
 const referenceRef = ref<HTMLElement | undefined>()
 const floatingRef = ref<HTMLElement | undefined>()
 
 const { floatingStyles } = useFloating(referenceRef, floatingRef, {
-  placement: props.side ?? 'top',
+  placement: 'top',
   whileElementsMounted: (...args) => autoUpdate(...args, { animationFrame: true }),
   middleware: [
     offset(4),
