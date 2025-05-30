@@ -1,6 +1,8 @@
-import { Button } from '@/components';
+import { Button } from '@/components/button';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Tooltip } from './index';
+import {PhGlobe} from '@phosphor-icons/vue';
+import { Tooltip, TooltipContent, TooltipTrigger } from './';
+
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',
@@ -10,42 +12,42 @@ const meta: Meta<typeof Tooltip> = {
     docs: {
       description: {
         component:
-          'A tooltip component that provides additional information when hovering over an element. Supports different positions and custom delays.'
+          'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.'
       }
     }
   },
   tags: ['autodocs'],
   argTypes: {
-    content: {
-      description: 'The text content to display in the tooltip',
-      control: 'text',
+    defaultOpen: {
+      description: 'The open state of the tooltip when it is initially rendered',
+      control: { type: 'boolean' },
       table: {
-        type: { summary: 'string' }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
       }
     },
-    side: {
-      description: '(Optional) The preferred side of the tooltip relative to its trigger',
-      control: 'select',
-      options: ['top', 'right', 'bottom', 'left'],
+    open: {
+      description: 'The controlled open state of the tooltip',
+      control: { type: 'boolean' },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'top' }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'undefined' }
       }
     },
-    delay: {
-      description: '(Optional) Delay in milliseconds before showing the tooltip',
+    delayDuration: {
+      description: 'The duration from when the mouse enters a tooltip trigger until the tooltip opens (ms)',
       control: { type: 'number', min: 0 },
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: '0' }
+        defaultValue: { summary: '700' }
       }
     },
-    class: {
-      description: '(Optional) Additional CSS classes to apply to the tooltip',
-      control: 'text',
+    disableHoverableContent: {
+      description: 'When true, trying to hover the content will result in the tooltip closing as the pointer leaves the trigger',
+      control: { type: 'boolean' },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' }
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
       }
     }
   }
@@ -56,89 +58,158 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => ({
-    components: { Tooltip, Button },
+    components: { Tooltip, TooltipTrigger, TooltipContent, Button },
     setup() {
       return { args };
     },
     template: `
       <Tooltip v-bind="args">
-        <Button variant="primary">Hover me</Button>
+        <TooltipTrigger as-child>
+          <Button variant="primary">Hover me</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Add to library</p>
+        </TooltipContent>
       </Tooltip>
     `
   }),
   args: {
-    content: 'This is a tooltip',
-    side: 'top',
-    delay: 200
+    delayDuration: 700
   }
 };
 
-export const Placements: Story = {
-  render: (args) => ({
-    components: { Tooltip, Button },
-    setup() {
-      return { args };
+export const WithIcon: Story = {
+  render: () => ({
+    components: {
+      Tooltip,
+      TooltipTrigger,
+      TooltipContent,
+      Button,
+      PhGlobe
     },
     template: `
-      <div class="flex flex-col items-center gap-8">
-        <Tooltip content="Top tooltip" side="top" delay="200">
-          <Button>Top</Button>
-        </Tooltip>
-        <div class="flex gap-8">
-          <Tooltip content="Left tooltip" side="left" delay="200">
-            <Button>Left</Button>
-          </Tooltip>
-          <Tooltip content="Right tooltip" side="right" delay="200">
-            <Button>Right</Button>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Button variant="ghost" class="h-8 w-8 p-0">
+            <PhGlobe weight="bold" />
+            <span class="sr-only">Information</span>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Additional information about this action</p>
+        </TooltipContent>
+      </Tooltip>
+    `
+  }),
+};
+
+export const Placements: Story = {
+  render: () => ({
+    components: { Tooltip, TooltipTrigger, TooltipContent, Button },
+    template: `
+      <div class="flex flex-col items-center gap-8 p-8">
+        <div class="flex items-center gap-2">
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button variant="outline">Top</Button>
+            </TooltipTrigger>
+            <TooltipContent side="top" class="max-w-[200px]">
+              <p>Tooltip content on top</p>
+            </TooltipContent>
           </Tooltip>
         </div>
-        <Tooltip content="Bottom tooltip" side="bottom" delay="200">
-          <Button>Bottom</Button>
+
+        <div class="flex items-center gap-8">
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button variant="outline">Left</Button>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Tooltip on the left</p>
+            </TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button variant="outline">Right</Button>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              <p>Tooltip on the right</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button variant="outline">Bottom</Button>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">
+              <p>Tooltip on the bottom</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+    `
+  }),
+  args: {
+    // No specific args needed for this story
+  }
+};
+
+export const LongContent: Story = {
+  render: () => ({
+    components: { Tooltip, TooltipTrigger, TooltipContent, Button },
+    template: `
+      <div class="flex flex-col items-center gap-4">
+        <Tooltip>
+          <TooltipTrigger as-child>
+            <Button variant="outline">Hover for detailed information</Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p class="text-muted-foreground text-sm mt-1">
+              This is a more detailed tooltip with additional information that wraps to multiple lines.
+              It provides context about the action or element it's associated with.
+            </p>
+          </TooltipContent>
         </Tooltip>
       </div>
     `
   }),
   args: {
-    content: 'Tooltip content',
-    side: 'top',
-    delay: 200
+    // No specific args needed for this story
   }
 };
 
-export const NoDelay: Story = {
-  render: (args) => ({
-    components: { Tooltip, Button },
-    setup() {
-      return { args };
+export const Controlled: Story = {
+  render: () => ({
+    components: { Tooltip, TooltipTrigger, TooltipContent, Button },
+    data() {
+      return {
+        isOpen: false
+      };
     },
     template: `
-      <Tooltip v-bind="args">
-        <Button variant="primary">Instant tooltip</Button>
-      </Tooltip>
+      <div class="flex flex-col items-center gap-4">
+        <div class="flex items-center gap-2 mb-12">
+          <Button @click="isOpen = !isOpen">
+            {{ isOpen ? 'Close' : 'Open' }} Tooltip
+          </Button>
+        </div>
+        <Tooltip :open="isOpen">
+          <TooltipTrigger as-child>
+            <div class="bg-secondary border border-blue-400 border-dashed p-2 text-blue-500">
+              Tooltip appear for this element
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p >Tooltip is controlled by the button above</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
     `
   }),
   args: {
-    content: 'This tooltip appears instantly',
-    side: 'top',
-    delay: 0
-  }
-};
-
-export const WithLongContent: Story = {
-  render: (args) => ({
-    components: { Tooltip, Button },
-    setup() {
-      return { args };
-    },
-    template: `
-      <Tooltip v-bind="args">
-        <Button>Hover for long content</Button>
-      </Tooltip>
-    `
-  }),
-  args: {
-    content: 'This is a tooltip with a very long content that should wrap nicely and maintain readability.',
-    side: 'top',
-    delay: 200
+    // No specific args needed for this story
   }
 };

@@ -1,9 +1,3 @@
-import type { HTMLAttributes } from 'vue';
-
-export interface TooltipProps {
-  content: string;
-  class?: HTMLAttributes['class'];
-  delay?: number;
-}
-
-export { default as Tooltip } from './Tooltip.vue';
+export { default as Tooltip } from './Tooltip.vue'
+export { default as TooltipContent } from './TooltipContent.vue'
+export { default as TooltipTrigger } from './TooltipTrigger.vue'
