@@ -22,7 +22,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     v-bind="forwarded"
     :class="
       cn(
-        'group bg-interactive shadow-input data-[state=checked]:bg-accent focus-ring hover:bg-muted/40 data-[state=checked]:disabled:bg-disabled disabled:text-tertiary disabled:bg-disabled size-4.5 shrink-0 rounded-sm text-white transition-all duration-300 outline-none disabled:cursor-not-allowed',
+        'group bg-interactive shadow-input  size-4.5 shrink-0 rounded-sm text-white transition-all duration-300 outline-none',
+        // State
+        'data-[state=checked]:bg-accent focus-ring hover:bg-muted/40',
+        // Disabled
+        'disabled:cursor-not-allowed data-[state=checked]:disabled:bg-disabled disabled:text-tertiary disabled:bg-disabled',
+
         props.class
       )
     "
