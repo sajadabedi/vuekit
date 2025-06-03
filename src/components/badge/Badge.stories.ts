@@ -18,7 +18,7 @@ const meta: Meta<typeof Badge> = {
     variant: {
       description: 'The variant of the badge',
       control: 'select',
-      options: ['red', 'green', 'yellow', 'blue', 'indigo', 'purple', 'stone', 'pink', 'lime', 'blueDashed'],
+      options: ['red', 'green', 'yellow', 'cyan', 'indigo', 'purple', 'stone', 'pink', 'lime', 'blueDashed'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'stone' }
@@ -46,7 +46,7 @@ export const AllVariants: Story = {
         <Badge variant="red">Red</Badge>
         <Badge variant="green">Green</Badge>
         <Badge variant="yellow">Yellow</Badge>
-        <Badge variant="blue">Blue</Badge>
+        <Badge variant="cyan">Cyan</Badge>
         <Badge variant="indigo">Indigo</Badge>
         <Badge variant="purple">Purple</Badge>
         <Badge variant="stone">Stone</Badge>
@@ -63,7 +63,7 @@ export const WithIcon: Story = {
     components: { Badge, PhStar },
     template: `
       <div class="flex flex-wrap gap-4">
-        <Badge variant="blue">
+        <Badge variant="cyan">
           <PhStar weight="bold" />
           With Icon
         </Badge>
