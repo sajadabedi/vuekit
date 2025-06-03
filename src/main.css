@@ -2,71 +2,10 @@
 @plugin "tailwindcss-motion";
 @import './styles/typography.css';
 @import './styles/shadow.css';
+@import './styles/colors.css';
+@import './styles/utilities.css';
 
 @layer base {
-  :root {
-    color-scheme: light dark;
-
-    --ui-color-accent: var(--color-orange-600);
-    --ui-color-primary: var(--color-stone-950);
-    --ui-color-text-secondary: var(--color-stone-700);
-    --ui-color-text-tertiary: var(--color-stone-500);
-    --ui-color-text-placeholder: var(--color-stone-400);
-    --ui-color-text-disabled: var(--color-stone-400);
-    --ui-color-text-success: var(--color-green-700);
-    --ui-color-text-critical: var(--color-red-600);
-    --ui-color-text-warning: var(--color-amber-800);
-
-    --ui-color-bg-body: var(--color-white);
-    --ui-color-bg-accent: var(--ui-color-accent);
-    --ui-color-bg-secondary: var(--color-stone-50);
-    --ui-color-bg-tertiary: var(--color-stone-100);
-    --ui-color-bg-interactive: var(--color-white);
-    --ui-color-bg-success-muted: var(--color-emerald-100);
-    --ui-color-bg-critical-muted: var(--color-red-100);
-    --ui-color-bg-warning-muted: var(--color-yellow-100);
-    --ui-color-bg-elevated-on-dark: var(--color-white);
-    --ui-color-bg-contrast: var(--color-stone-900);
-    --ui-color-bg-critical: var(--color-red-700);
-    --ui-color-bg-disabled: var(--color-stone-200);
-    --ui-color-bg-muted: var(--color-stone-200);
-    --ui-color-bg-backdrop: color-mix(in oklab, var(--color-black) 15%, transparent);
-
-    --ui-color-border-default: var(--color-stone-200);
-    --ui-color-border-accent: var(--ui-color-accent);
-    --ui-color-border-secondary: var(--color-stone-100);
-    --ui-color-border-contrast: var(--color-stone-400);
-    --ui-color-border-critical: var(--color-red-500);
-
-    @media (prefers-color-scheme: dark) {
-      --ui-color-primary: var(--color-stone-50);
-      --ui-color-text-secondary: var(--color-stone-400);
-      --ui-color-text-tertiary: var(--color-stone-600);
-      --ui-color-text-placeholder: var(--color-stone-500);
-      --ui-color-text-success: var(--color-green-400);
-      --ui-color-text-critical: var(--color-red-400);
-      --ui-color-text-warning: var(--color-amber-400);
-
-      --ui-color-bg-body: var(--color-stone-950);
-      --ui-color-bg-secondary: var(--color-stone-900);
-      --ui-color-bg-tertiary: var(--color-stone-800);
-      --ui-color-bg-interactive: var(--color-stone-900);
-      --ui-color-bg-muted: var(--color-stone-700);
-      --ui-color-bg-disabled: var(--color-stone-800);
-      --ui-color-bg-critical: var(--color-red-800);
-      --ui-color-bg-elevated-on-dark: var(--color-stone-900);
-      --ui-color-bg-contrast: var(--color-stone-800);
-      --ui-color-bg-backdrop: color-mix(in oklab, var(--color-white) 10%, transparent);
-      --ui-color-bg-success-muted: color-mix(in oklab, var(--color-emerald-900) 60%, transparent);
-      --ui-color-bg-critical-muted: color-mix(in oklab, var(--color-red-900) 25%, transparent);
-      --ui-color-bg-warning-muted: color-mix(in oklab, var(--color-yellow-900) 20%, transparent);
-
-      --ui-color-border-default: var(--color-stone-800);
-      --ui-color-border-secondary: color-mix(in oklab, var(--color-stone-800) 70%, transparent);
-      --ui-color-border-contrast: var(--color-stone-700);
-      --ui-color-border-critical: var(--color-red-500);
-    }
-  }
   body {
     @apply font-regular text-default caret-accent font-sans text-base antialiased;
   }
@@ -87,6 +26,7 @@
   --radius-lg: 0.75rem;
 }
 
+/* Learn more about inline theme https://tailwindcss.com/docs/theme#referencing-other-variables */
 @theme inline {
   --color-black: var(--color-stone-950);
   --color-accent: var(--ui-color-accent);
@@ -120,34 +60,4 @@
   --border-color-secondary: var(--ui-color-border-secondary);
   --border-color-contrast: var(--ui-color-border-contrast);
   --border-color-critical: var(--ui-color-border-critical);
-}
-
-/* Focus state used for buttons and actions */
-@utility focus-ring {
-  @apply focus-visible:ring-accent/60 dark:focus-visible:ring-accent ring-offset-[var(--ui-color-bg-body)] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-1;
-}
-
-/* Focus state for form inputs */
-@utility focus-ring-control {
-  @apply outline-none focus-visible:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
-
-  @apply focus-visible:hover:shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18),0_0_0_2px_rgba(0,0,0,0.08)];
-
-  @apply dark:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)] dark:hover:focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2),0_0_0_3px_rgba(255,255,255,0.15)];
-}
-
-/* Validation */
-@utility control-invalid {
-  @apply ring-critical shadow-[0px_0px_0px_3px] ring shadow-red-400/20 ring-inset;
-}
-
-/* form default style */
-@utility control-base {
-  @apply placeholder:text-placeholder bg-elevated-on-dark shadow-input focus-ring-control min-w-0 rounded-md px-2 text-base transition-[color,background-color,box-shadow] outline-none;
-
-  @apply disabled:bg-disabled disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70 disabled:shadow-none;
-
-  @apply aria-invalid:ring-critical aria-invalid:focus-within:focus-ring-control;
-
-  @apply hover:shadow-input-hover;
 }
