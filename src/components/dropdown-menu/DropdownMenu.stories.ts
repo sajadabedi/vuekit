@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { PhBell, PhCaretRight, PhCheck, PhCloud, PhCreditCard, PhGear, PhUser } from '@phosphor-icons/vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,

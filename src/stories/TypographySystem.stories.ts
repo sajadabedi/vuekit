@@ -1,5 +1,5 @@
 import TypographySystem from '@/stories/typography-story/typography.vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
   title: 'Typography',

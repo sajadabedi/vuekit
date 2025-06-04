@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { useMagicKeys, watchDebounced } from '@vueuse/core';
 import { ref } from 'vue';
 import {

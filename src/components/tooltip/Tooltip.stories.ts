@@ -1,5 +1,5 @@
 import { Button } from '@/components/button';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import {PhGlobe} from '@phosphor-icons/vue';
 import { Tooltip, TooltipContent, TooltipTrigger } from './';
 

@@ -1,6 +1,6 @@
 import { Spinner } from '@/components';
 import { PhHouse, PhPlus, PhTrash } from '@phosphor-icons/vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { Button } from '.';
 
 const meta: Meta<typeof Button> = {

@@ -1,5 +1,5 @@
 import { PhInfo, PhWarning, PhWarningOctagon } from '@phosphor-icons/vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { Alert, AlertDescription, AlertTitle } from '.';
 
 const meta: Meta<typeof Alert> = {

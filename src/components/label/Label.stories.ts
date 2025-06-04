@@ -1,7 +1,7 @@
 import { Checkbox } from '@/components/checkbox';
 import { Input } from '@/components/input';
 import { RadioGroup, RadioGroupItem } from '@/components/radio-group';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { Label } from '.';
 
 const meta: Meta<typeof Label> = {

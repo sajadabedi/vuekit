@@ -6,7 +6,7 @@ import AppSidebar from '@/stories/sidebar-story/AppSidebar.vue';
 import SearchForm from '@/stories/sidebar-story/SearchForm.vue';
 import VersionSwitcher from '@/stories/sidebar-story/VersionSwitcher.vue';
 import { PhCaretDown, PhCheck, PhHouse, PhMagnifyingGlass, PhSlidersHorizontal, PhSquaresFour, PhUser } from '@phosphor-icons/vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import {
   Sidebar,
   SidebarContent,

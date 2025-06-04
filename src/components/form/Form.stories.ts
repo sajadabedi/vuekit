@@ -1,6 +1,6 @@
 import { Button, Input } from '@/components';
 import { PhMailbox, PhUser } from '@phosphor-icons/vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { toTypedSchema } from '@vee-validate/zod';
 import { configure, useForm } from 'vee-validate';
 import * as z from 'zod';

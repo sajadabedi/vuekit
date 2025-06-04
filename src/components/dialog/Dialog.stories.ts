@@ -1,5 +1,5 @@
 import { Button } from '@/components';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '.';
 
 const meta: Meta<typeof Dialog> = {
