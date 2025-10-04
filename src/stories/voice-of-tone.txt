@@ -4,9 +4,9 @@ import { Meta } from '@storybook/blocks';
 
 # Voice of tone
 
-Firstbase voice is a reflection of who we are. We should always sound like Firstbase. At the same time, some aspects of our personality might be more or less apparent, depending on the audience and their context. That’s tone.
+Our voice is a reflection of who we are. We should always sound like us. At the same time, some aspects of our personality might be more or less apparent, depending on the audience and their context. That’s tone.
 
-## Firstbase voice
+## Our voice
 
 Simply put, we’re a company, built by real people who understand this business and care about helping others succeed.
 That should be clear every time someone uses our products or services.

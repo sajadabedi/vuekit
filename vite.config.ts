@@ -34,7 +34,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'FirstbaseUI',
+      name: 'vuekit',
       formats: ['es', 'umd'],
       fileName: (format) => `ui.${format}.js`
     },
