@@ -37,3 +37,4 @@ Clone the repository and install dependancy:
 pnpm install
 pnpm run dev
 ```
+# GitHub Pages Setup
